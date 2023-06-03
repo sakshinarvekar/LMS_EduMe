@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EduMe | Home Page</title>
+        <style>
+            @import url("https://fontawesome.com/");
+            @import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+            *{
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+                font-family: "Monsterrat",sans-serif;
+            }
+
+            li,a{
+                font-weight: 400;
+                font-size: 20px;
+                color:rgb(8,135,175);
+                text-decoration: none;
+                background-color: white;
+                padding-top: 15px;
+            }
+            header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: white;
+                height: 70px;
+                
+            }
+
+            li{
+                display: inline-block;
+                
+                
+            }
+            a{
+                padding: 20px;
+            }
+
+            ul :hover{
+                background-color: rgb(8,135,175);
+                color: white;
+            }
+
+            h2{
+                font-weight: 700;
+                font-size: 40px;
+            }
+            h4{
+                font-weight: 500;
+                font-size: 23px;
+            }
+
+            .explore_btn{
+                color: white;
+                background-color: rgb(232,108,58);
+                border-radius: 30px;
+                margin-left: 80px;
+                
+            }
+            h2 :hover{
+                color: white;
+                background-color:rgb(8,135,175);
+            }
+
+            .container1{
+                display: flex;
+                align-items: center;
+                padding: 50px;
+                background-color: white;
+                color: rgb(33, 59, 105);
+                
+            }
+            .left_container{
+                float: left;
+            }
+            .right_container{
+                float: right;
+            }
+
+            .container2{
+
+                background-color: rgb(254,248,237);
+                height: 450px;
+                align-items: center;
+                display: block;
+            }
+            .wave1{
+                display: block;
+            }
+
+            h3{
+                text-align: center;
+                font-weight: 800;
+                font-size: 35px;
+                color: rgb(33, 59, 105);
+            }
+            h5{
+                text-align: center;
+                font-weight: 600;
+                font-size: 30px;
+                color: rgb(33, 59, 105);
+            }
+
+
+
+            .main_con{
+                color: rgb(33, 59, 105);
+                text-align: center;
+                font-weight: 400;
+                font-size: 20px;
+                align-items: center;
+                display: flex;
+                padding: 30px 250px;
+            }
+            .con1,.con2,.con3{
+                padding:50px;
+            }
+
+            .footer{
+                background-color:grey;
+                color:white;
+
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <a href="homepage.html" ><img class="logo" src="/EduMe_Project/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px;"></a>
+            <!-- <img class="logo" src="/EduMe_Project/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px;"> -->
+            <nav>
+                <ul class="nav">
+                    <li><a href="homepage.html" >Home</a></li>
+                    <li><a href="#" >Courses</a></li>
+                    <li><a href="#" >Teach On EduMe</a></li>
+                    <li><a href="signup.html" >SignUp</a></li>
+                    <li><a href="signin.html" >SignIn</a></li>
+                    <li><a href="#" >Account</a></li>
+                </ul>
+            </nav>
+        </header><hr style="color: black; margin-top: 15px; width: 100%;">
+        <div class="container1">
+            <div class="left_container">
+                <h2>When learning starts with EduMe, it never stops</h2><br>
+                <h4>Ignite a love for learning that leads to lifelong achievement.
+                    <br> Discover EduMe’s family and school solutions to engage,<br> excite, and challenge every child.</h4><br><br>
+                    <h2><a class="explore_btn" href="#">Explore now</a></h2>
+            </div>
+            <div class="right_container">
+                <video data-v-34ae34ce class="vid" autoplay loop muted style="height:500px; width:600px;">
+                    <source src="/EduMe_Project/img/BrainPOP.mp4" type='video/mp4'/>
+                </video>
+                <!-- <img  src="/EduMe_Project/img/livechanges.gif" style="height:500px; width:600px;"> autoplay="autoplay" loop="loop" height="500px" width="600px"-->
+            </div>
+        </div>
+        <img class="wave1" src="/EduMe_Project/img/wave.svg" >
+        <div class="container2">
+            <h3>
+                EduMe is proven to deliver higher achievement <br>and bigger smiles too
+            </h3><br>
+            <h5>So many reasons to start</h5>
+
+            <div class="main_con">
+                <div class="con1">
+                    <img src="/img/con1.png" style="height: 100px; width: 100px;"><br>
+                    <p>We inspire kids to connect deeply to any topic by making it relatable, entertaining, and easy to understand.</p>
+                </div>
+                <div class="con2">
+                    <img src="/EduMe_Project/img/con2.png" style="height: 100px; width: 100px;"><br>
+                    <p>Research shows that BrainPOP boosts standardized test scores in ELA, Math, and Science</p>
+                </div>
+                <div class="con3" >
+                    <img src="/EduMe_Project/img/con3.png" style="height: 100px; width: 100px;"><br>
+                    <p>We’ve delivered powerful learning experiences to 6+ million educators and 300+ million students</p>
+                </div>
+            </div>
+        </div>
+        <img class="wave1" src="/EduMe_Project/img/wave.svg" style="transform: rotate(180deg);">
+        <div class="container3">
+
+        </div>
+       
+        <div class="footer">
+            <p>This is footer</p>
+            
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Visit Us</a></li>
+                    <li><a href="#">Designed by Sakshi Narvekar and Rupali Vaje</a></li>
+                </ul>
+          
+        </div>
+    </body>
+</html>
