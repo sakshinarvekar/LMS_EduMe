@@ -35,12 +35,13 @@ public class SignUp extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-            String un,em,pass, mob;
+            String un,em,pass;
+            int mob;
             
             un=request.getParameter("t1");
             em=request.getParameter("t2");
             pass=request.getParameter("t3");
-            mob = request.getParameter("t4");            
+            mob =Integer.parseInt(request.getParameter("t4"));            
             try
             {
                Class.forName("com.mysql.cj.jdbc.Driver");
