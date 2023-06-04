@@ -45,9 +45,9 @@ public class SignUp extends HttpServlet {
             try
             {
                Class.forName("com.mysql.cj.jdbc.Driver");
-               Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/edume","root","root");
+               Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12623276","sql12623276","vrIElk9fVU");
                Statement st = con.createStatement();
-               st.execute("insert into userdata values('"+un+"','"+em+"','"+pass+"','"+mob+"')");              
+               st.execute("insert into streg values('"+un+"','"+em+"','"+pass+"','"+mob+"')");              
                out.print("value inserted");
                st.close();
                con.close();
@@ -55,7 +55,7 @@ public class SignUp extends HttpServlet {
             }
             catch(Exception e)
             {
-             
+             out.print(e);
             }
         }
     }
