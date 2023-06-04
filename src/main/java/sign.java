@@ -5,19 +5,22 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.*;
 
 /**
  *
  * @author rupal
  */
-@WebServlet(urlPatterns = {"/SignIn"})
-public class SignIn extends HttpServlet {
+@WebServlet(urlPatterns = {"/sign"})
+public class sign extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,28 +46,30 @@ public class SignIn extends HttpServlet {
             try
             {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/edume","root","root");
+                Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12623276","sql12623276","vrIElk9fVU");
                 Statement st= con.createStatement();
-                ResultSet rs = st.executeQuery("select * from userdata where username = '"+un+"' And password= '"+pass+"'; ");
+                ResultSet rs = st.executeQuery("select * from StudentReg where username = '"+un+"' And pass= '"+pass+"'; ");
                  
                 while(rs.next())
                 {                 
                  dbun = rs.getString(1);
                  dbpass = rs.getString(3); 
                 }
-                if(dbun.equals(un) && dbpass.equals(pass))
-                {
-                    response.sendRedirect("/EduMe_Project/SignUp.html");
-                }
-                else  
-                    response.sendRedirect("/EduMe_Project/SignIn.html");
                
+                if(dbun.equals(un) && dbpass.equals(pass))
+                {                    
+                    response.sendRedirect("homepage.html");
+                }
+                else
+                {
+                    response.sendRedirect("SignUp.html");
+                }
                 st.close();
                 con.close();
                }
             catch(Exception e)
             {
-            
+            out.print(e);
             }
         }
     }
