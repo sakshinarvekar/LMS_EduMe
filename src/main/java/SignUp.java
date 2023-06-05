@@ -35,20 +35,21 @@ public class SignUp extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-            String un,em,pass,mob;
+            String un,em,pass,mob,cpass;
 //            long mob;
             
             un=request.getParameter("t1");
             em=request.getParameter("t2");
             pass=request.getParameter("t3");
-            mob=request.getParameter("t4");
+            cpass = request.getParameter("t4");
+            mob=request.getParameter("t5");
 //            mob = Long.parseLong(request.getParameter("t4"));            
             try
             {
                Class.forName("com.mysql.cj.jdbc.Driver");
                Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12623276","sql12623276","vrIElk9fVU");
                Statement st = con.createStatement();
-               st.execute("insert into StudentReg values('"+un+"','"+em+"','"+pass+"','"+mob+"');");              
+               st.execute("insert into StudentReg values('"+un+"','"+em+"','"+pass+"','"+cpass+"','"+mob+"');");              
                out.print("value inserted");
                st.close();
                con.close();
