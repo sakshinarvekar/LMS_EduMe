@@ -49,8 +49,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         }
             
             .sidebar {
-          position: absolute;
-          top: 87px;
+          position: relative;
+          top: 130px;
           bottom: 0;
           left: 0;
           box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
@@ -95,6 +95,57 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         }
         .card h4  :hover{
             color:rgb(8,135,175);
+        }
+        .footer{
+            position: relative;
+            display: flex;
+            height: 250px;
+            width: 100%;
+            background-color:rgb(26,54,88);
+            bottom: 0px;  
+
+        }
+        .footer li, a{
+            color: white;
+            list-style: none;
+            text-decoration: none;
+            padding :5px;
+        }
+        .foot1 , .foot2, .foot3{
+            padding: 50px;
+            color:white;
+
+        }
+        .foot2  a, .foot3 a{
+            list-style: none;
+            text-decoration: none;
+            color: white;
+        }
+        .foot1 {
+            display: inline-block;
+            width: 40%;
+            margin-left: 50px;
+                            list-style: none;
+            text-decoration: none;
+
+        }
+        .foot2{
+            display: inline-block;
+            width: 30%;
+            text-align: center;
+
+        }
+        .foot3{
+            display: inline-block;
+            width: 30%;  
+            text-align: center;
+        }
+
+        .copyright{
+            width: 100%;
+            background-color: rgb(26,54,88);
+            color: white;
+            padding: 5px;
         }
 
         
@@ -157,7 +208,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
   </nav>
 </header>
       
-      
       <div class="subject-main">
           <div class="subject-container" id="box"    data-aos="fade-up" data-aos-duration="1500">
               <h2 style="text-align:center;">Start Learning </h2><br><br>
@@ -185,8 +235,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
       </div>
       
         <div>
-            <p>Footer blahhhh</p>
-            <p>faltu github</p>
+            <div class="footer">
+                <div class="foot1">
+                    <img class="logo" src="/LMS_EduMe/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px; border-radius: 25px;"><br><br>
+                    <h4>Unlock your true potential through the power of education with EduMe</h3>
+                </div>
+                <div class="foot2">
+                    <h4>Quick Links</h3><br>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">About Us</a></li>
+                        </ul>
+                </div>
+                <div class="foot3">
+                    <h4>Socials</h3><br>
+                        <ul>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                        </ul>
+                </div>
+            </div>       
+            <div class="copyright">
+            <hr>
+            <p>© Copyright 2023 | Designed by Sakshi Narvekar and Rupali Vaje</p>
+        </div>
         </div>
       
     </div>
