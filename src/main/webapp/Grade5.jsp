@@ -74,12 +74,15 @@
             margin-top: -87px;
             margin-left: 100px;
             background-color: rgb(238,247,247);
-            height:600px;
+            min-height: 600px;
+            height:max-content;
+            
         }
         
         .subject-container{
             padding-left: 300px;
             padding-right: 200px;
+            padding-bottom: 50px;
             
         }
         .subject-container h2{
@@ -101,9 +104,45 @@
         .card h4  :hover{
             color:rgb(8,135,175);
         }
+
         .card h4{
             cursor: pointer;
         }
+
+        
+        .engbanner{
+            display: none; 
+            width: 900px; 
+            height: 230px; 
+            border-radius: 30px; 
+            background-image:url('img/englishbg.png');  
+            background-size: cover;
+            background-position: center;
+            margin-top: 50px;
+        }
+        
+        .mathbanner{
+            display: none; 
+            width: 900px; 
+            height: 230px; 
+            border-radius: 30px; 
+            background-image:url('img/mathbg.png');  
+            background-size: cover;
+            background-position: center;
+            margin-top: 50px;
+        }
+        
+        .scibanner{
+            display: none; 
+            width: 900px; 
+            height: 230px; 
+            border-radius: 30px; 
+            background-image:url('img/sciencebg.png');  
+            background-size: cover;
+            background-position: center;
+            margin-top: 50px;
+        }
+        
         .footer{
             position: relative;
             display: flex;
@@ -278,16 +317,16 @@
                     </div>
                 </div>  
             </div>
-                    <div id="linkDiv" style="display: none;">
-                        <a href="https://www.example.com">Link</a>
+                    <div class="engbanner" id="linkDiv">
+                        
                     </div>
 
-                    <div id="messageDiv" style="display: none;">
-                        <p>This is a message.</p>
+                    <div class="mathbanner" id="messageDiv" >
+                        
                     </div>
 
-                    <div id="sampleDiv" style="display: none;">
-                        <pre>This is a sample.</pre>
+                    <div class="scibanner" id="sampleDiv">
+                        
                     </div>
           </div>
       </div>
