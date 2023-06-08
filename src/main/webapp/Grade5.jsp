@@ -1,8 +1,10 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
+<%-- 
+    Document   : Grade5
+    Created on : 08-Jun-2023, 1:12:05 pm
+    Author     : rupal
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -150,10 +152,45 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             color: white;
             padding: 5px;
         }
+        .active {
+            color: red;
+            font-weight: bold;
+        }
 
         
         
         </style>
+        <script>
+        function toggleContent(hyperlinkId) {
+            var linkDiv = document.getElementById('linkDiv');
+            var messageDiv = document.getElementById('messageDiv');
+            var sampleDiv = document.getElementById('sampleDiv');
+            
+            // Hide the previous content
+            linkDiv.style.display = 'none';
+            messageDiv.style.display = 'none';
+            sampleDiv.style.display = 'none';
+            
+            // Show the content based on the selected hyperlink
+            if (hyperlinkId === 'link1') {
+                linkDiv.style.display = 'block';
+            } else if (hyperlinkId === 'link2') {
+                messageDiv.style.display = 'block';
+            } else if (hyperlinkId === 'link3') {
+                sampleDiv.style.display = 'block';
+            }
+            
+            // Toggle the active class for the selected hyperlink
+            var hyperlinks = document.getElementsByClassName('toggleHyperlink');
+            for (var i = 0; i < hyperlinks.length; i++) {
+                if (hyperlinks[i].id === hyperlinkId) {
+                    hyperlinks[i].classList.add('active');
+                } else {
+                    hyperlinks[i].classList.remove('active');
+                }
+            }
+        }
+    </script>
     </head>
     <body>
          
@@ -210,6 +247,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     </div>
   </nav>
 </header>
+  <% 
+        String[] hyperlinkTexts = {"Science", "Maths", "English"};
+    %>
       
       <div class="subject-main">
           <div class="subject-container" id="box"    data-aos="fade-up" data-aos-duration="1500">
@@ -218,24 +258,36 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <div class="col-md-4 py-3 py-md-0">
                     <div class="card" style="height: 180px; width: 155px; background-color: rgb(254,248,237); box-shadow: 0.3rem 0.3rem 0 0 rgba(0,0,0,.1);">
                         <img src="/LMS_EduMe/img/eng.png" style="height: 100px; width: 100px;" alt="">
-                        <h4><a href="" >English</a></h4>
+                        <h4><a id="link1" class="toggleHyperlink" onclick="toggleContent('link1');"><%= hyperlinkTexts[0] %></a></h4>
                     </div>
                 </div>
                 <div class="col-md-4 py-3 py-md-0">
                     <div class="card" style="height: 180px; width: 155px; background-color: rgb(254,248,237); box-shadow: 0.3rem 0.3rem 0 0 rgba(0,0,0,.1);">
                         <img src="/LMS_EduMe/img/tools.png" style="height: 100px; width: 100px;" alt="">
-                        <h4><a href="">Maths</a></h4>
+                        <h4><a id="link2" class="toggleHyperlink" onclick="toggleContent('link2');"><%= hyperlinkTexts[1] %></a></h4>
                     </div>
                 </div>
                 <div class="col-md-4 py-3 py-md-0">
                     <div class="card" style="height: 180px; width: 155px; background-color: rgb(254,248,237); box-shadow: 0.3rem 0.3rem 0 0 rgba(0,0,0,.1);">
                         <img src="/LMS_EduMe/img/science.png" style="height: 100px; width: 100px;" alt="">
-                        <h4><a href="">Science</a></h4>
+                        <h4><a id="link3" class="toggleHyperlink" onclick="toggleContent('link3');"><%= hyperlinkTexts[2] %></a></h4>
                     </div>
                 </div>  
             </div>
+                    <div id="linkDiv" style="display: none;">
+                        <a href="https://www.example.com">Link</a>
+                    </div>
+
+                    <div id="messageDiv" style="display: none;">
+                        <p>This is a message.</p>
+                    </div>
+
+                    <div id="sampleDiv" style="display: none;">
+                        <pre>This is a sample.</pre>
+                    </div>
           </div>
       </div>
+                    
       
         <div>
             <div class="footer">
@@ -271,3 +323,4 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 </html>
 
          
+
