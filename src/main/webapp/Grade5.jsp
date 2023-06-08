@@ -101,6 +101,9 @@
         .card h4  :hover{
             color:rgb(8,135,175);
         }
+        .card h4{
+            cursor: pointer;
+        }
         .footer{
             position: relative;
             display: flex;
@@ -155,6 +158,7 @@
         .active {
             color: red;
             font-weight: bold;
+            cursor: pointer;
         }
 
         
