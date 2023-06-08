@@ -83,12 +83,14 @@
             padding-left: 300px;
             padding-right: 200px;
             padding-bottom: 50px;
+            padding-top: 50px;
             
         }
         .subject-container h2{
-            padding-top: 50px;
             margin-right: 150px;
-            color:rgb(3,190,147);
+            background-color:rgb(3,190,147);
+            color: white;
+            border-radius: 50px;
         }
         
         .subject-container img,h4{
@@ -109,38 +111,27 @@
             cursor: pointer;
         }
 
-        
-        .engbanner{
+        .engbanner, .mathbanner, .scibanner{
             display: none; 
             width: 900px; 
             height: 230px; 
             border-radius: 30px; 
-            background-image:url('img/englishbg.png');  
             background-size: cover;
             background-position: center;
             margin-top: 50px;
+            margin-left: -70px;
+        }
+        .engbanner{ 
+            background-image:url('img/englishbg.png');  
         }
         
         .mathbanner{
-            display: none; 
-            width: 900px; 
-            height: 230px; 
-            border-radius: 30px; 
-            background-image:url('img/mathbg.png');  
-            background-size: cover;
-            background-position: center;
-            margin-top: 50px;
+            background-image:url('img/mathbg.png'); 
         }
         
-        .scibanner{
-            display: none; 
-            width: 900px; 
-            height: 230px; 
-            border-radius: 30px; 
+        
+        .scibanner{ 
             background-image:url('img/sciencebg.png');  
-            background-size: cover;
-            background-position: center;
-            margin-top: 50px;
         }
         
         .footer{
@@ -195,7 +186,7 @@
             padding: 5px;
         }
         .active {
-            color: red;
+/*            color: red;*/
             font-weight: bold;
             cursor: pointer;
         }
@@ -246,9 +237,9 @@
         <nav>
             <ul class="nav">
                 <li><a href="homepage.html" >Home</a></li>
-                <li><a href="#" >Grades</a></li>
+                <li><a href="/Grade5.jsp" >Grades</a></li>
                 <li><a href="#" >Teach On EduMe</a></li>
-                <li><a href="Signup.html" >SignUp</a></li>
+                <li><a href="Signupnew.html" >SignUp</a></li>
                 <li><a href="sign.html" >SignIn</a></li>
                 <li><a href="#" >Account</a></li>
             </ul>
