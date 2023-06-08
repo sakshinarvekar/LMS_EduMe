@@ -291,7 +291,7 @@
   </nav>
 </header>
   <% 
-        String[] hyperlinkTexts = {"Science", "Maths", "English"};
+        String[] hyperlinkTexts = {"English", "Maths", "Science"};
     %>
       
       <div class="subject-main">
