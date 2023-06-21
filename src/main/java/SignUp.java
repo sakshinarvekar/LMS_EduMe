@@ -50,7 +50,11 @@ public class SignUp extends HttpServlet {
                Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12627744","sql12627744","aeUIku5cCL");
                Statement st = con.createStatement();
                st.execute("insert into SignUp values('"+un+"','"+em+"','"+pass+"','"+cpass+"','"+mob+"');");              
-               out.print("value inserted");
+//               out.print("value inserted");
+               out.println("<script type=\"text/javascript\">"); // Start the script tag 
+               out.println("alert('Registered successfully!!');"); // JavaScript code to generate an alert box 
+               out.println("window.location.href = 'sign.html';");
+               out.println("</script>");
                st.close();
                con.close();
                
