@@ -46,9 +46,9 @@ public class sign extends HttpServlet {
             try
             {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12623276","sql12623276","vrIElk9fVU");
+                Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12627744","sql12627744","aeUIku5cCL");
                 Statement st= con.createStatement();
-                ResultSet rs = st.executeQuery("select * from StudentReg where username = '"+un+"' And pass= '"+pass+"'; ");
+                ResultSet rs = st.executeQuery("select * from SignUp where username = '"+un+"' And pass= '"+pass+"'; ");
                  
                 while(rs.next())
                 {                 
