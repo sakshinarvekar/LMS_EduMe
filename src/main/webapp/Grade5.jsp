@@ -321,17 +321,9 @@
                     <div id="messageDiv" ></div>
            
                     <div id="sampleDiv"></div>
-                                
-                            
-                        
-<<<<<<< Upstream, based on origin/master
-                    </div>
-                    
-                    
-=======
-                        
+                    </div>           
               </div>
->>>>>>> 03a3401 First commit
+
           </div>
         <div>
             <div class="footer">
