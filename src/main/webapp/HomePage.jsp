@@ -1,8 +1,10 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
+<%-- 
+    Document   : HomeP
+    Created on : 22-Jun-2023, 4:30:26 pm
+    Author     : rupal
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
         
@@ -282,19 +284,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <div class="col-md-4 py-3 py-md-0">
                     <div class="card" style="height: 100px; width: 300px; background-color: rgb(254,248,237); box-shadow: 0.3rem 0.3rem 0 0 rgba(0,0,0,.1);">
                         <img src="/LMS_EduMe/img/number-5.png" style="height: 75px; width: 75px;" alt="">
-                        <h3><a  >Grade 5</a></h3>
+                        <h3><a href="Content.jsp?grade=5" >Grade 5</a></h3>
                     </div>
                 </div>
                 <div class="col-md-4 py-3 py-md-0">
                     <div class="card" style="height: 100px; width: 300px; background-color: rgb(254,248,237); box-shadow: 0.3rem 0.3rem 0 0 rgba(0,0,0,.1);">
                         <img src="/LMS_EduMe/img/six.png" style="height: 75px; width: 75px;" alt="">
-                        <h3 style="color: rgb(26,54,88);"><a >Grade 6</a></h3>
+                        <h3 style="color: rgb(26,54,88);"><a href="Content.jsp?grade=6" >Grade 6</a></h3>
                     </div>
                 </div>
                 <div class="col-md-4 py-3 py-md-0">
                     <div class="card" style="height: 100px; width: 300px; background-color: rgb(254,248,237); box-shadow: 0.3rem 0.3rem 0 0 rgba(0,0,0,.1);">
                         <img src="/LMS_EduMe/img/seven.png" style="height: 75px; width: 75px;" alt="">
-                        <h3><a >Grade 7</a></h3>
+                        <h3><a href="Content.jsp?grade=7" >Grade 7</a></h3>
                     </div>
                 </div>  
             </div>
@@ -303,19 +305,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <div class="col-md-4 py-3 py-md-0">
                     <div class="card" style="height: 100px; width: 300px; background-color: rgb(254,248,237); box-shadow: 0.3rem 0.3rem 0 0 rgba(0,0,0,.1);">
                         <img src="/LMS_EduMe/img/number-8.png" style="height: 75px; width: 75px;" alt="">
-                        <h3><a  >Grade 8</a></h3>
+                        <h3><a href="Content.jsp?grade=8" >Grade 8</a></h3>
                     </div>
                 </div>
                 <div class="col-md-4 py-3 py-md-0">
                     <div class="card" style="height: 100px; width: 300px; background-color: rgb(254,248,237); box-shadow: 0.3rem 0.3rem 0 0 rgba(0,0,0,.1);">
                         <img src="/LMS_EduMe/img/number-9.png" style="height: 75px; width: 75px;" alt="">
-                        <h3 style="color: rgb(26,54,88);"><a >Grade 9</a></h3>
+                        <h3 style="color: rgb(26,54,88);"><a href="Content.jsp?grade=9" >Grade 9</a></h3>
                     </div>
                 </div>
                 <div class="col-md-4 py-3 py-md-0">
                     <div class="card" style="height: 100px; width: 300px; background-color: rgb(254,248,237); box-shadow: 0.3rem 0.3rem 0 0 rgba(0,0,0,.1);">
                         <img src="img/number-10.png" style="height: 75px; width: 75px;" alt="">
-                        <h3><a>Grade 10</a></h3>
+                        <h3><a href="Content.jsp?grade=10">Grade 10</a></h3>
                     </div>
                 </div>
                 <br><br><br>
