@@ -4,6 +4,7 @@
     Author     : rupal
 --%>
 
+<%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
@@ -74,13 +75,14 @@
             margin-top: -87px;
             margin-left: 100px;
             background-color: rgb(238,247,247);
-            min-height: 600px;
+            min-height: 800px;
             height:max-content;
             
         }
         
         .subject-container{
-/*            min-height: max-content;*/
+            min-height: max-content;
+            
             padding-left: 300px;
             padding-right: 200px;
             padding-bottom: 50px;
@@ -297,19 +299,19 @@
                 <div class="col-md-4 py-3 py-md-0">
                     <div class="card" style="height: 180px; width: 155px; background-color: rgb(254,248,237); box-shadow: 0.3rem 0.3rem 0 0 rgba(0,0,0,.1);">
                         <img src="/LMS_EduMe/img/eng.png" style="height: 100px; width: 100px;" alt="">
-                        <h4><a id="link1" class="toggleHyperlink" onclick="toggleContent('link1');"><%= hyperlinkTexts[0] %></a></h4>
+                        <h4><a href="Content.jsp?grade=<%=request.getParameter("grade")%>&sub=english" id="link1"  class="toggleHyperlink" onclick="toggleContent('link1');"><%= hyperlinkTexts[0] %></a></h4>
                     </div>
                 </div>
                 <div class="col-md-4 py-3 py-md-0">
                     <div class="card" style="height: 180px; width: 155px; background-color: rgb(254,248,237); box-shadow: 0.3rem 0.3rem 0 0 rgba(0,0,0,.1);">
                         <img src="/LMS_EduMe/img/tools.png" style="height: 100px; width: 100px;" alt="">
-                        <h4><a id="link2" class="toggleHyperlink" onclick="toggleContent('link2');"><%= hyperlinkTexts[1] %></a></h4>
+                        <h4><a id="link2" href="Content.jsp?grade=<%=request.getParameter("grade")%>&sub=maths" class="toggleHyperlink" onclick="toggleContent('link2');"><%= hyperlinkTexts[1] %></a></h4>
                     </div>
                 </div>
                 <div class="col-md-4 py-3 py-md-0">
                     <div class="card" style="height: 180px; width: 155px; background-color: rgb(254,248,237); box-shadow: 0.3rem 0.3rem 0 0 rgba(0,0,0,.1);">
                         <img src="/LMS_EduMe/img/science.png" style="height: 100px; width: 100px;" alt="">
-                        <h4><a id="link3" class="toggleHyperlink" onclick="toggleContent('link3');"><%= hyperlinkTexts[2] %></a></h4>
+                        <h4><a id="link3" href="Content.jsp?grade=<%=request.getParameter("grade")%>&sub=science" class="toggleHyperlink" onclick="toggleContent('link3');"><%= hyperlinkTexts[2] %></a></h4>
                     </div>
                 </div>  
             </div>
@@ -321,9 +323,47 @@
                     <div id="messageDiv" ></div>
            
                     <div id="sampleDiv"></div>
-                    </div>           
-              </div>
+                    </div> 
+                    
+                    
+                    <div class="content" style="margin-left: 250px;">
+ <%
+    
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/pgdit","root","root");
+           
 
+    String selectedClass = request.getParameter("sub");
+     String selectedGrade = request.getParameter("grade");
+     
+     
+    String sql = "SELECT * FROM content WHERE grade =? AND sub = ? ";
+    PreparedStatement statement = connection.prepareStatement(sql);
+    statement.setString(1,selectedGrade);
+    statement.setString(2,selectedClass);
+
+    ResultSet rs = statement.executeQuery();
+
+    while (rs.next()) {
+        int id = rs.getInt("id");
+        String g = rs.getString("grade");
+        String c = rs.getString("chapter");
+
+        out.println("ID: " + id);
+        out.println("<a href='#'> Chapter : "+c+"</a>");
+//        out.println("Grade : "+g);
+        out.println("<br/>");
+    }
+
+    rs.close();
+    statement.close();
+    connection.close();
+%>
+</div>
+                    
+              </div>
+                    
+                     
           </div>
         <div>
             <div class="footer">
@@ -357,5 +397,4 @@
     </div>
     </body>
 </html>
-
-         
+     
