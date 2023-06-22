@@ -1,11 +1,10 @@
 <%-- 
     Document   : content
-    Created on : Jun 22, 2023, 4:16:14 PM
-    Author     : bhaktisunilnarvekar
+    Created on : 08-Jun-2023, 1:12:05 pm
+    Author     : rupal
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -358,3 +357,6 @@
     </div>
     </body>
 </html>
+
+         
+
