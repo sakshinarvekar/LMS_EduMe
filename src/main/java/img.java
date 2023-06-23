@@ -7,6 +7,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -46,15 +50,25 @@ public class img extends HttpServlet {
 //            out.println("<h1>Servlet img at " + request.getContextPath() + "</h1>");
 //            out.println("</body>");
 //            out.println("</html>");
-               out.print("Hellow");
+               out.print("Hello");
                
-               Part file = request.getPart("image");
+               
+               int i = Integer.parseInt(request.getParameter("id"));
+               String g = request.getParameter("grade");
+               String s = request.getParameter("sub");
+               String c = request.getParameter("chapterno");
+               String cn = request.getParameter("chaptername");
+               Part file = request.getPart("video");
                String imageFileName=file.getSubmittedFileName();
                
-               out.print("File:"+imageFileName);
+               out.println("File:"+imageFileName);
+               out.println("Grade : "+g);
+               out.println("Subject : "+s);
+               out.println("Chapter no. : "+c);
+               out.println("Chapter name : "+cn);
                
-//               String uploadPath="/Users/sakshi/NetBeansProjects/demo/LMS_EduMe/src/main/webapp/videos/"+imageFileName;  // upload path where we have to upload our actual image
-                String uploadPath="C:/Users/rupal/Downloads/LMS_EduMe-master (1)/LMS_EduMe-master/src/main/webapp/videos/"+imageFileName;
+               
+               String uploadPath="/Users/sakshi/NetBeansProjects/demo/LMS_EduMe/src/main/webapp/videos/"+imageFileName;  // upload path where we have to upload our actual image
                out.println("Upload Path : "+uploadPath);
                
                
@@ -74,6 +88,25 @@ public class img extends HttpServlet {
 		catch(Exception e)
 		{
 			e.printStackTrace();
+		}
+               
+               try 
+		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12627744","sql12627744","aeUIku5cCL");
+                        Statement st = con.createStatement();
+                        st.execute("insert into content values('"+i+"','"+g+"','"+s+"','"+c+"','"+cn+"','"+imageFileName+"')");
+                        out.println("<script type=\"text/javascript\">"); // Start the script tag 
+                        out.println("alert('Video inserted successfully!!');"); // JavaScript code to generate an alert box 
+                        out.println("window.location.href = 'fileup_1.jsp';");
+                        out.println("</script>");
+                        st.close();
+                        con.close();               
+			
+		}
+		catch (Exception e)
+		{
+			out.println(e);
 		}
         }
     }
