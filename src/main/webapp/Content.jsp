@@ -328,7 +328,7 @@
                     
                     <div class="contentdiv" style="margin-left: 250px;">
   <%!
-  String g,c,cn;
+  String g,s,c,cn;
   
   %> 
   
@@ -352,27 +352,28 @@
 
     ResultSet rs = statement.executeQuery();
 
-    List<String> chaptername = new ArrayList<>();
+//    List<String> chaptername = new ArrayList<>();
     
-    
+    int count=1;
     while (rs.next()) {
         int id = rs.getInt("id");
          g = rs.getString("grade");
+         s = rs.getString("sub");
          c = rs.getString("chp_no");
          cn = rs.getString("chp_name");
          
-         chaptername.add(cn);
+//         chaptername.add(cn);
         
-         out.println("<a href='videocontent.jsp'> Chapter "+c+" : </a>");
-         out.println("<a href='videocontent.jsp' name='chpname'>"+cn+" </a><br>");
+         out.println("<p>Chapter : " +c+"</p>");
+         out.println("<a href='videocontent.jsp?link="+count+"'>"+cn+" </a><br>");
          out.println("<br/>");
-         
+         count++;
          
     }
 
+         session.setAttribute("Grade", request.getParameter("grade"));
+         session.setAttribute("Subject",request.getParameter("sub"));
          
-         out.print(chaptername);
-         session.setAttribute("Chap", chaptername);
     
     
     rs.close();
