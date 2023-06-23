@@ -43,7 +43,7 @@ public class RetrieveVideo2 extends HttpServlet {
              int id = Integer.parseInt(request.getParameter("t1"));
             try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/pgdit","root","root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12627744","sql12627744","aeUIku5cCL");
             Statement st=con.createStatement();
             ResultSet rs = st.executeQuery("select * from content where id ='"+id+"'");
             
@@ -53,9 +53,10 @@ public class RetrieveVideo2 extends HttpServlet {
             out.print("<tr>");
             out.print("<th> Id</th>");
             out.print("<th> Grade </th>");
-            out.print("<th> chapter </th>");
-            out.print("<th> Topic </th>");
-            out.print("<th> Media </th>");
+            out.print("<th> Subject </th>");
+            out.print("<th> chapter no </th>");
+            out.print("<th> Chapter name </th>");
+            out.print("<th> Video </th>");
             out.print("</tr>");
             
             while(rs.next())
@@ -63,18 +64,19 @@ public class RetrieveVideo2 extends HttpServlet {
                 int i = rs.getInt("id");
                 String g = rs.getString("grade");
                 String s = rs.getString("sub");
-                String c = rs.getString("chapter");
-                String t = rs.getString("topic");
-                String f = rs.getString("image");
+                String c = rs.getString("chp_no");
+                String cn = rs.getString("chp_name");
+                String f = rs.getString("video");
                 //out.print(id+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+ n +"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+ ne +"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+l);
                 
                 out.print("<tr>");
                 out.print("<td>"+i+"</td>");
                 out.print("<td>"+g+"</td>");
                 out.print("<td>"+s+"</td>");
-                out.print("<td>"+t+"</td>");
+                out.print("<td>"+c+"</td>");
+                out.print("<td>"+cn+"</td>");
                 out.print("<td><video controls style=\"height:600px; width:700px;\""
-                        + "<source src=/FaltuTrial/img/"+f+" type='video/mp4'></video></td>");
+                        + "<source src=/LMS_EduMe/videos/"+f+" type='video/mp4'></video></td>");
 //                out.print("<td><img src=/FaltuTrial/img/"+f+"></td>");
 //                out.print("<td><img src=/img/png ></td>");
                 out.print("</tr>");
