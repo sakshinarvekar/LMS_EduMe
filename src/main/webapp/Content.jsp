@@ -4,6 +4,7 @@
     Author     : rupal
 --%>
 
+<%@page import="java.util.*"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
@@ -325,8 +326,13 @@
                     <div id="sampleDiv"></div>
                     </div> 
                     
-                    
-                    <div class="content" style="margin-left: 250px;">
+                    <div class="contentdiv" style="margin-left: 250px;">
+  <%!
+  String g,c,cn;
+  
+  %> 
+  
+  
  <%
     
     Class.forName("com.mysql.cj.jdbc.Driver");
@@ -337,30 +343,42 @@
      String selectedGrade = request.getParameter("grade");
      
      
+     
     String sql = "SELECT * FROM content WHERE grade =? AND sub = ? ";
     PreparedStatement statement = con.prepareStatement(sql);
     statement.setString(1,selectedGrade);
     statement.setString(2,selectedClass);
+    
 
     ResultSet rs = statement.executeQuery();
 
+    List<String> chaptername = new ArrayList<>();
+    
+    
     while (rs.next()) {
         int id = rs.getInt("id");
-        String g = rs.getString("grade");
-        String c = rs.getString("chp_no");
-        String cn = rs.getString("chp_name");
-
-
-        out.println("<a href='#'> Chapter : "+c+"</a>");
-        out.println("<a href='#'> Chapter : "+cn+"</a>");
-        out.println("<br/>");
+         g = rs.getString("grade");
+         c = rs.getString("chp_no");
+         cn = rs.getString("chp_name");
+         
+         chaptername.add(cn);
+        
+         out.println("<a href='videocontent.jsp'> Chapter "+c+" : </a>");
+         out.println("<a href='videocontent.jsp' name='chpname'>"+cn+" </a><br>");
+         out.println("<br/>");
+         
+         
     }
 
+         
+         out.print(chaptername);
+         session.setAttribute("Chap", chaptername);
+    
+    
     rs.close();
     statement.close();
     con.close();
 %>
-</div>
                     
               </div>
                     
