@@ -13,7 +13,7 @@
 <body>
     <h1>File Upload</h1>
     <form action="img" method="post" enctype="multipart/form-data">
-        Enter id : <input type="text" name="id"><br> 
+<!--        Enter id : <input type="text" name="id"><br> -->
         Enter grade : <input type="text" name="grade"><br> 
         Enter subject name : <input type="text" name="sub"><br> 
         Enter chapter no. : <input type="text" name="chapterno"><br> 
