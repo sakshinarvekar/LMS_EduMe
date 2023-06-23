@@ -95,7 +95,7 @@ public class img extends HttpServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
                         Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12627744","sql12627744","aeUIku5cCL");
                         Statement st = con.createStatement();
-                        st.execute("insert into content values('"+""+"','"+g+"','"+s+"','"+c+"','"+cn+"','"+imageFileName+"')");
+                        st.execute("insert into content values(default,'"+g+"','"+s+"','"+c+"','"+cn+"','"+imageFileName+"')");
                         out.println("<script type=\"text/javascript\">"); // Start the script tag 
                         out.println("alert('Video inserted successfully!!');"); // JavaScript code to generate an alert box 
                         out.println("window.location.href = 'fileup_1.jsp';");
