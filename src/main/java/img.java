@@ -68,7 +68,7 @@ public class img extends HttpServlet {
                out.println("Chapter name : "+cn);
                
                
-               String uploadPath="/Users/sakshi/NetBeansProjects/demo/LMS_EduMe/src/main/webapp/videos/"+imageFileName;  // upload path where we have to upload our actual image
+               String uploadPath="/Users/sakshi/NetBeansProjects/demo/LMS_EduMe-master/src/main/webapp/videos/"+imageFileName;  // upload path where we have to upload our actual image
                out.println("Upload Path : "+uploadPath);
                
                

@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="http://localhost:8080/FaltuTrial/RetrieveVideo2" method="post" enctype="multipart/form-data">
+        <form action="RetrieveVideo2" method="post" enctype="multipart/form-data">
                Enter Image Id :<input type="text" name="t1">
                 <input type="submit" value="Display Image">
             </form>
