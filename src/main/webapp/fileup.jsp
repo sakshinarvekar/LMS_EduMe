@@ -14,7 +14,7 @@
     <h1>File Upload</h1>
     <form action="img" method="post" enctype="multipart/form-data">
         <input type="file" name="image" />
-        <br />
+        <br /><br>
         <input type="submit" value="Upload" />
     </form>
 </body>
