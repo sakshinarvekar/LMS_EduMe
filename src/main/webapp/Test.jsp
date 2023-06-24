@@ -37,16 +37,12 @@
                                 ResultSet rs = st.executeQuery(query);
 
                                 while (rs.next()) {
-                                    String subject = rs.getString("sub");
-                                    out.print(subject);
-                                    
+//                                    String subject = rs.getString("sub");
+//                                    out.print(subject);
+//                                    
 %>
                         <option value="<%= rs.getString("sub")%>"><%= rs.getString("sub")%></option>
-                        <%
-                            
-                            
-
-                                }
+                        <%                          }
                                 rs.close();
                                 st.close();
                                 con.close();
@@ -61,13 +57,8 @@
                     <select class="form-control2" name="chapters" style="width:250px; height: 40px;">
                         <option value="-1" >Select Chapter</option>
                         <%
-                            
-                            out.print(g);
                             String s = (String)session.getAttribute("selectedsub");
-                            out.print(s);
-                            
-                            
-
+//                            out.print(s);
                             try {
                                 String query = "select chp_name from content where grade='"+g+"' AND sub='"+s+"'";
                                 Class.forName("com.mysql.cj.jdbc.Driver");
@@ -76,11 +67,10 @@
                                 ResultSet rs = st.executeQuery(query);
 
                                 while (rs.next()) {
-                                    String chaptername = rs.getString("chp_name");
-                                    out.print(chaptername);
-                                    
+//                                    String chaptername = rs.getString("chp_name");
+//                                   out.print(chaptername);                                    
 %>
-                        <option value="<%= chaptername%>"><%= chaptername%></option>
+                        <option value="<%= rs.getString("chp_name")%>"><%= rs.getString("chp_name")%></option>
                         <%
                                 }
                                 rs.close();
@@ -89,16 +79,10 @@
                             } catch (Exception e) {
                                 out.print(e);
                             }
-
-
                         %>
                     </select>
                 </center>
             </div>
-            
-            
-
-
         </form>
     </body>
 </html>
