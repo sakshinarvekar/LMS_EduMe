@@ -272,7 +272,7 @@
         <a href="#" class="list-group-item list-group-item-action py-2 ripple">
           <i class="fas fa-chart-pie fa-fw me-3"></i><span>Syllabus</span>
         </a>
-        <a href="Test.jsp" class="list-group-item list-group-item-action py-2 ripple"
+        <a href="Test.jsp?grade=<%=request.getParameter("grade")%>" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Test</span></a
         >
         <a href="#" class="list-group-item list-group-item-action py-2 ripple"
