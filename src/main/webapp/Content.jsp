@@ -9,7 +9,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title> EduMe | Content </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
@@ -194,11 +194,33 @@
             font-weight: bold;
             cursor: pointer;
         }
-/*        #accordion{
-            display: none;
+        
+        .chapter {
+            color: #08578F;
+            font-size: 24px;
+            font-weight: bold;
         }
 
-        */
+        .chapter-link {
+            color: #087DAF;
+            font-size: 22px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .chapter-link:hover {
+            color: #ff6347;
+        }
+        .contentlist{
+            margin-left: 150px;
+            background-color: white;
+            width:500px;
+            height:max-content;
+            text-align: center;
+            border-radius: 30px;
+            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+        }
+
         
         </style>
         <script>
@@ -363,12 +385,12 @@
          cn = rs.getString("chp_name");
          
 //         chaptername.add(cn);
-        
-         out.println("<p>Chapter : " +c+"</p>");
-         out.println("<a href='videocontent.jsp?link="+count+"'>"+cn+" </a><br>");
+        out.print("<div class='contentlist' >");
+         out.println("<p class='chapter'>Chapter : " +c+"</p>");
+         out.println("<a class='chapter-link' href='videocontent.jsp?link="+count+"'>"+cn+" </a><br>");
          out.println("<br/>");
          count++;
-         
+         out.print("<hr style='width:95%; margin-left:12px;'/></div>");
     }
 
          session.setAttribute("Grade", request.getParameter("grade"));
