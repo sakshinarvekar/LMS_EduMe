@@ -110,7 +110,7 @@
         
         <form action="http://localhost:8080/LMS_EduMe/sign" method="post">
             <div class="login_main">
-    <div class="login_image"><img src="/EduMe_Project/img/E-learn.jpg" alt="img" width="650" height="550"></div>
+    <div class="login_image"><img src="/LMS_EduMe/img/prof.jpg" alt="img" width="700" height="600"></div>
     <div class="login_form">
         
     <br />
@@ -160,7 +160,7 @@
             <input type="submit" class="btns" value="Sign in" style="font-family: 'PT Sans Caption', sans-serif"/>
         </div>
         <br>
-        <p style="font-family: 'PT Sans Caption', sans-serif">Don't have an account? <a href="#">SignUp</a></p>
+        <p style="font-family: 'PT Sans Caption', sans-serif">Don't have an account? <a href="TeacherRegister.jsp">SignUp</a></p>
     </div>
     </div>
 
