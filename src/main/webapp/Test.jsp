@@ -19,7 +19,7 @@
             <div class="quizdropdown">
                 <center>
                    
-                    <select class="form-control1" name="subject" onchange="this.form.submit()" style="width:250px; height: 40px;">
+                    <select class="form-control1" name="subject"onchange="this.form.submit()" style="width:250px; height: 40px;">
                         <option value="-1" >Select Subject</option>
                         <%
                             String g = (String) session.getAttribute("Grade");
@@ -37,11 +37,12 @@
                                 ResultSet rs = st.executeQuery(query);
 
                                 while (rs.next()) {
-//                                    String subject = rs.getString("sub");
+                                String subject = rs.getString("sub");
 //                                    out.print(subject);
 //                                    
 %>
-                        <option value="<%= rs.getString("sub")%>"><%= rs.getString("sub")%></option>
+           
+                       <option value="<%=subject%>" <% if ("subject".equals(request.getParameter("subject"))) out.print("selected"); %>><%= subject%></option>        
                         <%                          }
                                 rs.close();
                                 st.close();
