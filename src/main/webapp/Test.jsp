@@ -12,33 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Test </title>
-<!--        <script>
-    // Function to update selected value visibility
-    function updateSelectedValue() {
-        var selectedSubject = $("#subjectDropdown").val();
-        $("#selectedSubject").text(selectedSubject);
-    }
 
-    // AJAX request on subject dropdown change
-    $("#subjectDropdown").change(function() {
-        // Call the updateSelectedValue function
-        updateSelectedValue();
-
-        // Make AJAX request to update chapter options
-        var selectedSubject = $(this).val();
-        $.ajax({
-            url: "Test.jsp", // Replace with the actual file name that retrieves chapters based on the subject
-            data: { subject: selectedSubject },
-            type: "POST",
-            success: function(response) {
-                $("#chapterDropdown").html(response);
-            }
-        });
-    });
-
-    // Initial call to update selected value visibility
-    updateSelectedValue();
-</script>-->
 
     </head>
     <body>
@@ -70,7 +44,7 @@
 //                                    
 %>
            <%-- if ("subject".equals(request.getParameter("subject"))) out.print("selected"); --%>
-                       <option value="<%=subject%>" ><%= subject%></option>        
+                       <option value="<%=subject%>"<% if (subject.equals(request.getParameter("subject"))) { %>selected="selected"<% } %>><%= subject%></option>        
                         <%                          }
                                 rs.close();
                                 st.close();
@@ -83,7 +57,7 @@
                         %>
                     </select>
 
-                    <select class="form-control2" name="chapters"  onchange="this.form.submit()" style="width:250px; height: 40px;">
+                    <select class="form-control2" name="chapters"  onchange="this.form.submit()"  style="width:250px; height: 40px;">
                         <option  value="">Select Chapter</option>
                         
                         <%
@@ -103,7 +77,8 @@
                                     String chaptername = rs.getString("chp_name");
                                     //out.print(chaptername);                                    
 %>
-                        <option value="<%= chaptername %>"><%= chaptername %></option>
+                        <option value="<%= chaptername %>" <% if (chaptername.equals(request.getParameter("chapters"))) { %>selected="selected"<% } %>><%= chaptername %></option>
+                        
                         <%
                                 }
                                 rs.close();
@@ -120,8 +95,9 @@
     //String selectedSub = request.getParameter("subject");
     out.print("Selected Subject: " + s + "<br>");
     out.print("Selected Chapter: " + selectedChapter);
+    out.print("<br>");
 %>
-
+        
 <%
     try{
             String Query="select * from quiz where sub='"+s+"' AND chp_name='"+selectedChapter+"' ";
@@ -139,12 +115,17 @@
              String o4 = rs.getString("option4");
              //String a = rs.getString("correct_option");
              
-             out.print("Id : "+id);
-             out.print(""+q);
-             out.print(""+o1);
-             out.print(""+o2);
-             out.print(""+o3);
-             out.print(""+o4);
+             out.print("<strong>Q."+id+"</strong>");
+             out.print("<h3>"+q+"</h3>");
+             out.print("<br>");
+             out.print("<input type='radio' name='r1' value='"+o1+"'>"+o1+"");
+             out.print("<br>");
+             out.print("<input type='radio' name='r1' value='"+o2+"'>"+o2+"");
+             out.print("<br>");
+             out.print("<input type='radio' name='r1' value='"+o3+"'>"+o3+"");
+             out.print("<br>");
+             out.print("<input type='radio' name='r1' value='"+o4+"'>"+o4+"");
+             out.print("<br>");
             }
 
             rs.close();
