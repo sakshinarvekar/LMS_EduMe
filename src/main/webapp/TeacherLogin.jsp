@@ -1,8 +1,11 @@
+<%-- 
+    Document   : TeacherLogin
+    Created on : Jun 25, 2023, 3:23:19 AM
+    Author     : bhaktisunilnarvekar
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
 <html>
     <head>
         

@@ -129,12 +129,19 @@
         <input type="submit" value="Save Question">
         </div>
     </form>
+
     
     <%-- Code to handle form submission and save the question to the database --%>
     <%@ page import="java.io.PrintWriter" %>
-    <%
-        if (request.getMethod().equalsIgnoreCase("POST")) {
-            String grade = request.getParameter("grade");
+
+</body>
+</html>
+
+<%
+           
+    try
+    {
+     String grade = request.getParameter("grade");
             String subject = request.getParameter("subject");
             String chapter = request.getParameter("chapter");
             String question = request.getParameter("question");
@@ -143,66 +150,23 @@
             String option3 = request.getParameter("option3");
             String option4 = request.getParameter("option4");
             int correctOption = Integer.parseInt(request.getParameter("correctOption"));
-            
-            String jdbcURL = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12627744";
-            String username = "sql12627744";
-            String password = "aeUIku5cCL";
-            
-            Connection connection = null;
-            PreparedStatement statement = null;
-            
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                connection = DriverManager.getConnection(jdbcURL, username, password);
-                
-                String query = "INSERT INTO quiz (grade, subject, chapter, question, option1, option2, option3, option4, correct_option) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                statement = connection.prepareStatement(query);
-                statement.setString(1, grade);
-                statement.setString(2, subject);
-                statement.setString(3, chapter);
-                statement.setString(4, question);
-                statement.setString(5, option1);
-                statement.setString(6, option2);
-                statement.setString(7, option3);
-                statement.setString(8, option4);
-                statement.setInt(9, correctOption);
-                
-                int rowsAffected = statement.executeUpdate();
-                
-                if (rowsAffected > 0) {
-    %>
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12627744", "sql12627744", "aeUIku5cCL");
+        Statement st = con.createStatement();
+        st.execute("insert into quiz values(default, '"+grade+"','"+subject+"','"+chapter+"','"+question+"','"+option1+"','"+option2+"','"+option3+"','"+option4+"','"+correctOption+"');");              
+//               out.print("value inserted");
+        out.println("<script type=\"text/javascript\">"); // Start the script tag 
+        out.println("alert('Inserted successfully!!');"); // JavaScript code to generate an alert box 
+        out.println("window.location.href = 'sign.html';");
+        out.println("</script>");
+        st.close();
+        con.close();
+    }
+    catch(Exception e)
+    {
+    out.print(e);
+    }
     
-    <h2>Question Saved Successfully</h2>
-    
-    <%
-                } else {
-    %>
-    
-    <h2>Failed to Save Question</h2>
-    
-    <%
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                
-                if (statement != null) {
-                    try {
-                        statement.close();
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                }
-                if (connection != null) {
-                    try {
-                        connection.close();
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-    %>
-    
-</body>
-</html>
+
+%>
+
