@@ -245,7 +245,7 @@
         <nav>
             <ul class="nav">
                 <li><a href="homepage.html" >Home</a></li>
-                <li><a href="/Grade5.jsp" >Grades</a></li>
+                <li><a href="#wave" >Grades</a></li>
                 <li><a href="#" >Teach On EduMe</a></li>
                 <li><a href="Signupnew.html" >SignUp</a></li>
                 <li><a href="sign.html" >SignIn</a></li>
