@@ -12,7 +12,33 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Test </title>
+        <style>
+            .chapter {
+            color: #08578F;
+            font-size: 24px;
+            font-weight: bold;
+        }
 
+        .chapter-link {
+            color: #087DAF;
+            font-size: 22px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .chapter-link:hover {
+            color: #ff6347;
+        }
+        .contentlist{
+            margin-left: 150px;
+            background-color: white;
+            width:500px;
+            height:max-content;
+            text-align: center;
+            border-radius: 30px;
+            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+        }
+            </style>
 
     </head>
     <body>
@@ -105,6 +131,7 @@
             Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12627744", "sql12627744", "aeUIku5cCL");
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(Query);
+            int count = 1;
             while(rs.next())
             {
              int id = rs.getInt("id");
@@ -115,17 +142,20 @@
              String o4 = rs.getString("option4");
              //String a = rs.getString("correct_option");
              
-             out.print("<strong>Q."+id+"</strong>");
-             out.print("<h3>"+q+"</h3>");
+             out.print("<div class='contentlist' >");
+             out.print("<strong class='chapter'>Q."+id+"</strong>");
+             out.print("<h3 class='chapter'>"+q+"</h3>");
              out.print("<br>");
-             out.print("<input type='radio' name='r1' value='"+o1+"'>"+o1+"");
+             out.print("<input type='radio' name='r"+count+"' value='"+o1+"'>"+o1+"");
              out.print("<br>");
-             out.print("<input type='radio' name='r1' value='"+o2+"'>"+o2+"");
+             out.print("<input type='radio' name='r"+count+"' value='"+o2+"'>"+o2+"");
              out.print("<br>");
-             out.print("<input type='radio' name='r1' value='"+o3+"'>"+o3+"");
+             out.print("<input type='radio' name='r"+count+"' value='"+o3+"'>"+o3+"");
              out.print("<br>");
-             out.print("<input type='radio' name='r1' value='"+o4+"'>"+o4+"");
+             out.print("<input type='radio' name='r"+count+"' value='"+o4+"'>"+o4+"");
              out.print("<br>");
+             out.print("<hr style='width:95%; margin-left:12px;'/></div>");
+             count++;
             }
 
             rs.close();
