@@ -157,7 +157,7 @@
 //               out.print("value inserted");
         out.println("<script type=\"text/javascript\">"); // Start the script tag 
         out.println("alert('Inserted successfully!!');"); // JavaScript code to generate an alert box 
-        out.println("window.location.href = 'quizform,jsp';");
+        out.println("window.location.href = 'quizform.jsp';");
         out.println("</script>");
         st.close();
         con.close();
