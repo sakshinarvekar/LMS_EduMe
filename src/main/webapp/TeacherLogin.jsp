@@ -110,7 +110,7 @@
         
         <form action="http://localhost:8080/LMS_EduMe/sign" method="post">
             <div class="login_main">
-    <div class="login_image"><img src="/LMS_EduMe/img/prof.jpg" alt="img" width="700" height="600"></div>
+    <div class="login_image"><img src="~/LMS_EduMe/img/prof.jpg" alt="img" width="700" height="600"></div>
     <div class="login_form">
         
     <br />

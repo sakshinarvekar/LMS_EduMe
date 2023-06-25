@@ -232,8 +232,13 @@
         <nav>
             <ul class="nav">
                 <li><a href="homepage.html" >Home</a></li>
-                <li><a href="#wave" >Grades</a></li>
-                <li><a href="#" >Teach On EduMe</a></li>
+                <li><a href="#wave" >Grades</li>
+                <li>
+                <select><option><a href="#" >Teach On EduMe</a></option>
+                <option><a href="#" >Register here</a></option>
+                <option><a href="#" >Sign In</a></option></select>
+                     
+                </li>
                 <li><a href="SignUpnew.html" >SignUp</a></li>
                 <li><a href="sign.html" >SignIn</a></li>
                 <li><a href="#" >Account</a></li>
