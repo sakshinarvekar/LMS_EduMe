@@ -132,8 +132,7 @@
 
     
     <%-- Code to handle form submission and save the question to the database --%>
-    <%@ page import="java.io.PrintWriter" %>
-
+   
 </body>
 </html>
 
@@ -149,18 +148,23 @@
             String option2 = request.getParameter("option2");
             String option3 = request.getParameter("option3");
             String option4 = request.getParameter("option4");
-            int correctOption = Integer.parseInt(request.getParameter("correctOption"));
-        Class.forName("com.mysql.cj.jdbc.Driver");
+            String correctOption = request.getParameter("correctOption");
+            
+            if (grade!=null)
+            {
+                Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12627744", "sql12627744", "aeUIku5cCL");
         Statement st = con.createStatement();
         st.execute("insert into quiz values(default, '"+grade+"','"+subject+"','"+chapter+"','"+question+"','"+option1+"','"+option2+"','"+option3+"','"+option4+"','"+correctOption+"');");              
-//               out.print("value inserted");
+               //out.print("value inserted");
         out.println("<script type=\"text/javascript\">"); // Start the script tag 
         out.println("alert('Inserted successfully!!');"); // JavaScript code to generate an alert box 
         out.println("window.location.href = 'quizform.jsp';");
         out.println("</script>");
         st.close();
         con.close();
+            }
+        
     }
     catch(Exception e)
     {

@@ -49,6 +49,27 @@
             background-color: rgb(8,135,175);
             color: white;
         }
+        
+        .dropdown:hover 
+        .dropdown-menu {
+            display: block;
+          }
+
+        .dropdown-menu {
+          
+          position: absolute;
+          background-color: #f9f9f9;
+          padding: 10px;
+        }
+
+        .dropdown-menu li {
+          margin-bottom: 5px;
+        }
+
+        .dropdown-menu a {
+          color: black;
+          text-decoration: none;
+        }
 
         .left_container h2{
             font-weight: 700;
@@ -197,7 +218,7 @@
             display: inline-block;
             width: 40%;
             margin-left: 50px;
-                            list-style: none;
+            list-style: none;
             text-decoration: none;
 
         }
@@ -233,10 +254,13 @@
             <ul class="nav">
                 <li><a href="homepage.html" >Home</a></li>
                 <li><a href="#wave" >Grades</li>
-                <select><option><li><a href="#" >Teach On EduMe</a></option>
-                <option><a href="#" >Register here</a></option>
-                <option><a href="#" >Sign In</a></option>                </li>
-</select>  
+                <li class="dropdown">
+      <a href="#">Teach On EduMe &#9662;</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">SignIn</a></li>
+        <li><a href="#">SignUp</a></li>
+      </ul>
+    </li> 
                 <li><a href="SignUpnew.html" >SignUp</a></li>
                 <li><a href="sign.html" >SignIn</a></li>
                 <li><a href="#" >Account</a></li>
