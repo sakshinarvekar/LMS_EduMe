@@ -4,6 +4,7 @@
     Author     : bhaktisunilnarvekar
 --%>
 
+<%@page import="java.util.*"%>
 <%@page import="java.security.interfaces.RSAKey"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -166,6 +167,9 @@
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(Query);
             int count = 1;
+            int score = 0;
+            List<String> userChoice = new ArrayList<>();
+            
             while(rs.next())
             {
              int id = rs.getInt("id");
@@ -174,7 +178,8 @@
              String o2 = rs.getString("option2");
              String o3 = rs.getString("option3");
              String o4 = rs.getString("option4");
-             //String a = rs.getString("correct_option");
+             String a = rs.getString("correct_option");
+             
              
              out.print("<div class='contentlist' >");
              out.print("<strong class='chapter'>Q."+id+"</strong>");
@@ -190,20 +195,46 @@
              out.print("<br>");
              out.print("<hr style='width:95%; margin-left:12px;'/></div>");
              count++;
+            String btn = request.getParameter("submit");
+            if(btn=="Submit")
+                {
+                    out.print(a);
+             
+        
+             String choice = request.getParameter("r"+count);
+             if(choice!=null)
+             {
+               
+                if (choice.equals(a))
+                {
+                   score++;
+                }
             }
-            %>
-          <input type="submit" value="Submit Test">
-          <%
+       out.print(choice);
+            }
+            }
+
+            out.print("<p>Your score is: " + score + " out of " + (count - 1) + "</p>");
+            
             rs.close();
             st.close();
             con.close();
-}
+        }
+
             catch(Exception e)
                     {
                     out.print(e);
                     }
             
 %>
+
+             <input type="submit" value="Submit" name="submit"><!-- comment -->
+ <%!
+     public void Result()
+    {
+        
+    }
+ %>          
 
     </center>
             </div>

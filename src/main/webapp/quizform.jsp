@@ -124,7 +124,7 @@
         <input type="text" name="option4" required><br>
         
         <label for="correctOption">Correct Option:</label>
-        <input type="number" name="correctOption" min="1" max="4" required><br>
+        <input type="text" name="correctOption"  required><br>
         
         <input type="submit" value="Save Question">
         </div>
