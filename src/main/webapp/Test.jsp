@@ -13,6 +13,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Test </title>
+        
         <style>
             .chapter {
             color: #08578F;
@@ -38,6 +39,10 @@
             text-align: center;
             border-radius: 30px;
             box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+            
+        .hidden-score {
+        display: none;
+    }
         }
         </style>
         
@@ -219,17 +224,23 @@
                             }
                         }
             
-            if(score>0)
-            {
-                out.print("Your score "+score);
-                out.print(answer);
-                out.print(selectedans);
-            }           
-            
-            
-        
-            
-          
+//            if(score>0)
+//            {
+//                out.print("Your score "+score);
+//                out.print(answer);
+//                out.print(selectedans);
+//            }
+                
+               String btn = request.getParameter("Submit");
+               if(btn!=null)
+                {
+               if(btn.equals("Submit"))
+               {
+               out.print("Your score : "+score);
+                }
+                }
+         
+
             
             rs.close();
             st.close();
@@ -239,15 +250,26 @@
                     {
                     out.print(e);
                     }
-                    
-                                        
-            
+    
 %>
 
-             <input type="submit" value="Submit" name="Submit"> 
- 
+             <input type="submit" value="Submit" name="Submit" > 
+ </div>
     </center>
-            </div>
+    </div>
+            
         </form>
     </body>
+<!--<script>
+    function toggleButtonVisibility() {
+      var condiv = document.getElementByName("contentlist");
+      var submitButton = document.getElementByName("Submit");
+
+      if (condiv.value === "") {
+        submitButton.style.display = "none";
+      } else {
+        submitButton.style.display = "block";
+      }
+    }
+  </script>-->
 </html>
