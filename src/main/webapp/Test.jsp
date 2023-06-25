@@ -168,8 +168,8 @@
             ResultSet rs = st.executeQuery(Query);
             int count = 1;
             int score = 0;
-            List<String> userChoice = new ArrayList<>();
             
+            List<String> choice = new ArrayList<>();
             while(rs.next())
             {
              int id = rs.getInt("id");
@@ -180,6 +180,7 @@
              String o4 = rs.getString("option4");
              String a = rs.getString("correct_option");
              
+             choice.add("r"+count);
              
              out.print("<div class='contentlist' >");
              out.print("<strong class='chapter'>Q."+id+"</strong>");
@@ -195,47 +196,35 @@
              out.print("<br>");
              out.print("<hr style='width:95%; margin-left:12px;'/></div>");
              count++;
-            String btn = request.getParameter("submit");
-            if(btn=="Submit")
-                {
-                    out.print(a);
+             out.print("r"+count);
              
-        
-             String choice = request.getParameter("r"+count);
-             if(choice!=null)
-             {
-               
-                if (choice.equals(a))
-                {
-                   score++;
-                }
-            }
+             
+             
+//             //String choice = request.getParameter("r"+count);
+//             if(choice!=null)
+//             {
+//               
+//                if (choice.equals(a))
+//                {
+//                   score++;
+//                }
+//            }
        out.print(choice);
             }
-            }
-
-            out.print("<p>Your score is: " + score + " out of " + (count - 1) + "</p>");
             
             rs.close();
             st.close();
             con.close();
         }
-
-            catch(Exception e)
+           catch(Exception e)
                     {
                     out.print(e);
                     }
             
 %>
 
-             <input type="submit" value="Submit" name="submit"><!-- comment -->
- <%!
-     public void Result()
-    {
-        System.out.print("hello");
-    }
- %>
-
+             <input type="submit" value="Submit" name="> 
+ 
     </center>
             </div>
         </form>
