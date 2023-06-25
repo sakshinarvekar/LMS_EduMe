@@ -39,35 +39,39 @@
             border-radius: 30px;
             box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
         }
+        </style>
         
-            </style>
-             <script type="text/javascript">
-        var timerDisplay = document.getElementById("timer");
-        var totalSeconds = 420; // 7 minutes (7 * 60 seconds)
-
+            <script type="text/javascript">
         function updateTimer() {
-            var minutes = Math.floor(totalSeconds / 60);
-            var seconds = totalSeconds % 60;
+            var timerDisplay = document.getElementById("timer");
+
+            var currentTime = new Date();
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            var seconds = currentTime.getSeconds();
 
             // Add leading zeros if necessary
-            var minutesString = (minutes < 10 ? "0" : "") + minutes;
-            var secondsString = (seconds < 10 ? "0" : "") + seconds;
+            hours = (hours < 10 ? "0" : "") + hours;
+            minutes = (minutes < 10 ? "0" : "") + minutes;
+            seconds = (seconds < 10 ? "0" : "") + seconds;
 
-            timerDisplay.innerHTML = "Time Remaining: " + minutesString + ":" + secondsString;
-
-            if (totalSeconds === 0) {
-                // Time is up, abandon the test
-                clearInterval(timerInterval);
-                document.getElementById("testForm").submit();
-            } else {
-                totalSeconds--;
-            }
+            timerDisplay.innerHTML = "Current Time: " + hours + ":" + minutes + ":" + seconds;
         }
 
+        // Function to start the timer
         function startTimer() {
-            updateTimer();
-            timerInterval = setInterval(updateTimer, 1000);
+            updateTimer(); // Display initial time
+            setInterval(updateTimer, 1000); // Update timer every second
         }
+
+        // Execute the div and start the timer automatically
+        window.onload = function() {
+            var div = document.getElementById("myDiv");
+            div.style.display = "block"; // Display the div
+
+            // Start the timer
+            startTimer();
+        };
     </script>
     </head>
     <body>
@@ -152,12 +156,8 @@
     out.print("Selected Chapter: " + selectedChapter);
     out.print("<br>");
 %>
-  <script type="text/javascript">
-                    window.onload = function() {
-                        startTimer();
-                    };
-                </script>      
-
+       
+<div id="myDiv" style="display: none;">
     <%
     
     try{
@@ -234,7 +234,7 @@
     {
         
     }
- %>          
+ %>
 
     </center>
             </div>
