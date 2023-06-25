@@ -232,7 +232,7 @@
  <%!
      public void Result()
     {
-        
+        System.out.print("hello");
     }
  %>
 
