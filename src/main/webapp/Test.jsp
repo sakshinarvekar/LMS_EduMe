@@ -38,12 +38,40 @@
             border-radius: 30px;
             box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
         }
+        
             </style>
+             <script type="text/javascript">
+        var timerDisplay = document.getElementById("timer");
+        var totalSeconds = 420; // 7 minutes (7 * 60 seconds)
 
+        function updateTimer() {
+            var minutes = Math.floor(totalSeconds / 60);
+            var seconds = totalSeconds % 60;
+
+            // Add leading zeros if necessary
+            var minutesString = (minutes < 10 ? "0" : "") + minutes;
+            var secondsString = (seconds < 10 ? "0" : "") + seconds;
+
+            timerDisplay.innerHTML = "Time Remaining: " + minutesString + ":" + secondsString;
+
+            if (totalSeconds === 0) {
+                // Time is up, abandon the test
+                clearInterval(timerInterval);
+                document.getElementById("testForm").submit();
+            } else {
+                totalSeconds--;
+            }
+        }
+
+        function startTimer() {
+            updateTimer();
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+    </script>
     </head>
     <body>
         <h1>Test</h1>
-        <form action="" method="post">
+        <form id="testForm" action="" method="post">
             <div class="quizdropdown">
                 <center>
                    
@@ -123,8 +151,14 @@
     out.print("Selected Chapter: " + selectedChapter);
     out.print("<br>");
 %>
-        
-<%
+  <script type="text/javascript">
+                    window.onload = function() {
+                        startTimer();
+                    };
+                </script>      
+
+    <%
+    
     try{
             String Query="select * from quiz where sub='"+s+"' AND chp_name='"+selectedChapter+"' ";
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -157,7 +191,9 @@
              out.print("<hr style='width:95%; margin-left:12px;'/></div>");
              count++;
             }
-
+            %>
+          <input type="submit" value="Submit Test">
+          <%
             rs.close();
             st.close();
             con.close();
@@ -169,8 +205,7 @@
             
 %>
 
-
-                </center>
+    </center>
             </div>
         </form>
     </body>
