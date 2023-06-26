@@ -356,7 +356,7 @@
   
   
  <%
-    
+    List<String> chaptername = new ArrayList<>();
     Class.forName("com.mysql.cj.jdbc.Driver");
     Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12627744","sql12627744","aeUIku5cCL");
            
@@ -374,7 +374,6 @@
 
     ResultSet rs = statement.executeQuery();
 
-//    List<String> chaptername = new ArrayList<>();
     
     int count=1;
     while (rs.next()) {
@@ -384,7 +383,7 @@
          c = rs.getString("chp_no");
          cn = rs.getString("chp_name");
          
-//         chaptername.add(cn);
+        chaptername.add(cn);
         out.print("<div class='contentlist' >");
          out.println("<p class='chapter'>Chapter : " +c+"</p>");
          out.println("<a class='chapter-link' href='videocontent.jsp?link="+count+"'>"+cn+" </a><br>");
@@ -395,12 +394,15 @@
 
          session.setAttribute("Grade", request.getParameter("grade"));
          session.setAttribute("Subject",request.getParameter("sub"));
-         
+         session.setAttribute("chapname", chaptername.size());
     
     
     rs.close();
     statement.close();
     con.close();
+    
+    
+   
 %>
                     
               </div>

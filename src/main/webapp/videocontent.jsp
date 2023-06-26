@@ -217,6 +217,20 @@
             min-height: 600px;
             height: max-content;
         }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #4CAF50;
+            border-radius: 4px;
+            width: 0;
+            transition: width 0.2s ease-in-out;
+        }
 </style>
     </head>
     <body>
@@ -305,8 +319,11 @@
 
 
          
-         out.print("<center><video controls style=\"height:600px; width:700px;\""
+         out.print("<center><video id='video' controls ontimeupdate='updateProgressBar()' style=\"height:600px; width:700px;\""
                         + "<source src=/LMS_EduMe/videos/"+f+" type='video/mp4'></video></center>");
+                        out.println("<center><div class='progress-bar'>");
+                        out.println("<div class='progress-bar-fill'></div>");
+                        out.println("</div></center>");
          out.println("<center><h3> Chapter "+c+" : </a></center>");
          out.println("<center><h2>"+cn+" </a></center>");
          out.println("<br/>");
@@ -315,7 +332,68 @@
     rs.close();
     st.close();
     con.close();
-%>                
+%>
+<%
+   Integer chapname = (Integer) session.getAttribute("chapname");
+   if (chapname != null) {
+       chapname = 100 / chapname;
+   } else {
+       chapname = 100 / 5;   // Default value if "chapname" attribute is not set !!!!!! nantr change karuya ha
+   }
+   %>
+    
+    <script>
+        var video = document.getElementById('video');
+        var progressBarFill = document.querySelector('.progress-bar-fill');
+        var currentTime = 0;
+        var duration = 0;
+        var progress = 0;
+        var isVideoPlaying = false;
+        var updateTimer = null;
+        var chapnamelist;
+        if (video) {
+            video.addEventListener('play', function () {
+                isVideoPlaying = true;
+                updateTimer = setInterval(updateProgressBar, 1000); // Update progress every second
+            });
+
+            video.addEventListener('pause', function () {
+                if (isVideoPlaying) {
+                    isVideoPlaying = false;
+                    clearInterval(updateTimer); // Stop updating progress
+                    saveProgressToServer();
+                }
+            });
+        }
+
+        function updateProgressBar() {
+            if (video) {
+                currentTime = video.currentTime;
+                duration = video.duration;
+                chapnamelist = <%=chapname%>; 
+                progress = (currentTime / duration) * chapnamelist;
+                progressBarFill.style.width = progress + '%';
+            }
+        }
+
+        function saveProgressToServer() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '<%= request.getContextPath()%>/videocontent.jsp?link=<%=request.getParameter("link")%>', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        // Request completed successfully
+                        console.log('Progress saved to the server');
+                    } else {
+                        // Request encountered an error
+                        console.error('Error occurred while saving progress');
+                    }
+                }
+            };
+            xhr.send('progress=' + progress);
+        }
+    </script>
 <div class="sbtn">      
 <center><a href="Content.jsp"  class="button">Back to Subject</a</center>    
 </div> 
@@ -350,5 +428,67 @@
         </div>
         </div>
         </form>
+            <%
+    
+    if (request.getMethod().equalsIgnoreCase("post")) {
+        // Retrieve the progress value from the request parameter
+        String progressParam = request.getParameter("progress");
+        Double progress = null;
+        
+        if (progressParam != null && !progressParam.isEmpty()) {
+            progress = Double.parseDouble(progressParam);
+        }
+
+        // Database connection details
+        String jdbcUrl = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12627744";
+        String username = "sql12627744";
+        String password = "aeUIku5cCL";
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+            // Create a database connection
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(jdbcUrl, username, password);
+
+            // Prepare the SQL statement to insert or update the progress value
+            //String sql = "SELECT * FROM content WHERE grade =? AND sub = ? ";
+           
+            String sql = "Replace INTO video_progress (chap_id,progress) VALUES (?,?)";
+//           
+            stmt = conn.prepareStatement(sql);
+            
+            if (progress != null) {
+               stmt.setDouble(1, Double.parseDouble(request.getParameter("link")));
+                stmt.setDouble(2, progress);
+            } else {
+                // Handle the case when progress is null
+                stmt.setNull(1, Types.DOUBLE);
+               stmt.setNull(2, Types.DOUBLE);
+            }
+
+            // Execute the SQL statement
+            stmt.executeUpdate();
+
+            // Send a response indicating the progress was saved
+            response.getWriter().write("Progress saved successfully");
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Send a response indicating an error occurred
+            response.getWriter().write("Error occurred while saving progress");
+        } finally {
+            // Close the database resources
+            if (stmt != null) {
+                stmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        
+    }
+%>
     </body>
 </html>

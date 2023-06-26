@@ -271,36 +271,45 @@
         </style>
         
             <script type="text/javascript">
-        function updateTimer() {
-            var timerDisplay = document.getElementById("timer");
-
-            var currentTime = new Date();
-            var hours = currentTime.getHours();
-            var minutes = currentTime.getMinutes();
-            var seconds = currentTime.getSeconds();
-
-            // Add leading zeros if necessary
-            hours = (hours < 10 ? "0" : "") + hours;
-            minutes = (minutes < 10 ? "0" : "") + minutes;
-            seconds = (seconds < 10 ? "0" : "") + seconds;
-
-            timerDisplay.innerHTML = "Current Time: " + hours + ":" + minutes + ":" + seconds;
+        
+        
+//        function enableScriptlet() {
+//            document.getElementById("scriptletCode").style.display = "block";
+//        }
+       function enableScriptlet() {
+            document.getElementById("scriptletCode").style.display = "block";
+            document.getElementById("myButton").disabled = true;
         }
-
-        // Function to start the timer
-        function startTimer() {
-            updateTimer(); // Display initial time
-            setInterval(updateTimer, 1000); // Update timer every second
-        }
-
-        // Execute the div and start the timer automatically
-        window.onload = function() {
-            var div = document.getElementById("myDiv");
-            div.style.display = "block"; // Display the div
-
-            // Start the timer
-            startTimer();
-        };
+//        var minutes = 2; // Set the initial minutes
+//        var seconds = 0; // Set the initial seconds
+//
+//        // Function to update the timer
+//        function updateTimer() {
+//            var timerElement = document.getElementById("myButton");
+//
+//            // Display the timer in the specified <div> element
+//            timerElement.innerHTML = minutes + ":" + seconds;
+//
+//            // Decrease the seconds by 1
+//            seconds--;
+//
+//            // Check if minutes and seconds are less than 0
+//            if (minutes <= 0 && seconds < 0) {
+//                // Timer has expired, show popup
+//                timerElement.innerHTML = "Time's up!";
+//                alert("Time's up! This is the popup message.");
+//            } else {
+//                // Check if seconds are less than 0
+//                if (seconds < 0) {
+//                    // Decrease the minutes by 1 and set seconds to 59
+//                    minutes--;
+//                    seconds = 59;
+//                }
+//                // Call the updateTimer function again after 1 second (1000 milliseconds)
+//                setTimeout(updateTimer, 1000);
+//            }
+//        }
+    
     </script>
     </head>
     <body>
@@ -442,7 +451,10 @@
     out.print("<br>");
 %>
 </div>
-<div id="myDiv" style="display: none;">
+<!--<button onclick="enableScriptlet()">Take a Test</button>-->
+<button id="myButton" l onclick="enableScriptlet()" <%= request.getParameter("disabled") != null ? "disabled" : "" %>>Take a Test</button>
+<!--<div id="scriptletCode" style="display: none;">-->
+<div id="scriptletCode" style="<%= request.getParameter("disabled") != null ? "display:block;" : "display:none;" %>">
     <%
     
     try{
@@ -512,6 +524,7 @@
                out.print("Your score : "+score);
                 }
                 }
+<<<<<<< Upstream, based on origin/master
                 
                            String username = (String) session.getAttribute("username");
              if (username != null) 
@@ -524,6 +537,11 @@
                 }
          
                 
+=======
+//         
+
+            
+>>>>>>> 6295f06 First commit
             rs.close();
             st.close();
             con.close();
@@ -534,9 +552,17 @@
                     }
     
 %>
+<input type="submit" value="Submit" name="Submit" class="button" > 
+</div>
+<!--<script type="text/javascript">
+        updateTimer();
+    </script>-->
 
-             <input type="submit" value="Submit" name="Submit" class="button" > 
- </div>
+
+
+             
+             </div>
+ 
 <!--    </center>-->
     </div>
             <div class="footer">
