@@ -26,7 +26,7 @@
 
         }
         .main{
-            height:460px;
+            height:560px;
             width:350px;
 
             background-color: #ECF2FF;
@@ -68,7 +68,7 @@
             transform: translateX(-50%);
         }
 
-        .btns {
+        .btn {
             border-style: none;
             border-radius: 10px; 
             background-color:#0954aa; 
@@ -134,6 +134,10 @@
                 
             </tr>
             <tr>
+                <td style="font-size: large">&nbsp;</td>
+               
+            </tr>
+            <tr>
                 <td style="background-color: #FFFFFF"><div><i class="fa-solid fa-unlock-keyhole"></i>
                     <input type="password" name="t4" placeholder="Confirm Password"  style="border-style: hidden;" /></div></td>
                 
@@ -152,7 +156,7 @@
         <br />
         <br />    
         <div class="btn" >
-            <input type="submit" class="btns" value="Sign up"/>
+            <input type="submit"  value="Sign up"/>
         </div>
         <br>
         <p style="font-family: 'PT Sans Caption', sans-serif">Already have an account? <a href="TeacherLogin.jsp">SignIn</a></p>

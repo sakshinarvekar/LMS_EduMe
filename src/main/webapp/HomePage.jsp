@@ -257,8 +257,8 @@
                 <li class="dropdown">
       <a href="#">Teach On EduMe &#9662;</a>
       <ul class="dropdown-menu">
-        <li><a href="#">SignIn</a></li>
-        <li><a href="#">SignUp</a></li>
+        <li><a href="TeacherLogin.jsp">SignIn</a></li>
+        <li><a href="TeacherRegister.jsp">SignUp</a></li>
       </ul>
     </li> 
                 <li><a href="SignUpnew.html" >SignUp</a></li>

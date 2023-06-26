@@ -58,11 +58,11 @@ public class sign extends HttpServlet {
                
                 if(dbun.equals(un) && dbpass.equals(pass))
                 {                    
-                    response.sendRedirect("homepage.html");
+                    response.sendRedirect("HomePage.html");
                 }
                 else
                 {
-                    response.sendRedirect("SignUp.html");
+                    response.sendRedirect("SignUpnew.html");
                 }
                 st.close();
                 con.close();

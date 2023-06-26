@@ -23,7 +23,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
 }
 .main{
-    height:460px;
+    height:540px;
     width:350px;
      
     background-color: #ECF2FF;
@@ -75,7 +75,7 @@ input{
 
     .btns {
         border-style: none;
-        border-radius: 10px; 
+        border-radius: 6px; 
         background-color:#0954aa; 
         border-color: #CCCCFF; 
         font-weight: bold; 
@@ -89,6 +89,26 @@ input{
         opacity: 0.5;
         
     }
+    .button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #FFFFFF;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.button:active {
+  background-color: #3e8e41;
+}
         
 </style>
     </head>
@@ -134,7 +154,11 @@ input{
                 <td style="background-color: #FFFFFF"><div><i class="fa-solid fa-unlock-keyhole"></i>
                     <input type="password" name="t3" placeholder="Password"  style="border-style: hidden;" /></div></td>
                 
-            </tr>   
+            </tr>  
+            <tr>
+                <td style="font-size: large">&nbsp;</td>
+               
+            </tr>
             <tr>
                 <td style="background-color: #FFFFFF"><div><i class="fa-solid fa-unlock-keyhole"></i>
                     <input type="password" name="t4" placeholder="Confirm Password"  style="border-style: hidden;" /></div></td>
@@ -154,8 +178,9 @@ input{
         <br />
         <br />    
         <div class="btn" >
-            <input type="submit" class="btns" value="Sign up"/>
+            <input type="submit" class="button" value="Sign up"/>
         </div>
+        <p style="font-family: 'PT Sans Caption', sans-serif">Already have an account?<a href="sign.html">SignIn here</a></p>
     </div>
     </div>
 </div>
