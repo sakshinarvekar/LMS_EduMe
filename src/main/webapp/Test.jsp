@@ -218,6 +218,56 @@
         display: none;
     }
         }
+        .drophead{
+            margin-right: 250px;
+        }
+        .drophead h2{
+            
+            margin-top : 30px;
+            color:rgb(232,108,58);
+        }
+        
+        .quizdropdown{
+            min-height: 600px;
+            margin-bottom: 50px;
+            text-align: center;
+            margin-left: 350px;
+        }
+        
+        .quizdropdown h1{
+            background-color:rgb(3,190,147);
+            color: white;
+            width:400px;
+            border-radius: 50px;
+            margin-left: 220px;
+            margin-bottom: 30px;
+        }
+        .quizdropdown h3{
+            color:rgb(26,54,88);
+            
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: rgb(3,190,147);
+            color: #FFFFFF;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 350px;
+          }
+
+          .button:hover {
+            background-color: #45a049;
+          }
+
+          .button:active {
+            background-color: #3e8e41;
+          }
         </style>
         
             <script type="text/javascript">
@@ -311,8 +361,9 @@
   </nav>
 </header>
             <div class="quizdropdown">
-                <center>
-                   
+<!--                <center>-->
+                    <h1>Apply Filter : </h1>
+                    <div class="drophead">
                     <select class="form-control1" name="subject"  onchange="this.form.submit()" style="width:250px; height: 40px;">
                         <option value=""<% if ("".equals(session.getAttribute("selectedsub"))) out.print("selected"); %> >Select Subject</option>
                         <%
@@ -380,16 +431,17 @@
                                 out.print(e);
                             }
                         %>
-                    </select>
+                    </select><br> 
                    
     <%
     //String selectedChapter = request.getParameter("chapters");
     //String selectedSub = request.getParameter("subject");
-    out.print("Selected Subject: " + s + "<br>");
-    out.print("Selected Chapter: " + selectedChapter);
+    
+    out.print("<h4>"+"Selected Subject: " + s + "</h4>");
+    out.print("<h4>"+"Selected Chapter: " + selectedChapter+"</h4><br>");
     out.print("<br>");
 %>
-       
+</div>
 <div id="myDiv" style="display: none;">
     <%
     
@@ -481,9 +533,9 @@
     
 %>
 
-             <input type="submit" value="Submit" name="Submit" > 
+             <input type="submit" value="Submit" name="Submit" class="button" > 
  </div>
-    </center>
+<!--    </center>-->
     </div>
             <div class="footer">
         <div class="foot1">
