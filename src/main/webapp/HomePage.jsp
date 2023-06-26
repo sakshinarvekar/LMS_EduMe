@@ -252,20 +252,8 @@
         <a href="homepage.html" ><img class="logo" src="/LMS_EduMe/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px;"></a>
         <nav>
             <ul class="nav">
-                       <%//session = request.getSession();
 
-                    String username = (String) session.getAttribute("username");
-                         
-             %>
-             <%
-             if (username!=null)
-                          { 
-                          %>
-                          <li><a href="#" ><%= username%></a></li>
-                          <%
-                            }
-
-             %>
+             
                 
                 <li><a href="homepage.html" >Home</a></li>
                 <li><a href="#wave" >Grades</li>
@@ -278,7 +266,26 @@
     </li> 
                 <li><a href="SignUpnew.html" >SignUp</a></li>
                 <li><a href="sign.html" >SignIn</a></li>
-                <li><a href="#" >Account</a></li>
+                <%
+                 //session = request.getSession();
+             String username = (String) session.getAttribute("username");
+             if (username!=null)
+                          { 
+                          %>
+                          <li class="dropdown"><a href="#" ><%= username%></a>
+                          <ul class="dropdown-menu">
+ <%     
+String action = request.getParameter("action");
+    if (action != null && action.equals("logout")) {
+        session.invalidate();
+        response.sendRedirect("HomePage.jsp");
+    }
+    %>
+                            <li><a href="?action=logout">Logout</a></li>
+                        </ul></li>
+                          <%
+                            }
+             %>
             </ul>
         </nav>
     </header><hr style="color: black; margin-top: 15px; width: 100%;">
