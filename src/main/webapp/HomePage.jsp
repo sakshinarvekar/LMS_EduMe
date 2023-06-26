@@ -252,6 +252,21 @@
         <a href="homepage.html" ><img class="logo" src="/LMS_EduMe/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px;"></a>
         <nav>
             <ul class="nav">
+                       <%//session = request.getSession();
+
+                    String username = (String) session.getAttribute("username");
+                         
+             %>
+             <%
+             if (username!=null)
+                          { 
+                          %>
+                          <li><a href="#" ><%= username%></a></li>
+                          <%
+                            }
+
+             %>
+                
                 <li><a href="homepage.html" >Home</a></li>
                 <li><a href="#wave" >Grades</li>
                 <li class="dropdown">
@@ -379,5 +394,6 @@
         <p>© Copyright 2023 | Designed by Sakshi Narvekar and Rupali Vaje</p>
     </div>
     </form>
+    
     </body>
 </html>
