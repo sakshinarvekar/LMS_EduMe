@@ -58,7 +58,7 @@ public class sign extends HttpServlet {
                
                 if(dbun.equals(un) && dbpass.equals(pass))
                 {                    
-                    response.sendRedirect("HomePage.html");
+                    response.sendRedirect("/LMS_EduMe//HomePage.jsp");
                 }
                 else
                 {
