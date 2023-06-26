@@ -13,7 +13,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://kit.fontawesome.com/c807f93a6d.js" crossorigin="anonymous"></script>
         <style>
-                
+/*           *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: 'PT Sans Caption', sans-serif;
+           }     */
 
         .btn {
             text-align: center;

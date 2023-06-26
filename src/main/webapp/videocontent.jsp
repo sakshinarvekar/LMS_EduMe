@@ -16,26 +16,26 @@
             @import url("https://fontawesome.com/");
          @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Jost:wght@100;200;300;400;500;600;700&family=Karla:wght@200;300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=PT+Sans+Caption:wght@400;700&display=swap');
         /* Button Styles */
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: #FFFFFF;
-  font-size: 16px;
-  text-align: center;
-  text-decoration: none;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+        .sbtn .button {
+          display: inline-block;
+          padding: 10px 20px;
+        /*  background-color: #4CAF50;*/
+          color: #FFFFFF;
+          font-size: 16px;
+          text-align: center;
+          text-decoration: none;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
 
-.button:hover {
-  background-color: #45a049;
-}
+        .sbtn.button:hover {
+          background-color: #45a049;
+        }
 
-.button:active {
-  background-color: #3e8e41;
-}
+        .sbtn .button:active {
+          background-color: #3e8e41;
+        }
        
          
        
@@ -167,7 +167,8 @@
             height: 250px;
             width: 100%;
             background-color:rgb(26,54,88);
-            bottom: 0px;  
+            bottom: 0px; 
+            margin-bottom: 0px;
 
         }
         .footer li, a{
@@ -213,7 +214,8 @@
             padding: 5px;
         }
         .vidcontent{
-            margin-top:-180px;
+            min-height: 600px;
+            height: max-content;
         }
 </style>
     </head>
@@ -314,10 +316,39 @@
     st.close();
     con.close();
 %>                
+<div class="sbtn">      
 <center><a href="Content.jsp"  class="button">Back to Subject</a</center>    
-            
-
+</div> 
  </div>
+
+        <div>
+            <div class="footer">
+                <div class="foot1">
+                    <img class="logo" src="/LMS_EduMe/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px; border-radius: 25px;"><br><br>
+                    <h4>Unlock your true potential through the power of education with EduMe</h3>
+                </div>
+                <div class="foot2">
+                    <h4>Quick Links</h3><br>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">About Us</a></li>
+                        </ul>
+                </div>
+                <div class="foot3">
+                    <h4>Socials</h3><br>
+                        <ul>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                        </ul>
+                </div>
+            </div>       
+            <div class="copyright">
+            <hr>
+            <p>© Copyright 2023 | Designed by Sakshi Narvekar and Rupali Vaje</p>
+        </div>
+        </div>
         </form>
     </body>
 </html>
