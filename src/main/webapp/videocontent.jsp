@@ -13,6 +13,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Video Content</title>
         <style>
+            @import url("https://fontawesome.com/");
+         @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Jost:wght@100;200;300;400;500;600;700&family=Karla:wght@200;300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=PT+Sans+Caption:wght@400;700&display=swap');
         /* Button Styles */
 .button {
   display: inline-block;
@@ -34,9 +36,8 @@
 .button:active {
   background-color: #3e8e41;
 }
-        <style>
-         @import url("https://fontawesome.com/");
-         @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Jost:wght@100;200;300;400;500;600;700&family=Karla:wght@200;300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=PT+Sans+Caption:wght@400;700&display=swap');
+       
+         
        
          *{
             margin: 0px;
@@ -227,10 +228,10 @@
         <a href="homepage.html" ><img class="logo" src="/LMS_EduMe/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px;"></a>
         <nav>
             <ul class="nav">
-                <li><a href="homepage.html" >Home</a></li>
+                <li><a href="HomePage.html" >Home</a></li>
                 <li><a href="#wave" >Grades</a></li>
                 <li><a href="#" >Teach On EduMe</a></li>
-                <li><a href="Signupnew.html" >SignUp</a></li>
+                <li><a href="SignUpnew.html" >SignUp</a></li>
                 <li><a href="sign.html" >SignIn</a></li>
                 <li><a href="#" >Account</a></li>
             </ul>
