@@ -454,7 +454,6 @@
             int count = 1;
             int score = 0;
             
-            //String [] userSelection = {request.getParameter("r"+count)};
             List<String> answer = new ArrayList<>();
             List<String> selectedans = new ArrayList<>();
             while(rs.next())
@@ -504,13 +503,7 @@
                             }
                         }
             
-//            if(score>0)
-//            {
-//                out.print("Your score "+score);
-//                out.print(answer);
-//                out.print(selectedans);
-//            }
-                
+
                String btn = request.getParameter("Submit");
                if(btn!=null)
                 {
@@ -519,9 +512,18 @@
                out.print("Your score : "+score);
                 }
                 }
+                
+                           String username = (String) session.getAttribute("username");
+             if (username != null) 
+                {
+                    out.print("Username : " + username);
+                    out.print("Score : "+score);
+                    out.print("Grade : "+g);
+                    out.print("Subject : "+s);
+                    out.print("Chapter : "+c);
+                }
          
-
-            
+                
             rs.close();
             st.close();
             con.close();
