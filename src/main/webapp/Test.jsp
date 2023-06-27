@@ -458,7 +458,9 @@
     <%
     
     try{
-            String Query="select * from quiz where sub='"+s+"' AND chp_name='"+selectedChapter+"' ";
+            //String Query="select * from quiz where sub='"+s+"' AND chp_name='"+selectedChapter+"' ";
+            String Query = "SELECT * FROM quiz WHERE sub = '" + s + "' AND chp_name = '" + selectedChapter + "' ORDER BY RAND() LIMIT 10";
+
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12627744", "sql12627744", "aeUIku5cCL");
             Statement st = con.createStatement();
@@ -524,7 +526,7 @@
                out.print("Your score : "+score);
                 }
                 }
-<<<<<<< Upstream, based on origin/master
+
                 
                            String username = (String) session.getAttribute("username");
              if (username != null) 
@@ -536,12 +538,8 @@
                     out.print("Chapter : "+c);
                 }
          
-                
-=======
-//         
+          
 
-            
->>>>>>> 6295f06 First commit
             rs.close();
             st.close();
             con.close();

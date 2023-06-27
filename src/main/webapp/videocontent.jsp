@@ -498,9 +498,7 @@
         }
         
     }
-     out.print(g);
-     out.print(s);
-     out.print(n);
+    
 %>
     </body>
 </html>
