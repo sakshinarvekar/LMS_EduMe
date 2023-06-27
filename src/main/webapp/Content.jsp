@@ -386,7 +386,7 @@
         chaptername.add(cn);
         out.print("<div class='contentlist' >");
          out.println("<p class='chapter'>Chapter : " +c+"</p>");
-         out.println("<a class='chapter-link' href='videocontent.jsp?link="+count+"'>"+cn+" </a><br>");
+         out.println("<a class='chapter-link' href='videocontent.jsp?link="+count+"&cname="+cn+"'>"+cn+" </a><br>");
          out.println("<br/>");
          count++;
          out.print("<hr style='width:95%; margin-left:12px;'/></div>");
@@ -395,6 +395,7 @@
          session.setAttribute("Grade", request.getParameter("grade"));
          session.setAttribute("Subject",request.getParameter("sub"));
          session.setAttribute("chapname", chaptername.size());
+         
     
     
     rs.close();
