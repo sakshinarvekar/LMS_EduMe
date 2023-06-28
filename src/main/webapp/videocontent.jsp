@@ -266,7 +266,7 @@
         <a href="HomePage.jsp" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-chart-line fa-fw me-3"></i><span>Home</span></a
         </a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+        <a href="ProgressBar.jsp" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-chart-line fa-fw me-3"></i><span>User Profile</span></a
         </a>
         <a href="#" class="list-group-item list-group-item-action py-2 ripple">
