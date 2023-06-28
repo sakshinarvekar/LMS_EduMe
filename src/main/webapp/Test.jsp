@@ -514,6 +514,17 @@
                            String username = (String) session.getAttribute("username");
              if (username != null) 
                 {
+                    
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");   
+                    Statement stmt = con.createStatement();
+                    stmt.execute("insert into result values(default,'"+username+"','"+g+"','"+s+"','"+c+"','"+score+"',CURRENT_TIMESTAMP)");
+                    out.print("Score inserted");
+                    stmt.close();
+                    conn.close();
+                
+                
+                
                     out.print("Username : " + username);
                     out.print("Score : "+score);
                     out.print("Grade : "+g);
