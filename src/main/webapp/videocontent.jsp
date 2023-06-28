@@ -306,7 +306,7 @@
     int id = 0;
     
     Class.forName("com.mysql.cj.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12627744","sql12627744","aeUIku5cCL");
+    Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246","sql12629246","nSsVYGGiJc");
 
     Statement st = con.createStatement();
 
@@ -432,6 +432,7 @@
         </div>
         </form>
             <%
+                String u = (String) session.getAttribute("username");
     String n = request.getParameter("cname");
     if (request.getMethod().equalsIgnoreCase("post")) {
         // Retrieve the progress value from the request parameter
@@ -443,9 +444,9 @@
         }
 
         // Database connection details
-        String jdbcUrl = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12627744";
-        String username = "sql12627744";
-        String password = "aeUIku5cCL";
+        String jdbcUrl = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246";
+        String username = "sql12629246";
+        String password = "nSsVYGGiJc";
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -459,24 +460,25 @@
             //String sql = "SELECT * FROM content WHERE grade =? AND sub = ? ";
            
 //            String sql = "Replace INTO video_progress (chap_id,progress,subject) VALUES (?,?)";
-          String sql= "REPLACE INTO video_progress (id, progress, subject, grade) Values (?, ?, ?, ?) ";
+          String sql= "REPLACE INTO video_progress (id, progress, subject, grade, username) Values (?, ?, ?, ?, ?) ";
                               
             stmt = conn.prepareStatement(sql);
             out.print(n);
             if (progress != null) {
-               stmt.setInt(1, id);
+                stmt.setInt(1, id);
                 stmt.setDouble(2, progress);
                 stmt.setString(3, s);
-                stmt.setString(4, g);          
+                stmt.setString(4, g); 
+                stmt.setString(5,u);
             }
             else {
                 // Handle the case when progress is null
                 stmt.setNull(1, Types.DOUBLE);
-               stmt.setNull(2, Types.VARCHAR);
-               stmt.setNull(3, Types.DOUBLE);
-                stmt.setNull(4, Types.DOUBLE);
-                stmt.setNull(5, Types.DOUBLE);
-                stmt.setNull(6, Types.DOUBLE);
+                stmt.setNull(2, Types.DOUBLE);
+                stmt.setNull(3, Types.VARCHAR);
+                stmt.setNull(4, Types.VARCHAR);
+                stmt.setNull(5, Types.VARCHAR);
+                
             }
 
             // Execute the SQL statement
