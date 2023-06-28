@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : ProgressBar
     Created on : 28-Jun-2023, 6:53:54 pm
     Author     : rupal
@@ -41,18 +41,17 @@
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("SELECT subject, SUM(progress) AS total_progress FROM video_progress WHERE username = '" + user + "' GROUP BY subject");
-         
+        //ResultSet rs = st.executeQuery("SELECT subject, SUM(progress) AS total_progress FROM video_progress WHERE username = '" + user + "' GROUP BY subject");
+            ResultSet rs = st.executeQuery("SELECT subject, ROUND(SUM(progress) * 100, 2) AS total_progress FROM video_progress WHERE username = '"+user+"' GROUP BY subject");
         while (rs.next()) {
-            double progress = rs.getDouble("progress");
-            String subject = rs.getString("Subject");
-            String grade = rs.getString("grade");
+            double progress = rs.getDouble("total_progress");
+            String subject = rs.getString("subject");
 
             // Calculate the progress percentage
             int progressPercentage = (int) (progress * 100);
 
             // Display progress bar and text
-            out.print("<p>" + subject + " - " + grade + "</p>");
+            out.print("<p>" + subject + "</p>");
             out.print("<div class='progress-bar'>");
             out.print("<div class='progress-bar-fill' style='width: " + progressPercentage + "%'></div>");
             out.print("<div class='progress-bar-text'>" + progressPercentage + "%</div>");
