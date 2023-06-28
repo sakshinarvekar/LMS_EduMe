@@ -269,6 +269,9 @@
             background-color: #3e8e41;
           }
         </style>
+        <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-peer/simplepeer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         
             <script type="text/javascript">
         
@@ -280,35 +283,15 @@
             document.getElementById("scriptletCode").style.display = "block";
             document.getElementById("myButton").disabled = true;
         }
-//        var minutes = 2; // Set the initial minutes
-//        var seconds = 0; // Set the initial seconds
-//
-//        // Function to update the timer
-//        function updateTimer() {
-//            var timerElement = document.getElementById("myButton");
-//
-//            // Display the timer in the specified <div> element
-//            timerElement.innerHTML = minutes + ":" + seconds;
-//
-//            // Decrease the seconds by 1
-//            seconds--;
-//
-//            // Check if minutes and seconds are less than 0
-//            if (minutes <= 0 && seconds < 0) {
-//                // Timer has expired, show popup
-//                timerElement.innerHTML = "Time's up!";
-//                alert("Time's up! This is the popup message.");
-//            } else {
-//                // Check if seconds are less than 0
-//                if (seconds < 0) {
-//                    // Decrease the minutes by 1 and set seconds to 59
-//                    minutes--;
-//                    seconds = 59;
-//                }
-//                // Call the updateTimer function again after 1 second (1000 milliseconds)
-//                setTimeout(updateTimer, 1000);
-//            }
-//        }
+       function handleButtonClick() {
+            // Show success message using Swal.fire()
+            Swal.fire(
+              'Good job!',
+              'You have successfully submitted the test!!',
+              'success'
+            );
+          
+        }
     
     </script>
     </head>
@@ -550,16 +533,8 @@
                     }
     
 %>
-<input type="submit" value="Submit" name="Submit" class="button" > 
-<script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<input type="submit" value="Submit" onclick="handleButtonClick()" name="Submit" class="button" > 
 
-    Swal.fire(
-  'Good job!',
-  'You clicked the button!',
-  'success'
-)
-</script>
 </div>
 
 
