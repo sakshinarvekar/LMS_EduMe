@@ -88,7 +88,24 @@
             margin-top: 20px;
             
         }
+        .back{
+            display:flex;
+           margin-top: -37px;
+            background-color: #ff7f50;
+            color: #fff;
+            border: none;
         
+            border-radius: 3px;
+            cursor: pointer;
+            width: 145px;
+            height:40px;
+            text-decoration: none;
+            margin-left: 250px;
+            
+        .back:hover {
+            background-color: #ff6347;
+            margin-left: 70px;
+        }
     </style>
 </head>
 <body>
@@ -127,6 +144,7 @@
         <input type="text" name="correctOption"  required><br>
         
         <input type="submit" value="Save Question">
+        <a href="TeacherpPanel.jsp" class="back" >Back to HomePage</a>
         </div>
     </form>
 
