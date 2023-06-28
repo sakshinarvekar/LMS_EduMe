@@ -42,13 +42,13 @@
         Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
         Statement st = con.createStatement();
         //ResultSet rs = st.executeQuery("SELECT subject, SUM(progress) AS total_progress FROM video_progress WHERE username = '" + user + "' GROUP BY subject");
-            ResultSet rs = st.executeQuery("SELECT subject, ROUND(SUM(progress) * 100, 2) AS total_progress FROM video_progress WHERE username = '"+user+"' GROUP BY subject");
+            ResultSet rs = st.executeQuery("SELECT subject, ROUND(SUM(progress), 2) AS total_progress FROM video_progress WHERE username = '"+user+"' GROUP BY subject");
         while (rs.next()) {
             double progress = rs.getDouble("total_progress");
             String subject = rs.getString("subject");
 
             // Calculate the progress percentage
-            int progressPercentage = (int) (progress * 100);
+            int progressPercentage = (int) (progress);
 
             // Display progress bar and text
             out.print("<p>" + subject + "</p>");
