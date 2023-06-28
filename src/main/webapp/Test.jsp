@@ -551,10 +551,16 @@
     
 %>
 <input type="submit" value="Submit" name="Submit" class="button" > 
+<script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    Swal.fire(
+  'Good job!',
+  'You clicked the button!',
+  'success'
+)
+</script>
 </div>
-<!--<script type="text/javascript">
-        updateTimer();
-    </script>-->
 
 
 
@@ -591,16 +597,5 @@
     </div>
         </form>
     </body>
-<!--<script>
-    function toggleButtonVisibility() {
-      var condiv = document.getElementByName("contentlist");
-      var submitButton = document.getElementByName("Submit");
 
-      if (condiv.value === "") {
-        submitButton.style.display = "none";
-      } else {
-        submitButton.style.display = "block";
-      }
-    }
-  </script>-->
 </html>

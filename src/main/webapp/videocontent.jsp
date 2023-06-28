@@ -272,7 +272,9 @@
         <a href="#" class="list-group-item list-group-item-action py-2 ripple">
           <i class="fas fa-chart-pie fa-fw me-3"></i><span>Syllabus</span>
         </a>
-        <a href="Test.jsp?grade=<%=request.getParameter("grade")%>" class="list-group-item list-group-item-action py-2 ripple"
+        <%String g = (String)session.getAttribute("Grade");
+        %>
+        <a href="Test.jsp?grade=<%=g%>" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Test</span></a
         >
         <a href="#" class="list-group-item list-group-item-action py-2 ripple"
@@ -297,7 +299,7 @@
 %>           
 
 <%
-    String g = (String)session.getAttribute("Grade");
+    //String g = (String)session.getAttribute("Grade");
     String s = (String)session.getAttribute("Subject");
 //    List storedValue = (List) session.getAttribute("Chap");
     String clicklink = request.getParameter("link");
