@@ -468,7 +468,7 @@
 
         // Database connection details
         String jdbcUrl = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246";
-        String username = "sql12629246";
+        String user = "sql12629246";
         String password = "nSsVYGGiJc";
 
         Connection conn = null;
@@ -477,7 +477,7 @@
         try {
             // Create a database connection
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(jdbcUrl, username, password);
+            conn = DriverManager.getConnection(jdbcUrl, user, password);
 
             // Prepare the SQL statement to insert or update the progress value
             //String sql = "SELECT * FROM content WHERE grade =? AND sub = ? ";

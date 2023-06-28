@@ -279,10 +279,10 @@
 //        function enableScriptlet() {
 //            document.getElementById("scriptletCode").style.display = "block";
 //        }
-       function enableScriptlet() {
-            document.getElementById("scriptletCode").style.display = "block";
-            document.getElementById("myButton").disabled = true;
-        }
+//       function enableScriptlet() {
+//            document.getElementById("scriptletCode").style.display = "block";
+//            document.getElementById("myButton").disabled = true;
+//        }
        function handleButtonClick() {
             // Show success message using Swal.fire()
             Swal.fire(
@@ -435,9 +435,9 @@
 %>
 </div>
 <!--<button onclick="enableScriptlet()">Take a Test</button>-->
-<button id="myButton" l onclick="enableScriptlet()" <%= request.getParameter("disabled") != null ? "disabled" : "" %>>Take a Test</button>
+<!--<button id="myButton" l onclick="enableScriptlet()" <%= request.getParameter("disabled") != null ? "disabled" : "" %>>Take a Test</button>-->
 <!--<div id="scriptletCode" style="display: none;">-->
-<div id="scriptletCode" style="<%= request.getParameter("disabled") != null ? "display:block;" : "display:none;" %>">
+<!--<div id="scriptletCode" style="<%= request.getParameter("disabled") != null ? "display:block;" : "display:none;" %>">-->
     <%
     
     try{
@@ -506,12 +506,7 @@
                 {
                if(btn.equals("Submit"))
                {
-               out.print("Your score : "+score);
-                }
-                }
-
-                
-                           String username = (String) session.getAttribute("username");
+                String username = (String) session.getAttribute("username");
              if (username != null) 
                 {
                     
@@ -531,9 +526,11 @@
                     out.print("Subject : "+s);
                     out.print("Chapter : "+c);
                 }
-         
-          
+               out.print("Your score : "+score);
+                }
+                }
 
+              
             rs.close();
             st.close();
             con.close();
