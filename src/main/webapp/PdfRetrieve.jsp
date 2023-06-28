@@ -13,6 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        
         <form action="http://localhost:8080/LMS_EduMe/pdfRetrieve" method="post">
             Enter grade : <input type="text" name="t1"><br>
             Enter subject : <input type="text" name="t2"><br>
