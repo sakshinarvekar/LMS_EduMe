@@ -135,6 +135,37 @@
             text-decoration: none;
             border-radius: 5px;
         }
+        .logged-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+
+        .logged-info .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .logged-info .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #FFF;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .logged-info .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+        }
+
+        .logged-info .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
     </style>
 </head>
 <body>
@@ -163,11 +194,31 @@
             <div class="photo">
                 <h1 class="subject">Maths</h1>
             </div>
-            <div class="photo">
-                <h1 class="subject">Science</h1>
+            <div class="logged-info">
+        <div class="dropdown">
+            <%
+    String username = (String) session.getAttribute("username");
+             if (username!=null )
+             {
+             %>
+             <a href ="#" class="dropbtn"><%= username%></a>
+            <div class="dropdown-content">
+                <%
+   String action = request.getParameter("action");
+    if (action != null && action.equals("logout")) {
+        session.invalidate();
+        response.sendRedirect("TeacherpPanel.jsp");
+    }
+
+%>
+            
+<!--                <a href="#">Profile</a>-->
+                <a href="TeacherPanel.jsp?action=logout">Logout</a>
+                <%
+                    }
+              %>
             </div>
         </div>
     </div>
-    <a href="#" class="logged-info">Logged Info</a>
 </body>
 </html>
