@@ -276,6 +276,7 @@
                           <ul class="dropdown-menu">
  <%     
 String action = request.getParameter("action");
+  session.setAttribute("action", action);
     if (action != null && action.equals("logout")) {
         session.invalidate();
         response.sendRedirect("HomePage.jsp");

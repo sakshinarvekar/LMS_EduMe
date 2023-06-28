@@ -13,7 +13,7 @@
     <title>Profile Page</title>
     <style>
         .progress-bar {
-            width: 100%;
+            width: 70%;
             background-color: #f1f1f1;
             border: 1px solid #ccc;
             height: 30px;

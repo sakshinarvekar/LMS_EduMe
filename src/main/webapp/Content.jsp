@@ -267,11 +267,36 @@
         <nav>
             <ul class="nav">
                 <li><a href="homepage.html" >Home</a></li>
-                <li><a href="#wave" >Grades</a></li>
-                <li><a href="#" >Teach On EduMe</a></li>
-                <li><a href="Signupnew.html" >SignUp</a></li>
+                <li><a href="#wave" >Grades</li>
+                <li class="dropdown">
+                    <a href="#">Teach On EduMe &#9662;</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="TeacherLogin.jsp">SignIn</a></li>
+                        <li><a href="TeacherRegister.jsp">SignUp</a></li>
+                    </ul>
+                </li> 
+                <li><a href="SignUpnew.html" >SignUp</a></li>
                 <li><a href="sign.html" >SignIn</a></li>
-                <li><a href="#" >Account</a></li>
+                    <%
+                        //session = request.getSession();
+                        String username = (String) session.getAttribute("username");
+                        if (username != null) {
+                    %>
+                <li class="dropdown"><a href="#" ><%= username%></a>
+                    <ul class="dropdown-menu">
+                        <%
+                            String action = request.getParameter("action");
+                            session.setAttribute("action", action);
+                            if (action != null && action.equals("logout")) {
+                                session.invalidate();
+                                response.sendRedirect("HomePage.jsp");
+                            }
+                        %>
+                        <li><a href="?action=logout">Logout</a></li>
+                    </ul></li>
+                    <%
+                        }
+                    %>
             </ul>
         </nav>
       </header><hr style="color: black; margin-top: 15px; width: 100%;">
@@ -288,11 +313,11 @@
         <a href="HomePage.jsp" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-chart-line fa-fw me-3"></i><span>Home</span></a
         </a>
-        <a href="ProgressBar.jsp" class="list-group-item list-group-item-action py-2 ripple"
+        <a href="Profile.jsp" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-chart-line fa-fw me-3"></i><span>User Profile</span></a
         </a>
         <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-          <i class="fas fa-chart-pie fa-fw me-3"></i><span>Syllabus</span>
+          <i class="fas fa-chart-pie fa-fw me-3"></i><span>Resources</span>
         </a>
         <a href="Test.jsp?grade=<%=request.getParameter("grade")%>" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Test</span></a
@@ -301,12 +326,8 @@
           ><i class="fas fa-globe fa-fw me-3"></i><span>Result</span></a
         >
         <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-building fa-fw me-3"></i><span>Logout</span></a
-        >
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-calendar fa-fw me-3"></i><span>Help</span></a
         >
-        
       </div>
     </div>
   </nav>
