@@ -338,7 +338,7 @@
         <a href="Test.jsp?grade=<%=request.getParameter("grade")%>" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Test</span></a
         >
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+        <a href="ViewScore.jsp" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-globe fa-fw me-3"></i><span>Result</span></a
         >
         <a href="#" class="list-group-item list-group-item-action py-2 ripple"
@@ -442,7 +442,7 @@
     
     try{
             //String Query="select * from quiz where sub='"+s+"' AND chp_name='"+selectedChapter+"' ";
-            String Query = "SELECT * FROM quiz WHERE sub = '" + s + "' AND chp_name = '" + selectedChapter + "' ORDER BY RAND() LIMIT 10";
+            String Query = "SELECT * FROM quiz WHERE sub = '" + s + "' AND chp_name = '" + selectedChapter + "' ORDER BY RAND() LIMIT 5";
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
@@ -514,19 +514,12 @@
                     Connection conn = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");   
                     Statement stmt = con.createStatement();
                     stmt.execute("insert into result values(default,'"+username+"','"+g+"','"+s+"','"+c+"','"+score+"',CURRENT_TIMESTAMP)");
-                    out.print("Score inserted");
+                    //out.print("Score inserted");
                     stmt.close();
-                    conn.close();
+                    conn.close();  
                 
-                
-                
-                    out.print("Username : " + username);
-                    out.print("Score : "+score);
-                    out.print("Grade : "+g);
-                    out.print("Subject : "+s);
-                    out.print("Chapter : "+c);
                 }
-               out.print("Your score : "+score);
+               
                 }
                 }
 
