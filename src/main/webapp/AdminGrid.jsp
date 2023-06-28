@@ -13,7 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="" method="post">
+        <form action="" method="post" >
             Enter Grade : <input type="text" name="t1"><br><!-- comment -->
             Enter Subject : <input type="text" name="t2"><br>
             <input type="submit" value="Submit">
