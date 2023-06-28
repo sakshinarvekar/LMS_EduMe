@@ -14,9 +14,12 @@
     </head>
     <body>
         <h2>Edit Record</h2>
+        <%!
+            String g, s, c, cn, v, id;
+        %>
         <%
             try {
-                String id = request.getParameter("id");
+                id = request.getParameter("id");
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
                 Statement st = con.createStatement();
@@ -26,67 +29,48 @@
                 ResultSet rs = stmt.executeQuery();
 
                 if (rs.next()) {
-                    String grade = rs.getString("grade");
-                    String subject = rs.getString("sub");
-                    String chapterNo = rs.getString("chp_no");
-                    String chapterName = rs.getString("chp_name");
-                    String video = rs.getString("video");
-
+                    g = rs.getString("grade");
+                    s = rs.getString("sub");
+                    c = rs.getString("chp_no");
+                    cn = rs.getString("chp_name");
+                    v = rs.getString("video");
+                    out.print(id);
                     %>
                     <form action="edit.jsp" method="post">
                         <input type="hidden" name="id" value="<%= id %>">
-                        Grade: <input type="text" name="grade" value="<%= grade %>"><br>
-                        Subject: <input type="text" name="subject" value="<%= subject %>"><br>
-                        Chapter No: <input type="text" name="chapterNo" value="<%= chapterNo %>"><br>
-                        Chapter Name: <input type="text" name="chapterName" value="<%= chapterName %>"><br>
-                        Video: <input type="text" name="video" value="<%= video %>"><br>
+                        Grade: <input type="text" name="grade" value="<%= g %>"><br>
+                        Subject: <input type="text" name="subject" value="<%= s %>"><br>
+                        Chapter No: <input type="text" name="chapterNo" value="<%= c %>"><br>
+                        Chapter Name: <input type="text" name="chapterName" value="<%= cn %>"><br>
+                        Video: <input type="text" name="video" value="<%= v %>"><br>
                         <input type="submit" value="Update">
                     </form>
                     <%
-                        if (request.getMethod().equals("POST")) {
-            // Retrieve the form values
-            
-
-            // Define the connection parameters
-            String url = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246";
-            String username = "sql12629246";
-            String password = "nSsVYGGiJc";
-
-            // Declare the connection object
-            Connection conn = null;
-
-           // try {
-                // Load the JDBC driver
-                Class.forName("com.mysql.jdbc.Driver");
-
-                // Create the connection
-                conn = DriverManager.getConnection(url, username, password);
-
-                // Perform the update operation
-                String updateQuery = "UPDATE your_table SET column1 = ?, column2 = ? WHERE id = ?";
-                //st.execute("update user set name= '"+name+"' where id = '"+id+"'  ");
-                //PreparedStatement updateStmt = conn.prepareStatement(updateQuery);
-               // updateStmt.setString(1, columnName1);
-                //updateStmt.setString(2, columnName2);
-                //updateStmt.setInt(3, id);
-
-               // int rowsAffected = updateStmt.executeUpdate();
-
-                // Check the number of rows affected
-               // if (rowsAffected > 0) {
-                    out.println("Update successful!");
-              //  } else {
-                    out.println("Update failed!");
-                }
-               // } else {
+                } else {
                     out.println("Record not found!");
                 }
 
                 rs.close();
                 st.close();
                 con.close();
-          //  } catch (Exception e) {
-          //      out.print(e);
+            } catch (Exception e) {
+                out.print(e);
+            }
+        %>
+
+        <%
+            if (request.getMethod().equals("POST")) {
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
+                    Statement st = con.createStatement();
+                    st.execute("UPDATE content SET grade= '" + request.getParameter("grade") + "', sub= '" + request.getParameter("subject") + "', chp_no= '" + request.getParameter("chapterNo") + "', chp_name= '" + request.getParameter("chapterName") + "', video= '" + request.getParameter("video") + "' WHERE id = '" + id + "'");
+                    out.print("Record updated successfully");
+                    st.close();
+                    con.close();
+                } catch (Exception e) {
+                    out.print(e);
+                }
             }
         %>
     </body>
