@@ -61,13 +61,17 @@ public class sign extends HttpServlet {
                 {              
                     HttpSession session = request.getSession();
                     session.setAttribute("username", un);
-                    response.sendRedirect("/LMS_EduMe//HomePage.jsp");
-                   
-                     
+                    response.sendRedirect("/LMS_EduMe/HomePage.jsp");
+  
+                }
+                else if(un.equals("admin")&& pass.equals("admin"))
+                {
+                    response.sendRedirect("/LMS_EduMe/AdminPanel.jsp");
                 }
                 else
                 {
-                    response.sendRedirect("SignUpnew.html");
+                    out.println("<label style='color: red;'>Incorrect username or password!</label>");
+                   
                 }
                  
                 st.close();

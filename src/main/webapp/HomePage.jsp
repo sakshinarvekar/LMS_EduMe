@@ -265,7 +265,7 @@
       </ul>
     </li> 
                 <li><a href="SignUpnew.html" >SignUp</a></li>
-                <li><a href="sign.html" >SignIn</a></li>
+                <li><a href="SignIn.jsp" >SignIn</a></li>
                 <%
                  //session = request.getSession();
              String username = (String) session.getAttribute("username");

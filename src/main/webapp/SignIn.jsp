@@ -1,15 +1,19 @@
+<%-- 
+    Document   : SignIn
+    Created on : Jun 29, 2023, 2:43:32 PM
+    Author     : bhaktisunilnarvekar
+--%>
+
+<%@page import="java.sql.*"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
 <html>
     <head>
-        
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://kit.fontawesome.com/c807f93a6d.js" crossorigin="anonymous"></script>
-        <title>EduMe | SignIn</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Edume | SignIn</title>
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
         <style>
         @import url("https://fontawesome.com/");
         @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Jost:wght@100;200;300;400;500;600;700&family=Karla:wght@200;300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=PT+Sans+Caption:wght@400;700&display=swap');
@@ -104,7 +108,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         </style>
     </head>
     <body>
-        
         <form action="http://localhost:8080/LMS_EduMe/sign" method="post">
             <div class="login_main">
     <div class="login_image"><img src="/EduMe_Project/img/E-learn.jpg" alt="img" width="650" height="550"></div>
@@ -154,12 +157,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         </table>
             
         <div class="btn" >
-            <input type="submit" class="btns" value="Sign in" style="font-family: 'PT Sans Caption', sans-serif"/>
+            <input type="submit" class="btns" onclick="handleButtonClick()" value="Sign in" style="font-family: 'PT Sans Caption', sans-serif"/>
         </div>
-        <div>
-            
-            <label id="errorLabel" style="font-family: 'PT Sans Caption', sans-serif;"></label>
-        </div>
+
         <br>
         <p style="font-family: 'PT Sans Caption', sans-serif">Don't have an account? <a href="SignUpnew.html">SignUp</a></p>
     </div>
@@ -170,3 +170,68 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         </form>
     </body>
 </html>
+
+<%
+     String un, pass;
+            String dbun = "";
+            String dbpass = "";
+            un=request.getParameter("t1");
+            pass=request.getParameter("t2");
+     
+            if(un!=null)
+            {
+            
+           
+            try
+                {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246","sql12629246","nSsVYGGiJc");
+                    Statement st= con.createStatement();
+                    ResultSet rs = st.executeQuery("select * from SignUp where username = '"+un+"' And pass= '"+pass+"'; ");
+
+                    while(rs.next())
+                    {                 
+                     dbun = rs.getString(1);
+                     dbpass = rs.getString(3); 
+                    }
+
+                    if(dbun.equals(un) && dbpass.equals(pass))
+                    {              
+                        //HttpSession session = request.getSession();
+                        session.setAttribute("username", un);
+                        response.sendRedirect("/LMS_EduMe/HomePage.jsp");
+
+                    }
+                    else if(un.equals("admin")&& pass.equals("admin"))
+                    {
+                        response.sendRedirect("/LMS_EduMe/AdminPanel.jsp");
+                    }
+                    else 
+                    {
+                    %>
+                       <script>
+    // JavaScript code to display error alert using Swal
+    handleButtonClick(){
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!'
+        });
+    }
+  </script>
+  <%
+                    }
+                 
+                st.close();
+                con.close();
+               
+}
+            catch(Exception e)
+            {
+            out.print(e);
+            }
+
+}
+
+%>
+ 

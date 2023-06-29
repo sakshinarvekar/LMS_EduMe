@@ -40,7 +40,7 @@ public class PdfDownloadServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-<<<<<<< Upstream, based on origin/master
+
        
         String fileName = request.getParameter("file");
 
@@ -76,7 +76,6 @@ if (fileName != null && !fileName.isEmpty()) {
 }
     
         
-=======
 //        String fileName = request.getParameter("file");
 //out.print(fileName);
 //
@@ -120,7 +119,6 @@ if (fileName != null && !fileName.isEmpty()) {
 //} else {
 //    response.getWriter().println("Invalid file");
 //}
->>>>>>> 0685c38 First commit
 
         }
                     
