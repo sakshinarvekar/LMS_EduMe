@@ -3,7 +3,6 @@
     Created on : Jun 24, 2023, 1:07:26 PM
     Author     : bhaktisunilnarvekar
 --%>
-
 <%@page import="java.util.*"%>
 <%@page import="java.security.interfaces.RSAKey"%>
 <%@page import="java.sql.*"%>
@@ -325,7 +324,8 @@
             }).then((result) => {
               if (result.isConfirmed) {
                 // Redirect to another page
-                window.location.href = '/LMS_EduMe/ViewScore.jsp';
+                window.location.href = '/LMS_EduMe/ViewScore.jsp?score=<%=score%>';
+                
               }
             });
         }
@@ -499,6 +499,8 @@
 <!--<button id="myButton" l onclick="enableScriptlet()" <%= request.getParameter("disabled") != null ? "disabled" : "" %>>Take a Test</button>-->
 <!--<div id="scriptletCode" style="display: none;">-->
 <!--<div id="scriptletCode" style="<%= request.getParameter("disabled") != null ? "display:block;" : "display:none;" %>">-->
+<%! int score=0;
+%>
     <%
     
     try{
@@ -510,7 +512,7 @@
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(Query);
             int count = 1;
-            int score = 0;
+            //int score = 0;
             
             List<String> answer = new ArrayList<>();
             List<String> selectedans = new ArrayList<>();
@@ -636,3 +638,4 @@
     </body>
 
 </html>
+

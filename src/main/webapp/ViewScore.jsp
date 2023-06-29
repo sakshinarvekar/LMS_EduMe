@@ -4,6 +4,9 @@
     Author     : bhaktisunilnarvekar
 --%>
 
+<%@ page import="com.twilio.Twilio" %>
+<%@ page import="com.twilio.rest.api.v2010.account.Message" %>
+<%@ page import="com.twilio.type.PhoneNumber" %>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -418,7 +421,11 @@
             
             
                 <h3>Your Scores : </h3>
+                <%!int score;
+                String mobile;
+                %>
                 <%
+                   
                     String u = (String)session.getAttribute("username");
                   //  String g = (String)session.getAttribute("grade");
                     String s = (String)session.getAttribute("selectedsub");
@@ -429,8 +436,9 @@
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
                         Statement st = con.createStatement();
-                       
-                        ResultSet rs = st.executeQuery("SELECT * FROM result WHERE username = '"+u+"' ORDER BY date DESC;");
+                        
+                        //ResultSet rs = st.executeQuery("SELECT * FROM result WHERE username = '"+u+"' ORDER BY date DESC;");
+                        ResultSet rs = st.executeQuery("SELECT res.*, su.mobile FROM result AS res JOIN SignUp AS su ON res.username = su.username WHERE res.username = '"+u+"' order by date DESC;");
                         out.print("<table border=1 >");
                         out.print("<tr>");
                         out.print("<th> Grade </th>");
@@ -446,8 +454,9 @@
                             String grade = rs.getString("grade");
                             String subject = rs.getString("sub");
                             String chp_name = rs.getString("chp_name");
-                            int score = rs.getInt("score");
-                            Timestamp date = rs.getTimestamp("date"); 
+                            score = rs.getInt("score");
+                            Timestamp date = rs.getTimestamp("date");
+                            mobile = rs.getString("mobile");
                             
                             out.print("<tr>");
                             out.print("<td>"+grade+"</td>");
@@ -498,3 +507,35 @@
                 </form>
     </body>
 </html>
+<%!
+    String ACCOUNT_SID = "AC0646eaba51f752b2af580187a54536fb";
+    String AUTH_TOKEN = "0d594adce33702525f0b1296b23701ee"; 
+    
+    //String phonenumber = "+918850288210";
+    //String scoreMessage = ; // Replace with the actual score message
+    
+    void sendSOSMessage(int a) {
+        try {
+            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);      
+            Message message = Message.creator(
+                    new PhoneNumber(mobile),
+                    new PhoneNumber("+14178073250"), // Replace with your Twilio phone number
+                    "Your EduMe Test Score: " + a
+            ).create();
+            
+            //out.print(mobile);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+%>
+
+<%
+String a = request.getParameter("score");
+out.print(a);
+if(a!=null)
+{
+    sendSOSMessage(score);
+}
+%>
