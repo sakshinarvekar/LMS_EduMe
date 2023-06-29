@@ -19,7 +19,7 @@
             width: 70%;
             background-color: #f1f1f1;
             border: 1px solid #ccc;
-            height: 30px;
+            height: 40px;
         }
         .progress-bar-fill {
             height: 100%;
