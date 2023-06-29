@@ -11,6 +11,44 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <style>
+            body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(238,247,247);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin-top: 100px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: rgb(8, 135, 175);
+            color: white;
+        }
+        h2 {
+            background-color: rgb(232, 108, 58);
+            color: white;
+            padding: 10px;
+        }
+
+        form {
+            display: inline;
+        }
+        </style>
     </head>
     <body>
         <form action="" method="post" >
@@ -91,5 +129,28 @@
     catch(Exception e)
     {
         out.print(e);
+    }
+    if (request.getMethod().equals("POST")) {
+        try {
+                String id = request.getParameter("id");
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
+                Statement st = con.createStatement();
+                String sqlQuery = "DELETE FROM content WHERE id = ?";
+                PreparedStatement stmt = con.prepareStatement(sqlQuery);
+                stmt.setString(1, id);
+                int rowsAffected = stmt.executeUpdate();
+
+                if (rowsAffected > 0) {
+                    out.println("Record deleted successfully!");
+                } else {
+                    out.println("Record not found or could not be deleted!");
+                }
+
+                st.close();
+                con.close();
+            } catch (Exception e) {
+                out.print(e);
+            }
     }
 %>
