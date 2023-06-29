@@ -48,12 +48,33 @@
         form {
             display: inline;
         }
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        input[type="submit"] {
+            padding: 8px 16px;
+            background-color: rgb(8, 135, 175);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: rgb(6, 109, 142);
+        }
         </style>
     </head>
     <body>
         <form action="" method="post" >
-            Enter Grade : <input type="text" name="t1"><br><!-- comment -->
-            Enter Subject : <input type="text" name="t2"><br>
+            Enter Grade : <input type="text" name="t1" placeholder="Grade" required><br><!-- comment -->
+            Enter Subject : <input type="text" name="t2" placeholder="Subject" required=><br>
             <input type="submit" value="Submit">
         </form>
     </body>
@@ -85,6 +106,7 @@
             out.print("<th> chapter no </th>");
             out.print("<th> Chapter name </th>");
             out.print("<th> Video </th>");
+            out.print("<th>Action</th>");
             out.print("</tr>");
             while (rs.next()) {
 
@@ -112,7 +134,7 @@
                                 + "<input type='hidden' name='id' value='" + id + "'>"
                                 + "<input type='submit' value='Edit'>"
                                 + "</form>"
-                                + "<form action='delete.jsp' method='post'>"
+                                + "<form action='' method=''>"
                                 + "<input type='hidden' name='id' value='" + id + "'>"
                                 + "<input type='submit' value='Delete'>"
                                 + "</form>"
