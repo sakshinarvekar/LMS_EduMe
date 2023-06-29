@@ -220,8 +220,34 @@
             border-radius: 30px;
             box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
         }
-
+/*      start dropdownlist for teanch onedume
+        */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            min-width: 160px;
+            z-index: 1;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        }
         
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            color: rgb(8, 135, 175);
+            text-decoration: none;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: rgb(8, 135, 175);
+            color: white;
+        }
+/*            end*/
         </style>
         <script>
         function toggleContent(hyperlinkId) {
@@ -269,12 +295,12 @@
                 <li><a href="homepage.html" >Home</a></li>
                 <li><a href="#wave" >Grades</li>
                 <li class="dropdown">
-                    <a href="#">Teach On EduMe &#9662;</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="TeacherLogin.jsp">SignIn</a></li>
-                        <li><a href="TeacherRegister.jsp">SignUp</a></li>
-                    </ul>
-                </li> 
+                        <a href="#">Teach On EduMe &#9662;</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="TeacherLogin.jsp">Sign In</a></li>
+                            <li><a href="TeacherLogout.jsp">Sign Out</a></li>
+                        </ul>
+                    </li> 
                 <li><a href="SignUpnew.html" >SignUp</a></li>
                 <li><a href="sign.html" >SignIn</a></li>
                     <%

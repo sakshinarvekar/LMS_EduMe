@@ -273,6 +273,33 @@
             height: 480px;
             border: 1px solid #ccc;
         }
+/*        teachonedume dropdownlist css start*/
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            min-width: 160px;
+            z-index: 1;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            color: rgb(8, 135, 175);
+            text-decoration: none;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: rgb(8, 135, 175);
+            color: white;
+        }
+/*        end*/
         </style>
         <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-peer/simplepeer.min.js"></script>
@@ -317,16 +344,41 @@
         <nav>
             <ul class="nav">
                 <li><a href="homepage.html" >Home</a></li>
-                <li><a href="#wave" >Grades</a></li>
-                <li><a href="#" >Teach On EduMe</a></li>
-                <li><a href="Signupnew.html" >SignUp</a></li>
+                <li><a href="#wave" >Grades</li>
+                <li class="dropdown">
+                        <a href="#">Teach On EduMe &#9662;</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="TeacherLogin.jsp">Sign In</a></li>
+                            <li><a href="TeacherLogout.jsp">Sign Out</a></li>
+                        </ul>
+                    </li> 
+                <li><a href="SignUpnew.html" >SignUp</a></li>
                 <li><a href="sign.html" >SignIn</a></li>
-                <li><a href="#" >Account</a></li>
+                    <%
+                        //session = request.getSession();
+                        String username = (String) session.getAttribute("username");
+                        if (username != null) {
+                    %>
+                <li class="dropdown"><a href="#" ><%= username%></a>
+                    <ul class="dropdown-menu">
+                        <%
+                            String action = request.getParameter("action");
+                            session.setAttribute("action", action);
+                            if (action != null && action.equals("logout")) {
+                                session.invalidate();
+                                response.sendRedirect("HomePage.jsp");
+                            }
+                        %>
+                        <li><a href="?action=logout">Logout</a></li>
+                    </ul></li>
+                    <%
+                        }
+                    %>
             </ul>
         </nav>
       </header><hr style="color: black; margin-top: 15px; width: 100%;">
       </div>
-
+            
   <!-- Sidebar -->
   <header>
   <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
@@ -515,14 +567,14 @@
                 {
                if(btn.equals("Submit"))
                {
-                String username = (String) session.getAttribute("username");
+                String user = (String) session.getAttribute("username");
              if (username != null) 
                 {
                     
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection conn = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");   
                     Statement stmt = con.createStatement();
-                    stmt.execute("insert into result values(default,'"+username+"','"+g+"','"+s+"','"+c+"','"+score+"',CURRENT_TIMESTAMP)");
+                    stmt.execute("insert into result values(default,'"+user+"','"+g+"','"+s+"','"+c+"','"+score+"',CURRENT_TIMESTAMP)");
                     //out.print("Score inserted");
                     stmt.close();
                     conn.close();  
