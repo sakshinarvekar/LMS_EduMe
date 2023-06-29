@@ -102,9 +102,36 @@
         .login_form {
             float: right;
         }
+         
+   
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    
+    
     </style>
 </head>
 <body>
+    <div id="sidebar">
+      <h2>Hello Admin</h2><br>
+    <img src="/LMS_EduMe/img/admin.png" alt="Admin Image">
+    <ul>
+        <li onclick="setActive(this)"><a href="AdminGrid.jsp">Manage Content</a></li>
+      <li onclick="setActive(this)"><a href="TeacherRD.jsp">Manage Teachers</a></li>
+      <li onclick="setActive(this)"><a href="StudentRD.jsp">Manage Student</a></li>
+      <li onclick="setActive(this)"><a href="#">Student Support</a></li>
+      <li onclick="setActive(this)"><a href="?action=logout">Logout</a></li>
+        <% 
+    String action = request.getParameter("action");
+    if (action != null && action.equals("logout")) 
+    {
+        response.sendRedirect("HomePage.jsp");
+    }
+     %>
+    </ul>
+  </div>
+    
 <form action="" method="post" onsubmit="return validateForm()">
     <div class="login_main">
         <div class="login_image">
@@ -232,3 +259,4 @@
         out.print(e);
     }
 %>
+

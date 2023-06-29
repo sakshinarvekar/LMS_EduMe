@@ -50,6 +50,52 @@
         form {
             display: inline;
         }
+        #sidebar {
+      width: 250px;
+      background-color: #333;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+    }
+    
+    #sidebar a{
+        color:white;
+        text-decoration: none;
+    }
+    
+    #sidebar img {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+    
+    #content {
+      margin-left: 250px;
+      padding: 20px;
+    }
+    
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    ul li {
+      padding: 10px;
+      cursor: pointer;
+    }
+    
+    ul li:hover {
+      background-color: #555;
+    }
+    
+    .active {
+      background-color: #555;
+    }
     </style>
 </head>
 <body>

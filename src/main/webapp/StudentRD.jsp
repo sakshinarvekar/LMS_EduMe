@@ -50,9 +50,73 @@
         form {
             display: inline;
         }
+        #sidebar {
+      width: 250px;
+      background-color: #333;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+    }
+    
+    #sidebar a{
+        color:white;
+        text-decoration: none;
+    }
+    
+    #sidebar img {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+    
+    #content {
+      margin-left: 250px;
+      padding: 20px;
+    }
+    
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    ul li {
+      padding: 10px;
+      cursor: pointer;
+    }
+    
+    ul li:hover {
+      background-color: #555;
+    }
+    
+    .active {
+      background-color: #555;
+    }
     </style>
 </head>
 <body>
+    <div id="sidebar">
+      <h2>Hello Admin</h2><br>
+    <img src="/LMS_EduMe/img/admin.png" alt="Admin Image">
+    <ul>
+        <li onclick="setActive(this)"><a href="AdminGrid.jsp">Manage Content</a></li>
+      <li onclick="setActive(this)"><a href="TeacherRD.jsp">Manage Teachers</a></li>
+      <li onclick="setActive(this)"><a href="StudentRD.jsp">Manage Student</a></li>
+      <li onclick="setActive(this)"><a href="#">Student Support</a></li>
+      <li onclick="setActive(this)"><a href="?action=logout">Logout</a></li>
+        <% 
+    String action = request.getParameter("action");
+    if (action != null && action.equals("logout")) 
+    {
+        response.sendRedirect("HomePage.jsp");
+    }
+     %>
+    </ul>
+  </div>
 <%
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
