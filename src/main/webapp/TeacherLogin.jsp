@@ -217,7 +217,10 @@
                 session.setAttribute("username", un);
                 response.sendRedirect("/LMS_EduMe/HomePage.jsp");
             } else {
-                response.sendRedirect("/LMS_EduMe/TeacherLogin.jsp");
+                out.println("<script type=\"text/javascript\">"); // Start the script tag 
+                        out.println("alert('Incorrect Password');"); // JavaScript code to generate an alert box 
+                        out.println("window.location.href = 'SignIn.jsp';");
+                        out.println("</script>");
             }
 
             st.close();

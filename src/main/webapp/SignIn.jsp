@@ -106,9 +106,10 @@
             float: right;
         }
         </style>
+        
     </head>
     <body>
-        <form action="http://localhost:8080/LMS_EduMe/sign" method="post">
+        <form action="" method="post">
             <div class="login_main">
     <div class="login_image"><img src="/EduMe_Project/img/E-learn.jpg" alt="img" width="650" height="550"></div>
     <div class="login_form">
@@ -208,18 +209,10 @@
                     }
                     else 
                     {
-                    %>
-                       <script>
-    // JavaScript code to display error alert using Swal
-    handleButtonClick(){
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Something went wrong!'
-        });
-    }
-  </script>
-  <%
+                       out.println("<script type=\"text/javascript\">"); // Start the script tag 
+                        out.println("alert('Incorrect Password');"); // JavaScript code to generate an alert box 
+                        out.println("window.location.href = 'SignIn.jsp';");
+                        out.println("</script>");
                     }
                  
                 st.close();

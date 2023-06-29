@@ -289,7 +289,8 @@ String action = request.getParameter("action");
              %>
             </ul>
         </nav>
-    </header><hr style="color: black; margin-top: 15px; width: 100%;">
+    </header>
+            <hr style="color: black; margin-top: 15px; width: 100%;">
     <div class="container1">
         <div class="left_container">
             <h2>When learning starts with EduMe, it never stops</h2><br>
