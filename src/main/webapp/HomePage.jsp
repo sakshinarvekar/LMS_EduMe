@@ -242,7 +242,45 @@
         }
 
 
-            
+          /* Style for the navigation bar */
+        nav ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          background-color: #f1f1f1;
+        }
+
+        nav ul li {
+          display: inline-block;
+        }
+
+        nav ul li a {
+          display: block;
+          padding: 10px 20px;
+          text-decoration: none;
+          color: #333;
+        }
+
+        /* Style for the dropdown menu */
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+
+        .dropdown-content a {
+          color: #333;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+          display: block;
+        }
+
 
         </style>
     </head>
@@ -256,7 +294,18 @@
              
                 
                 <li><a href="homepage.html" >Home</a></li>
-                <li><a href="#wave" >Grades</li>
+                
+                <li class="dropdown">
+      <a href="#wave" class="dropbtn">Grades</a>
+      <div class="dropdown-content">
+        <a href="#">Grade 5</a>
+        <a href="#">Grade 6</a>
+        <a href="#">Grade 7</a>
+        <a href="#">Grade 8</a>
+        <a href="#">Grade 9</a>
+        <a href="#">Grade 10</a>
+      </div>
+    </li>
                 <li class="dropdown">
       <a href="#">Teach On EduMe &#9662;</a>
       <ul class="dropdown-menu">
