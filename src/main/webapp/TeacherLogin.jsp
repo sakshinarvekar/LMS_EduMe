@@ -105,7 +105,7 @@
     </style>
 </head>
 <body>
-<form action="http://localhost:8080/LMS_EduMe/sign" method="post" onsubmit="return validateForm()">
+<form action="" method="post" onsubmit="return validateForm()">
     <div class="login_main">
         <div class="login_image">
             <img src="/LMS_EduMe/img/prof.jpg" alt="img" width="700" height="600">
@@ -204,22 +204,24 @@
             pass = request.getParameter("t2");
 
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12627744", "sql12627744", "aeUIku5cCL");
+            Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246","sql12629246","nSsVYGGiJc");
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("select * from Teachers where username = '" + un + "' And password= '" + pass + "'; ");
 
             while (rs.next()) {
-                dbun = rs.getString(1);
-                dbpass = rs.getString(3);
+                dbun = rs.getString("username");
+                dbpass = rs.getString("password");
             }
 
-            if (dbun.equals(un) && dbpass.equals(pass)) {
+            if (dbun.equals(un) && dbpass.equals(pass)) 
+            {
                 session.setAttribute("username", un);
-                response.sendRedirect("/LMS_EduMe/HomePage.jsp");
-            } else {
+                response.sendRedirect("/LMS_EduMe/TeacherpPanel.jsp");
+            } 
+            else {
                 out.println("<script type=\"text/javascript\">"); // Start the script tag 
                         out.println("alert('Incorrect Password');"); // JavaScript code to generate an alert box 
-                        out.println("window.location.href = 'SignIn.jsp';");
+                        out.println("window.location.href ='TeacherLogin.jsp';");
                         out.println("</script>");
             }
 

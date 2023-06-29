@@ -85,6 +85,7 @@
             border-radius: 4px;
         }
         
+
         .progress-bar-fill {
             height: 100%;
             background-color: #4CAF50;
@@ -92,6 +93,127 @@
             width: 0;
             transition: width 0.2s ease-in-out;
         }
+
+        .subject-main{
+            margin-top: -87px;
+            margin-left: 100px;
+            background-color: rgb(238,247,247);
+            min-height: 800px;
+            height:max-content;
+            
+        }
+        
+        .subject-container{
+            min-height: max-content;
+            
+            padding-left: 300px;
+            padding-right: 200px;
+            padding-bottom: 50px;
+            padding-top: 50px;
+            
+        }
+        .subject-container h2{
+            margin-right: 150px;
+            background-color:rgb(3,190,147);
+            color: white;
+            border-radius: 50px;
+        }
+        
+        .subject-container img,h4{
+            text-align: center;
+            align-content: center;
+            margin:20px 26px;
+        }
+
+        .subject-container a{
+            text-decoration: none;
+            color: rgb(232,108,58);
+        }
+        .card h4  :hover{
+            color:rgb(8,135,175);
+        }
+
+        .card h4{
+            cursor: pointer;
+        }
+
+        .engbanner, .mathbanner, .scibanner{
+            display: none; 
+            width: 900px; 
+            height: 230px; 
+            border-radius: 30px; 
+            background-size: cover;
+            background-position: center;
+            margin-top: 50px;
+            margin-left: -70px;
+        }
+        .engbanner{ 
+            background-image:url('img/englishbg.png');  
+        }
+        
+        .mathbanner{
+            background-image:url('img/mathbg.png'); 
+        }
+        
+        
+        .scibanner{ 
+            background-image:url('img/sciencebg.png');  
+        }
+        
+/*        .footer{
+            position: relative;
+            display: flex;
+            height: 250px;
+            width: 100%;
+            background-color:rgb(26,54,88);
+            bottom: 0px;  
+
+        }
+        .footer li, a{
+            color: white;
+            list-style: none;
+            text-decoration: none;
+            padding :5px;
+        }
+        .foot1 , .foot2, .foot3{
+            padding: 50px;
+            color:white;
+
+        }
+        .foot2  a, .foot3 a{
+            list-style: none;
+            text-decoration: none;
+            color: white;
+        }
+        .foot1 {
+            display: inline-block;
+            width: 40%;
+            margin-left: 50px;
+            list-style: none;
+            text-decoration: none;
+
+        }
+        .foot2{
+            display: inline-block;
+            width: 30%;
+            text-align: center;
+
+        }
+        .foot3{
+            display: inline-block;
+            width: 30%;  
+            text-align: center;
+        }
+
+        .copyright{
+            width: 100%;
+            background-color: rgb(26,54,88);
+            color: white;
+            padding: 5px;
+        }*/
+       
+        
+
         table {
             border-collapse: separate;
             border-spacing: 0;
@@ -267,12 +389,18 @@
         <a href="#" class="list-group-item list-group-item-action py-2 ripple">
           <i class="fas fa-chart-pie fa-fw me-3"></i><span>Resources</span>
         </a>
+
         <%String g = (String)session.getAttribute("Grade");
         %>
         <a href="Test.jsp?grade=<%=g%>" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Test</span></a
         >
         <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+
+        <a href="Test.jsp?grade=<%=request.getParameter("grade")%>" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Test</span></a>
+        <a href="ViewScore.jsp" class="list-group-item list-group-item-action py-2 ripple"
+
           ><i class="fas fa-globe fa-fw me-3"></i><span>Result</span></a
         >
         <a href="#" class="list-group-item list-group-item-action py-2 ripple"
