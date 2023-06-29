@@ -33,15 +33,10 @@
         }
         .progress-bar-text {
             text-align: center;
-            
-            line-height: 1px;
+            line-height: 30px;
             color: #000;
             font-weight: bold;
-            margin-bottom: 5px; 
-                              
-            
         }
-        
         *{
             margin: 0px;
             padding: 0px;
@@ -292,7 +287,6 @@
         //ResultSet rs = st.executeQuery("SELECT subject, SUM(progress) AS total_progress FROM video_progress WHERE username = '" + user + "' GROUP BY subject");
             ResultSet rs = st.executeQuery("SELECT subject, ROUND(SUM(progress), 2) AS total_progress FROM video_progress WHERE username = '"+user+"' GROUP BY subject");
         while (rs.next()) {
-          
             double progress = rs.getDouble("total_progress");
             String subject = rs.getString("subject");
 
@@ -303,7 +297,6 @@
             out.print("<p>" + subject + "</p>");
             out.print("<div class='progress-bar'>");
             out.print("<div class='progress-bar-fill' style='width: " + progressPercentage + "%'></div>");
-             
             out.print("<div class='progress-bar-text'>" + progressPercentage + "%</div>");
             out.print("</div>");
         }

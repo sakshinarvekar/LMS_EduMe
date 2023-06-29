@@ -360,9 +360,9 @@
          out.println("<center><h2 style='color:rgb(8,135,175) '>"+cn+" </a></center>");
          out.print("<center><video id='video' controls ontimeupdate='updateProgressBar()' style=\"height:600px; width:700px; \""
                         + "<source src=/LMS_EduMe/videos/"+f+" type='video/mp4'></video></center>");
-                      out.println("<center><div class='progress-bar'>");
-                        out.println("<div class='progress-bar-fill'></div>");
-                        out.println("</div></center>");
+//                        out.println("<center><div class='progress-bar'>");
+//                        out.println("<div class='progress-bar-fill'></div>");
+//                        out.println("</div></center>");
          
          out.println("<br/>");
     }
