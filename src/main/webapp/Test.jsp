@@ -268,6 +268,11 @@
           .button:active {
             background-color: #3e8e41;
           }
+          #video-container {
+            width: 640px;
+            height: 480px;
+            border: 1px solid #ccc;
+        }
         </style>
         <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-peer/simplepeer.min.js"></script>
@@ -285,14 +290,18 @@
 //        }
        function handleButtonClick() {
             // Show success message using Swal.fire()
-            Swal.fire(
-              'Good job!',
-              'You have successfully submitted the test!!',
-              'success'
-            );
-          
+            Swal.fire({
+              title: 'Good job!',
+              text: 'You have successfully submitted the test!!',
+              icon: 'success',
+              confirmButtonText: 'OK'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                // Redirect to another page
+                window.location.href = '/LMS_EduMe/ViewScore.jsp';
+              }
+            });
         }
-    
     </script>
     </head>
     <body>
