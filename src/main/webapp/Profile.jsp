@@ -12,6 +12,9 @@
     <meta charset="UTF-8">
     <title>Profile Page</title>
     <style>
+        body{
+            background-color:rgb(238,247,247);
+        }
         .progress-bar {
             width: 70%;
             background-color: #f1f1f1;
@@ -110,6 +113,79 @@
             background-color: rgb(8, 135, 175);
             color: white;
         }
+        
+        .footer{
+            position: relative;
+            display: flex;
+            height: 250px;
+            width: 100%;
+            background-color:rgb(26,54,88);
+            bottom: 0px;  
+
+        }
+        .footer li, a{
+            color: white;
+            list-style: none;
+            text-decoration: none;
+            padding :5px;
+        }
+        .foot1 , .foot2, .foot3{
+            padding: 50px;
+            color:white;
+
+        }
+        .foot2  a, .foot3 a{
+            list-style: none;
+            text-decoration: none;
+            color: white;
+        }
+        .foot1 {
+            display: inline-block;
+            width: 40%;
+            margin-left: 50px;
+            list-style: none;
+            text-decoration: none;
+
+        }
+        .foot2{
+            display: inline-block;
+            width: 30%;
+            text-align: center;
+
+        }
+        .foot3{
+            display: inline-block;
+            width: 30%;  
+            text-align: center;
+        }
+
+        .copyright{
+            width: 100%;
+            background-color: rgb(26,54,88);
+            color: white;
+            padding: 5px;
+        }
+        
+        .profilediv{
+            margin-top: -85px;
+            margin-left: 200px;
+            text-align: center;
+            min-height: 600px;
+            height:max-content;
+            background-color:rgb(238,247,247);
+            padding-top: 50px;
+        }
+        
+        .profilediv h2{
+            background-color: rgb(8,135,175); 
+            color:white; 
+            border-radius: 30px; 
+            width: 300px; 
+            margin-left: 400px;
+            padding:10px;
+            
+            
+        }
 /*            end*/
     </style>
 </head>
@@ -191,8 +267,9 @@
     </div>
   </nav>
 </header>
-    <h1>Profile Page</h1>
-    <p>Your Progress</p>
+          <div class="profilediv">
+    
+    <h2 style="" >Your Progress</h2>
 
     <% 
     String user = (String) session.getAttribute("username");
@@ -224,6 +301,35 @@
         out.print(e);
     }
     %>
+    </div>
+    <div>
+            <div class="footer">
+                <div class="foot1">
+                    <img class="logo" src="/LMS_EduMe/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px; border-radius: 25px;"><br><br>
+                    <h4>Unlock your true potential through the power of education with EduMe</h3>
+                </div>
+                <div class="foot2">
+                    <h4>Quick Links</h3><br>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">About Us</a></li>
+                        </ul>
+                </div>
+                <div class="foot3">
+                    <h4>Socials</h3><br>
+                        <ul>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                        </ul>
+                </div>
+            </div>       
+            <div class="copyright">
+            <hr>
+            <p>© Copyright 2023 | Designed by Sakshi Narvekar and Rupali Vaje</p>
+        </div>
+        </div>
     </form>
 </body>
 </html>

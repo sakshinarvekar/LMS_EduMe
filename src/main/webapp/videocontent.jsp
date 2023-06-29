@@ -216,7 +216,18 @@
         .vidcontent{
             min-height: 600px;
             height: max-content;
+            margin-top: 0px;
         }
+        .vidcontent h3{
+            margin-top: -50px;
+        }
+        .vidcontent h2{
+            font-weight: bold;
+        }
+        .vidcontent #video{
+            margin-top: -50px;
+        }
+        
         .progress-bar {
             width: 100%;
             height: 20px;
@@ -344,14 +355,14 @@
         f = rs.getString("video");
 
 
-         
-         out.print("<center><video id='video' controls ontimeupdate='updateProgressBar()' style=\"height:600px; width:700px;\""
+         out.println("<center><h3 style='color:rgb(232,108,58)'> Chapter "+c+" : </a></center>");
+         out.println("<center><h2 style='color:rgb(8,135,175) '>"+cn+" </a></center>");
+         out.print("<center><video id='video' controls ontimeupdate='updateProgressBar()' style=\"height:600px; width:700px; \""
                         + "<source src=/LMS_EduMe/videos/"+f+" type='video/mp4'></video></center>");
-                        out.println("<center><div class='progress-bar'>");
-                        out.println("<div class='progress-bar-fill'></div>");
-                        out.println("</div></center>");
-         out.println("<center><h3> Chapter "+c+" : </a></center>");
-         out.println("<center><h2>"+cn+" </a></center>");
+//                        out.println("<center><div class='progress-bar'>");
+//                        out.println("<div class='progress-bar-fill'></div>");
+//                        out.println("</div></center>");
+         
          out.println("<br/>");
     }
 
@@ -420,9 +431,7 @@
             xhr.send('progress=' + progress);
         }
     </script>
-<div class="sbtn">      
-<center><a href="Content.jsp"  class="button">Back to Subject</a</center>    
-</div> 
+ 
  </div>
 
         <div>
@@ -453,6 +462,7 @@
             <p>© Copyright 2023 | Designed by Sakshi Narvekar and Rupali Vaje</p>
         </div>
         </div>
+         
         </form>
             <%
                 String u = (String) session.getAttribute("username");

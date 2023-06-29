@@ -160,7 +160,7 @@
             background-image:url('img/sciencebg.png');  
         }
         
-/*        .footer{
+        .footer{
             position: relative;
             display: flex;
             height: 250px;
@@ -210,7 +210,7 @@
             background-color: rgb(26,54,88);
             color: white;
             padding: 5px;
-        }*/
+        }
        
         
 
@@ -239,6 +239,8 @@
         .scorediv {
             width: 600px;
             margin: 20px auto;
+            min-height: 600px;
+            height: max-content;
             
         }
         h2 {
@@ -463,6 +465,35 @@
                     }
                 %>
             
+        </div>
+                  </div>
+        <div>
+            <div class="footer">
+                <div class="foot1">
+                    <img class="logo" src="/LMS_EduMe/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px; border-radius: 25px;"><br><br>
+                    <h4>Unlock your true potential through the power of education with EduMe</h3>
+                </div>
+                <div class="foot2">
+                    <h4>Quick Links</h3><br>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">About Us</a></li>
+                        </ul>
+                </div>
+                <div class="foot3">
+                    <h4>Socials</h3><br>
+                        <ul>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                        </ul>
+                </div>
+            </div>       
+            <div class="copyright">
+            <hr>
+            <p>© Copyright 2023 | Designed by Sakshi Narvekar and Rupali Vaje</p>
+        </div>
         </div>
                 </form>
     </body>

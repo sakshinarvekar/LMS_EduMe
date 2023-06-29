@@ -92,6 +92,8 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       padding: 20px;
       margin-bottom: 20px;
+      width: 100px;
+      
     }
     
     .card-title {
@@ -101,8 +103,13 @@
     }
     
     .card-content {
-      font-size: 24px;
+        color:rgb(129,116,186);
+      font-size: 50px;
       margin-left: 200px;
+      
+    }
+    .cardelement{
+        display:inline-flex;
     }
     
     .gifdiv{
@@ -211,20 +218,26 @@
     <div class="card-container">
       <div class="card">
         <h2 class="card-title">Total Students</h2>
+        <div class="cardelement">
         <img src="/LMS_EduMe/img/graduated.png" alt="User Image" style="width: 50px; height: 50px;">
         <h2 class="card-content"><%= uniqueUsernames %></h2>
+        </div>
       </div>
     
       <div class="card">
         <h2 class="card-title">Total Teachers</h2>
+        <div class="cardelement">
         <img src="/LMS_EduMe/img/teacher.png" alt="Teacher Image" style="width: 50px; height: 50px;" >
         <h2 class="card-content"><%= uniqueTeacher%></h2>
+        </div>
       </div>
     
       <div class="card">
         <h2 class="card-title">Total Videos</h2>
+        <div class="cardelement">
         <img src="/LMS_EduMe/img/video-marketing.png" alt="Student Image" style="width: 50px; height: 50px;">
         <h2 class="card-content"><%= totalvideo%></h2>
+        </div>
       </div>
     </div>
   </div>
