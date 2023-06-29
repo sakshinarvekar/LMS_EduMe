@@ -134,8 +134,9 @@
     <img src="/LMS_EduMe/img/admin.png" alt="Admin Image">
     <ul>
         <li onclick="setActive(this)"><a href="AdminGrid.jsp">Manage Content</a></li>
-      <li onclick="setActive(this)"><a href="#">Manage Teachers</a></li>
-      <li onclick="setActive(this)"><a href="#">Manage Student</a></li>
+      <li onclick="setActive(this)"><a href="TeacherRD.jsp">Manage Teachers</a></li>
+      <li onclick="setActive(this)"><a href="StudentRD.jsp">Manage Student</a></li>
+      <li onclick="setActive(this)"><a href="#">Student Support</a></li>
       <li onclick="setActive(this)"><a href="?action=logout">Logout</a></li>
         <% 
     String action = request.getParameter("action");

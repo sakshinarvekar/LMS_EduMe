@@ -335,7 +335,7 @@
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-3 mt-4">
           <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-             ><i class="fas fa-chart-line fa-fw me-3"></i><span><img src="/LMS_EduMe/img/con2.png" width="40px" height="40px" alt="Loginicon"/></span></a
+             ><i class="fas fa-chart-line fa-fw me-3"></i><span><img src="/LMS_EduMe/img/user.png" width="40px" height="40px" alt="Loginicon"/></span></a
         </a>
         <a href="HomePage.jsp" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-chart-line fa-fw me-3"></i><span>Home</span></a
