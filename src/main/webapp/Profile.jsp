@@ -12,41 +12,9 @@
     <meta charset="UTF-8">
     <title>Profile Page</title>
     <style>
-
-        body{
-            background-color:rgb(238,247,247);
-        }
-        .progress-bar {
-            width: 70%;
-            background-color: #f1f1f1;
-            border: 1px solid #ccc;
-            height: 40px;
-            height: 30px;
-            margin-left: 200px;
-            
-            
-
-        }
-        .progress-bar-fill {
-            height: 100%;
-            background-color: #4caf50;
-        }
-        .progress-bar-text {
-            text-align: center;
-            line-height: 30px;
-            color: #000;
-            font-weight: bold;
-        }
-        *{
-            margin: 0px;
-            padding: 0px;
-            font-family: 'PT Sans Caption', sans-serif; 
-         }
-             
-         
-        .nav li,.nav a{
-
-        
+         .back {
+        background-color: rgb(238, 247, 247);
+    }
          .nav li,.nav a{
             font-weight: 400;
             font-size: 20px;
@@ -87,11 +55,11 @@
           
         }
 
-/*        @media (max-width: 991.98px) {
+        @media (max-width: 991.98px) {
           .sidebar {
             width: 100%;
           }
-        }*/
+        }
         .position-sticky a:active{
             color: red;
         }
@@ -240,7 +208,7 @@ h1, p {
     </div>
   </nav>
 </header>
-
+          <div class="back">
     <% 
     String user = (String) session.getAttribute("username");
     
@@ -273,6 +241,7 @@ h1, p {
         out.print(e);
     }
     %>
+          </div>
       </form>
 </body>
 </html>
