@@ -27,10 +27,7 @@
             background-color: rgb(238,247,247);
         }
         
-        h1 {
-            text-align: center;
-            color: rgb(232,108,58);
-        }
+       
         
         
         form {
@@ -106,9 +103,38 @@
             background-color: #ff6347;
             margin-left: 70px;
         }
+        
+       
+
     </style>
 </head>
 <body>
+    <div class="sidebar">
+         <%
+    String username = (String) session.getAttribute("username");
+             if (username!=null )
+             {
+             %>
+        <h2><%= username%></h2>
+        <img src="/LMS_EduMe/img/teacher.jpg" height="50px" width="50px" alt="Vector Image">
+        <ul>
+            <li><a href="TeacherLogin.jsp">Sign In</a></li>
+            <li><a href="TeacherRegister.jsp">Sign Up</a></li>
+            <li><a href="quizform.jsp">Add Quiz</a></li>
+                            <%
+   String action = request.getParameter("action");
+    if (action != null && action.equals("logout")) {
+        session.invalidate();
+        response.sendRedirect("HomePage.jsp");
+    }
+
+%>
+            <li><a href="?action=logout">Logout</a></li>
+                         <%
+                            }
+             %>
+        </ul>
+    </div>
     <h1>Create Quiz</h1>
     
     <%-- Form to enter quiz details and questions --%>

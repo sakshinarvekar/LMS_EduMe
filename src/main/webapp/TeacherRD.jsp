@@ -14,6 +14,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>JSP Page</title>
     <style>
+        @import url("https://fontawesome.com/");
+            @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Jost:wght@100;200;300;400;500;600;700&family=Karla:wght@200;300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=PT+Sans+Caption:wght@400;700&display=swap');
+            *{
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+                font-family: 'PT Sans Caption', sans-serif;
+            }
         body {
             display: flex;
             flex-direction: column;
@@ -99,6 +107,26 @@
     </style>
 </head>
 <body>
+    <div id="sidebar">
+      <h2>Hello Admin</h2><br>
+    <img src="/LMS_EduMe/img/admin.png" alt="Admin Image">
+    <ul>
+        <li onclick="setActive(this)"><a href="AdminGrid.jsp">Manage Content</a></li>
+      <li onclick="setActive(this)"><a href="TeacherRD.jsp">Manage Teachers</a></li>
+      <li onclick="setActive(this)"><a href="StudentRD.jsp">Manage Student</a></li>
+      <li onclick="setActive(this)"><a href="#">Student Support</a></li>
+      <li onclick="setActive(this)"><a href="?action=logout">Logout</a></li>
+        <% 
+    String action = request.getParameter("action");
+    if (action != null && action.equals("logout")) 
+    {
+        response.sendRedirect("HomePage.jsp");
+    }
+     %>
+    </ul>
+  </div>
+     <div class="form-div">
+         <h2 style="width:300px; margin-left:70px; text-align: center; margin-top: 100px;">Manage Teachers</h2>
 <%
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -167,5 +195,6 @@
         }
     }
 %>
+</div>
 </body>
 </html>

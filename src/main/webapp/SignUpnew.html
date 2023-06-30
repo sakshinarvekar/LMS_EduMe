@@ -29,7 +29,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     }
 
     .main {
-      height: 540px;
+      height: 560px;
       width: 350px;
       background-color: #ECF2FF;
       position: absolute;
@@ -38,6 +38,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
       transform: translate(50%,-50%);
       text-align: center;
       border-radius: 8px;
+      padding-bottom: 10px;
     }
 
     input {
@@ -93,7 +94,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     .button {
       display: inline-block;
       padding: 10px 20px;
-      background-color: #4CAF50;
+      background-color: #0954aa;
       color: #FFFFFF;
       font-size: 16px;
       text-align: center;
@@ -101,10 +102,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      
     }
 
     .button:hover {
-      background-color: #45a049;
+      background-color:#0954a3 ;
     }
 
     .button:active {
@@ -123,9 +125,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <div class="main">
       <hr>
       <br>
-      <h1>Sign Up</h1>
+      <h1 style="font-family: 'PT Sans Caption', sans-serif">Sign Up</h1>
       <div>
-        <table align="center" class="login_table" style="height: 167px">
+        <table align="center" class="login_table" style="height: 167px; font-family: 'PT Sans Caption', sans-serif;">
           <tr>
             <td style="font-size: large">&nbsp;</td>
           </tr>
@@ -133,7 +135,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <td style="background-color: #FFFFFF">
               <div>
                 <i class="fa-solid fa-user-tie"></i>
-                <input type="text" name="t1" placeholder="Username" style="border-style: inherit;" required>
+                <input type="text" name="t1" placeholder="Username" style="border-style: inherit;font-family: 'PT Sans Caption', sans-serif;" required>
               </div>
             </td>
           </tr>
@@ -144,7 +146,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <td style="background-color: #FFFFFF">
               <div>
                 <i class="fa-solid fa-envelope"></i>
-                <input type="text" name="t2" placeholder="Email" style="border-style: hidden;" required>
+                <input type="text" name="t2" placeholder="Email" style="border-style: hidden;font-family: 'PT Sans Caption', sans-serif;" required>
               </div>
             </td>
           </tr>
@@ -155,7 +157,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <td style="background-color: #FFFFFF">
               <div>
                 <i class="fa-solid fa-unlock-keyhole"></i>
-                <input type="password" name="t3" placeholder="Password" style="border-style: hidden;" required>
+                <input type="password" name="t3" placeholder="Password" style="border-style: hidden;font-family: 'PT Sans Caption', sans-serif;" required>
               </div>
             </td>
           </tr>
@@ -166,7 +168,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <td style="background-color: #FFFFFF">
               <div>
                 <i class="fa-solid fa-unlock-keyhole"></i>
-                <input type="password" name="t4" placeholder="Confirm Password" style="border-style: hidden;" required>
+                <input type="password" name="t4" placeholder="Confirm Password" style="border-style: hidden;font-family: 'PT Sans Caption', sans-serif;" required>
               </div>
             </td>
           </tr>
@@ -177,7 +179,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <td style="background-color: #FFFFFF">
               <div>
                 <i class="fa-solid fa-mobile"></i>
-                <input type="text" name="t5" placeholder="Mobile No" style="border-style: hidden;" required>
+                <input type="text" name="t5" placeholder="Mobile No" style="border-style: hidden; font-family: 'PT Sans Caption', sans-serif;" required >
               </div>
             </td>
           </tr>
@@ -185,7 +187,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <br>
         <br>
         <div class="btn">
-          <input type="submit" class="button" value="Sign up">
+            <input type="submit" class="button" value="Sign up" style="background-color:#0954aa;">
         </div>
         <p style="font-family: 'PT Sans Caption', sans-serif">Already have an account?<a href="sign.html">SignIn here</a>
         </p>

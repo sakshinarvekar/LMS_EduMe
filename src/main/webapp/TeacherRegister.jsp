@@ -14,6 +14,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/c807f93a6d.js" crossorigin="anonymous"></script>
     <style>
+        @import url("https://fontawesome.com/");
+        @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Jost:wght@100;200;300;400;500;600;700&family=Karla:wght@200;300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=PT+Sans+Caption:wght@400;700&display=swap');
+        
+/*         *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: 'PT Sans Caption', sans-serif;
+    }*/
+        
         .btn {
             text-align: center;
         }
@@ -33,6 +43,8 @@
             transform: translate(50%, -50%);
             text-align: center;
             border-radius: 8px;
+            align-items: center;
+            
         }
 
         input {
@@ -67,6 +79,7 @@
         }
 
         .btn {
+            width:60px;
             border-style: none;
             border-radius: 10px;
             background-color: #0954aa;
@@ -74,14 +87,16 @@
             font-weight: bold;
             color: #ffffff;
             border-spacing: inherit;
+            justify-content: center;
+            margin-left: 130px;
         }
 
         .container {
-            background-image: url("E-learn.jpg");
+/*            background-image: url("E-learn.jpg");*/
         }
 
         .login_image {
-            opacity: 0.5;
+/*            opacity: 0.5;*/
         }
 
         body {
@@ -143,7 +158,7 @@
             <div class="main">
                 <hr />
                 <br />
-                <h1>Sign Up</h1>
+                <h1 style="font-family: 'PT Sans Caption', sans-serif;">Sign Up</h1>
                 <div>
                     <table align="center" class="login_table" style="height: 167px">
                         <tr>
@@ -153,58 +168,58 @@
                             <td style="background-color: #ffffff">
                                 <div>
                                     <i class="fa-solid fa-user-tie"></i>
-                                    <input type="text" name="t1" placeholder="Username" class="form-input" required>
+                                    <input type="text" name="t1" placeholder="Username" class="form-input" required style="font-family: 'PT Sans Caption', sans-serif">
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td style="font-size: large">&nbsp;</td>
+                            <td style="font-size: smaller">&nbsp;</td>
                         </tr>
                         <tr>
                             <td style="background-color: #ffffff">
                                 <div>
                                     <i class="fa-solid fa-unlock-keyhole"></i>
-                                    <input type="password" name="t2" placeholder="Password" class="form-input" required>
+                                    <input type="password" name="t2" placeholder="Password" class="form-input" required style="font-family: 'PT Sans Caption', sans-serif">
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td style="font-size: large">&nbsp;</td>
+                            <td style="font-size: smaller">&nbsp;</td>
                         </tr>
                         <tr>
                             <td style="background-color: #ffffff">
                                 <div>
                                     <i class="fa-solid fa-unlock-keyhole"></i>
-                                    <input type="password" name="t3" placeholder="Confirm Password" class="form-input" required>
+                                    <input type="password" name="t3" placeholder="Confirm Password" class="form-input" required style="font-family: 'PT Sans Caption', sans-serif">
                                 </div>
                             </td>
                         </tr> 
                         <tr>
-                            <td style="font-size: large">&nbsp;</td>
+                            <td style="font-size: smaller">&nbsp;</td>
                         </tr>
                         <tr>
                             <td style="background-color: #ffffff">
                                 <div>
                                     <i class="fa-solid fa-mobile"></i>
-                                    <input type="text" name="t4" placeholder="Mobile No" class="form-input" required>
+                                    <input type="text" name="t4" placeholder="Mobile No" class="form-input" required style="font-family: 'PT Sans Caption', sans-serif">
                                 </div>
                             </td>
                         </tr> 
                         <tr>
-                            <td style="font-size: large">&nbsp;</td>
+                            <td style="font-size: smaller">&nbsp;</td>
                         </tr>
                         <tr>
                             <td style="background-color: #ffffff">
                                 <div>
                                     <i class="fa-solid fa-envelope"></i>
-                                    <input type="text" name="t5" placeholder="Email" class="form-input" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$">
+                                    <input type="text" name="t5" placeholder="Email" class="form-input" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" style="font-family: 'PT Sans Caption', sans-serif">
                                 </div>
                             </td>
                         </tr>
                     </table>
                     <br />
                     <br />    
-                    <div class="btn">
+                    <div class="btn" >
                         <input type="submit" value="Sign up" class="form-submit-btn">
                     </div>
                     <br>

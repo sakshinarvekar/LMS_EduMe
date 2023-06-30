@@ -14,6 +14,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>JSP Page</title>
     <style>
+        @import url("https://fontawesome.com/");
+            @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Jost:wght@100;200;300;400;500;600;700&family=Karla:wght@200;300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=PT+Sans+Caption:wght@400;700&display=swap');
+            *{
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+                font-family: 'PT Sans Caption', sans-serif;
+            }
         body {
             display: flex;
             flex-direction: column;
@@ -117,6 +125,9 @@
      %>
     </ul>
   </div>
+     <div class="form-div">
+         <h2 style="width:300px; margin-left:70px; text-align: center; margin-top: 100px;">Manage Students</h2>
+
 <%
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -182,5 +193,6 @@
         }
     }
 %>
-</body>
+     </div>
+     </body>
 </html>
