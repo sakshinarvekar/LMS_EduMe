@@ -336,9 +336,9 @@ String action = request.getParameter("action");
         response.sendRedirect("HomePage.jsp");
     }
     %>
-                            <li><a href="?action=logout">Logout</a></li>
-                        </ul></li>
-                          <%
+                           <li><a href="?action=logout">Logout</a></li>
+                       </ul></li>
+                         <%
                             }
              %>
             </ul>

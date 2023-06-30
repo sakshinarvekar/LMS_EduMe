@@ -372,7 +372,7 @@
                                 response.sendRedirect("HomePage.jsp");
                             }
                         %>
-                        <li><a href="?action=logout">Logout</a></li>
+<!--                        <li><a href="?action=logout">Logout</a></li>-->
                     </ul></li>
                     <%
                         }
