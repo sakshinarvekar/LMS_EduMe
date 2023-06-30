@@ -373,6 +373,9 @@ String action = request.getParameter("action");
         <a href="#" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-chart-line fa-fw me-3"></i><span>Your Progress</span></a
         </a>
+        <a href="PdfRetrieve.jsp" class="list-group-item list-group-item-action py-2 ripple">
+          <i class="fas fa-chart-pie fa-fw me-3"></i><span>Resources</span>
+        </a>
         <a href="Test.jsp?grade=<%=request.getParameter("grade")%>" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Test</span></a
         >
@@ -384,7 +387,7 @@ String action = request.getParameter("action");
         >
         <a href="Help.jsp" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-calendar fa-fw me-3"></i><span>Help</span></a
-        >
+        
         
       </div>
     </div>
