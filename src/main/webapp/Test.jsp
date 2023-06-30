@@ -304,32 +304,7 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-peer/simplepeer.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         
-            <script type="text/javascript">
-        
-        
-//        function enableScriptlet() {
-//            document.getElementById("scriptletCode").style.display = "block";
-//        }
-//       function enableScriptlet() {
-//            document.getElementById("scriptletCode").style.display = "block";
-//            document.getElementById("myButton").disabled = true;
-//        }
-       function handleButtonClick() {
-            // Show success message using Swal.fire()
-            Swal.fire({
-              title: 'Good job!',
-              text: 'You have successfully submitted the test!!',
-              icon: 'success',
-              confirmButtonText: 'OK'
-            }).then((result) => {
-              if (result.isConfirmed) {
-                // Redirect to another page
-                window.location.href = '/LMS_EduMe/ViewScore.jsp?score=<%=score%>';
-                
-              }
-            });
-        }
-    </script>
+            
     </head>
     <body>
         
@@ -499,7 +474,8 @@
 <!--<button id="myButton" l onclick="enableScriptlet()" <%= request.getParameter("disabled") != null ? "disabled" : "" %>>Take a Test</button>-->
 <!--<div id="scriptletCode" style="display: none;">-->
 <!--<div id="scriptletCode" style="<%= request.getParameter("disabled") != null ? "display:block;" : "display:none;" %>">-->
-<%! int score=0;
+<%! int score = 0;
+
 %>
     <%
     
@@ -512,7 +488,7 @@
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(Query);
             int count = 1;
-            //int score = 0;
+            
             
             List<String> answer = new ArrayList<>();
             List<String> selectedans = new ArrayList<>();
@@ -562,12 +538,13 @@
                             
                             }
                         }
-            
+              
+                       
 
                String btn = request.getParameter("Submit");
                if(btn!=null)
                 {
-               if(btn.equals("Submit"))
+               if (request.getMethod().equals("POST")) {
                {
                 String user = (String) session.getAttribute("username");
              if (username != null) 
@@ -578,13 +555,17 @@
                     Statement stmt = con.createStatement();
                     stmt.execute("insert into result values(default,'"+user+"','"+g+"','"+s+"','"+c+"','"+score+"',CURRENT_TIMESTAMP)");
                     //out.print("Score inserted");
+                    
+                    
                     stmt.close();
                     conn.close();  
+                
                 
                 }
                
                 }
                 }
+        }
 
               
             rs.close();
@@ -595,7 +576,8 @@
                     {
                     out.print(e);
                     }
-    
+  
+
 %>
 <input type="submit" value="Submit" onclick="handleButtonClick()" name="Submit" class="button" > 
 
@@ -635,7 +617,38 @@
         <p>© Copyright 2023 | Designed by Sakshi Narvekar and Rupali Vaje</p>
     </div>
         </form>
+<script type="text/javascript">
+        
+        
+//        function enableScriptlet() {
+//            document.getElementById("scriptletCode").style.display = "block";
+//        }
+//       function enableScriptlet() {
+//            document.getElementById("scriptletCode").style.display = "block";
+//            document.getElementById("myButton").disabled = true;
+//        }
+       function handleButtonClick() {
+            // Show success message using Swal.fire()
+            Swal.fire({
+              title: 'Good job!',
+              text: 'You have successfully submitted the test!!',
+              icon: 'success',
+              confirmButtonText: 'OK'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                // Redirect to another page
+                window.location.href = '/LMS_EduMe/ViewScore.jsp?';
+                
+              }
+            });
+        }
+    </script>
     </body>
 
 </html>
+<%
+
+session.setAttribute("name", score);
+
+%>
 

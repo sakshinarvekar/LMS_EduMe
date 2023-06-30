@@ -3,12 +3,11 @@
     Created on : Jun 28, 2023, 9:33:46 PM
     Author     : bhaktisunilnarvekar
 --%>
-
+<%@page import="java.sql.*"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="com.twilio.Twilio" %>
 <%@ page import="com.twilio.rest.api.v2010.account.Message" %>
 <%@ page import="com.twilio.type.PhoneNumber" %>
-<%@page import="java.sql.*"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -397,7 +396,7 @@
 
         <%String g = (String)session.getAttribute("Grade");
         %>
-        <a href="Test.jsp?grade=<%=g%>" class="list-group-item list-group-item-action py-2 ripple"
+        <a href="Test.jsp?grade=<%=request.getParameter("grade")%>" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Test</span></a
         >
         <a href="#" class="list-group-item list-group-item-action py-2 ripple"
@@ -422,7 +421,7 @@
             
                 <h3>Your Scores : </h3>
                 <%!int score;
-                String mobile;
+                  String mobile;
                 %>
                 <%
                    
@@ -438,7 +437,7 @@
                         Statement st = con.createStatement();
                         
                         //ResultSet rs = st.executeQuery("SELECT * FROM result WHERE username = '"+u+"' ORDER BY date DESC;");
-                        ResultSet rs = st.executeQuery("SELECT res.*, su.mobile FROM result AS res JOIN SignUp AS su ON res.username = su.username WHERE res.username = '"+u+"' order by date DESC;");
+                        ResultSet rs = st.executeQuery("SELECT res.*, su.mobile FROM result AS res JOIN SignUp AS su ON res.username = su.username WHERE res.username = '"+u+"' ");
                         out.print("<table border=1 >");
                         out.print("<tr>");
                         out.print("<th> Grade </th>");
@@ -472,6 +471,10 @@
                     {
                         out.print(e);
                     }
+                    
+                      Integer n = (Integer)session.getAttribute("name");
+//                      out.print(n);
+
                 %>
             
         </div>
@@ -518,7 +521,7 @@
         try {
             Twilio.init(ACCOUNT_SID, AUTH_TOKEN);      
             Message message = Message.creator(
-                    new PhoneNumber(mobile),
+                    new PhoneNumber("+91" + mobile),
                     new PhoneNumber("+14178073250"), // Replace with your Twilio phone number
                     "Your EduMe Test Score: " + a
             ).create();
@@ -530,12 +533,13 @@
         }
     }
 %>
-
 <%
-String a = request.getParameter("score");
-out.print(a);
-if(a!=null)
+    
+//out.print(mobile);
+//out.print(score);
+if(n!=null)
 {
-    sendSOSMessage(score);
+sendSOSMessage(score);
 }
 %>
+
