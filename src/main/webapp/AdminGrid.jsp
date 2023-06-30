@@ -88,6 +88,9 @@
             padding: 0;
             background-color: rgb(238,247,247);
         }
+        .form-div{
+            margin-top: 100px;
+        }
 
             table {
                 border-collapse: collapse;
@@ -138,11 +141,45 @@
         </style>
     </head>
     <body>
+        
+  <script>
+    // JavaScript for sidebar active item
+    function setActive(element) {
+      var items = document.getElementsByClassName('active');
+      for (var i = 0; i < items.length; i++) {
+        items[i].classList.remove('active');
+      }
+      element.classList.add('active');
+    }
+  </script>
+</head>
+<body>
+  <div id="sidebar">
+      <h2>Hello Admin</h2><br>
+    <img src="/LMS_EduMe/img/admin.png" alt="Admin Image">
+    <ul>
+        <li onclick="setActive(this)"><a href="AdminGrid.jsp">Manage Content</a></li>
+      <li onclick="setActive(this)"><a href="TeacherRD.jsp">Manage Teachers</a></li>
+      <li onclick="setActive(this)"><a href="StudentRD.jsp">Manage Student</a></li>
+      <li onclick="setActive(this)"><a href="#">Student Support</a></li>
+      <li onclick="setActive(this)"><a href="?action=logout">Logout</a></li>
+        <% 
+    String action = request.getParameter("action");
+    if (action != null && action.equals("logout")) 
+    {
+        response.sendRedirect("HomePage.jsp");
+    }
+     %>
+    </ul>
+  </div>
+    <div class="form-div">
         <form action="" method="post" >
+            <h2>Manage Content</h2>
             Enter Grade : <input type="text" name="t1" placeholder="Grade" required><br><!-- comment -->
-            Enter Subject : <input type="text" name="t2" placeholder="Subject" required=><br>
-            <input type="submit" value="Submit">
+            Enter Subject : <input type="text" name="t2" placeholder="Subject" required=><br><br>
+            <input type="submit" value="Search Records">
         </form>
+    </div>
     </body>
 </html>
 <%
