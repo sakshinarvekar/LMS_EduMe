@@ -253,18 +253,15 @@
  <div class="main-div">
   <div>
       <header>
-        <a href="homepage.html" ><img class="logo" src="/LMS_EduMe/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px;"></a>
+        <a href="HomePage.jsp" ><img class="logo" src="/LMS_EduMe/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px;"></a>
         <nav>
             <ul class="nav">
 
-                <li><a href="homepage.html" >Home</a></li>
-                <li><a href="#wave" >Grades</li>
+                <li><a href="HomePage.jsp">Home</a></li>
+                <li><a href="HomePage.jsp?#wave" >Grades</li>
                 <li class="dropdown">
-                    <a href="#">Teach On EduMe &#9662;</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="TeacherLogin.jsp">SignIn</a></li>
-                        <li><a href="TeacherRegister.jsp">SignUp</a></li>
-                    </ul>
+                    <a href="TeacherPanel.jsp">Teach On EduMe &#9662;</a>
+                    
                 </li> 
                 <li><a href="SignUpnew.html" >SignUp</a></li>
                 <li><a href="sign.html" >SignIn</a></li>
@@ -305,7 +302,7 @@
           ><i class="fas fa-chart-line fa-fw me-3"></i><span>Home</span></a
         </a>
         <a href="Profile.jsp" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-chart-line fa-fw me-3"></i><span>User Profile</span></a
+          ><i class="fas fa-chart-line fa-fw me-3"></i><span>Your Progress</span></a
         </a>
         <a href="#" class="list-group-item list-group-item-action py-2 ripple">
           <i class="fas fa-chart-pie fa-fw me-3"></i><span>Resources</span>
@@ -315,7 +312,7 @@
         <a href="Test.jsp?grade=<%=g%>" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Test</span></a
         >
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+        <a href="ViewScore.jsp" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-globe fa-fw me-3"></i><span>Result</span></a
         >
         <a href="Help.jsp" class="list-group-item list-group-item-action py-2 ripple"
@@ -326,6 +323,15 @@
     </div>
   </nav>
 </header>
+          <%
+            String un = (String)session.getAttribute("username");
+    if (un == null) {
+    %>
+    <script>
+        alert("You must be logged in to access this page!");
+        window.location.href = "SignIn.jsp"; // Replace with the login page URL
+    </script>
+    <% } else { %>
             <div class="vidcontent">
                 
 <%!
@@ -538,5 +544,6 @@
     }
     
 %>
+<% } %>
     </body>
 </html>

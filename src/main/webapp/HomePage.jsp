@@ -307,11 +307,8 @@
       </div>
     </li>
                 <li class="dropdown">
-      <a href="#">Teach On EduMe &#9662;</a>
-      <ul class="dropdown-menu">
-        <li><a href="TeacherLogin.jsp">SignIn</a></li>
-        <li><a href="TeacherRegister.jsp">SignUp</a></li>
-      </ul>
+      <a href="TeacherPanel.jsp">Teach On EduMe &#9662;</a>
+      
     </li> 
                 <li><a href="SignUpnew.html" >SignUp</a></li>
                 <li><a href="SignIn.jsp" >SignIn</a></li>
