@@ -287,10 +287,7 @@
     <body>
         <form action="" method="post">
     <header>
-        <div class="sidebar">
-        <div class="logo-container">
         <a href="HomePage.jsp" ><img class="logo" src="/LMS_EduMe/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px;"></a>
-        </div>
         <nav>
             <ul class="nav">
 
@@ -336,7 +333,6 @@ String action = request.getParameter("action");
                           <%
                             }
              %>
-             
             </ul>
         </nav>
     </header>
