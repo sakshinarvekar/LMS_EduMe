@@ -12,25 +12,38 @@
   <meta charset="UTF-8">
   <title>Help Form</title>
   <style>
-    body {
+    @import url("https://fontawesome.com/");
+    @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Jost:wght@100;200;300;400;500;600;700&family=Karla:wght@200;300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=PT+Sans+Caption:wght@400;700&display=swap');
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: 'PT Sans Caption', sans-serif;
+    }
+      body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            background-color:rgb(238,247,247);
+;
         }
         .main{
             margin-left: 100px;
-            background-color: #fff;
+            background-color:rgb(238,247,247);
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
         }
 
         .container {
-            max-width: 400px;
+            
             margin: 0 auto;
-            background-color: #fff;
+            background-color: rgb(254,248,237);
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 100px;
+        }
+        .container h2{
+            margin-left: 150px;
         }
 
         .form-group {
@@ -72,9 +85,7 @@
         .form-group input[type="submit"]:active {
             background-color: #3e8e41;
         }
-    body{
-            background-color:rgb(238,247,247);
-        }
+    
         .progress-bar {
             width: 70%;
             background-color: #f1f1f1;
@@ -281,7 +292,7 @@
                     %>
             </ul>
         </nav>
-      </header><hr style="color: black; margin-top: 15px; width: 100%;">
+      </header><hr style="color: black; margin-top: 15px; ">
       </div>
             <!-- Sidebar -->
   <header>
@@ -317,7 +328,7 @@
   </nav>
 </header>
           
-          <div class="container">
+          <div class="container" style="width:500px; ">
     <h2>Help Form</h2>
     <form action="submit-help-form.php" method="post">
       <div class="form-group">
@@ -333,11 +344,39 @@
         <textarea id="query" name="query" required></textarea>
       </div>
       <div class="form-group">
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" style="margin-left: 180px;">
         </div>
           </div>
       
     </form>
-  </div>
+    <div>
+            <div class="footer">
+                <div class="foot1">
+                    <img class="logo" src="/LMS_EduMe/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px; border-radius: 25px;"><br><br>
+                    <h4>Unlock your true potential through the power of education with EduMe</h3>
+                </div>
+                <div class="foot2">
+                    <h4>Quick Links</h3><br>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">About Us</a></li>
+                        </ul>
+                </div>
+                <div class="foot3">
+                    <h4>Socials</h3><br>
+                        <ul>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                        </ul>
+                </div>
+            </div>       
+            <div class="copyright">
+            <hr>
+            <p>© Copyright 2023 | Designed by Sakshi Narvekar and Rupali Vaje</p>
+        </div>
+        </div>
+ 
 </body>
 </html>

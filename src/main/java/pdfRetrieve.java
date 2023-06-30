@@ -43,8 +43,11 @@ public class pdfRetrieve extends HttpServlet {
             pstmt.setString(1, "%" + grade + "%");
             pstmt.setString(2, "%" + subject + "%");
             ResultSet rs = pstmt.executeQuery();
-            
-            out.print("<table border=1 width=50%");
+            out.print("<center>");
+            out.print("<body style='background-color:rgb(238,247,247); '>");
+            out.print("<table border=1 width=50% style='border-collapse: separate;\n" +
+"            border-spacing: 0;\n" +
+"            border: 2px solid #ddd; text-align:center;'");
             out.print("<tr>");
             out.print("<th> Grade </th>");
             out.print("<th> Subject </th>");
@@ -70,6 +73,8 @@ public class pdfRetrieve extends HttpServlet {
             }
             
             out.print("</table>");
+            out.print("</body>");
+            out.print("</center>");
             
             rs.close();
             pstmt.close();

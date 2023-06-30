@@ -33,6 +33,7 @@
             background-color: #f9f9f9;
         }
         .scorediv {
+            
             width: 500px;
             margin: 20px auto;
         }
@@ -238,6 +239,13 @@
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
+        
+        .abc{
+            background-color: rgb(238,247,247);
+            margin-top: -106px;
+            min-height: 650px;
+            
+        }
         .scorediv {
             width: 600px;
             margin: 20px auto;
@@ -286,7 +294,7 @@
           left: 0;
           box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
           width: 200px;
-          height: 600px;
+          height: 800px;
           
         }
 
@@ -407,7 +415,7 @@
 
           ><i class="fas fa-globe fa-fw me-3"></i><span>Result</span></a
         >
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+        <a href="Help.jsp" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-calendar fa-fw me-3"></i><span>Help</span></a
         >
         
@@ -415,10 +423,10 @@
     </div>
   </nav>
 </header>
-
+        <div class="abc">
         <div class="scorediv">
             
-            
+            <br><br>
                 <h3>Your Scores : </h3>
                 <%!int score;
                   String mobile;

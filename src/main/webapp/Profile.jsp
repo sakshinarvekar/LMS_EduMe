@@ -19,7 +19,6 @@
             width: 70%;
             background-color: #f1f1f1;
             border: 1px solid #ccc;
-
             height: 40px;
             height: 30px;
             margin-left: 200px;
@@ -265,7 +264,7 @@
         <a href="#" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-globe fa-fw me-3"></i><span>Result</span></a
         >
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+        <a href="Help.jsp" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-calendar fa-fw me-3"></i><span>Help</span></a
         >
         
@@ -275,7 +274,7 @@
 </header>
           <div class="profilediv">
     
-    <h2 style="" >Your Progress</h2>
+    <h2>Your Progress</h2>
 
     <% 
     String user = (String) session.getAttribute("username");

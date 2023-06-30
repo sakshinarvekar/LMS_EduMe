@@ -58,7 +58,7 @@
           left: 0;
           box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
           width: 200px;
-          height: 600px;
+          height: 800px;
           
         }
 
@@ -205,6 +205,7 @@
             color: #ff6347;
         }
         .contentlist{
+            margin-top: 50px;
             margin-left: 150px;
             background-color: white;
             width:500px;
@@ -228,7 +229,6 @@
         
         .quizdropdown{
             min-height: 600px;
-            margin-bottom: 50px;
             text-align: center;
             margin-left: 350px;
         }
@@ -240,6 +240,7 @@
             border-radius: 50px;
             margin-left: 220px;
             margin-bottom: 30px;
+           
         }
         .quizdropdown h3{
             color:rgb(26,54,88);
@@ -297,6 +298,12 @@
         .dropdown-menu a:hover {
             background-color: rgb(8, 135, 175);
             color: white;
+        }
+        
+        .abc{
+            background-color:rgb(238,247,247);
+            margin-top: -87px;
+     
         }
 /*        end*/
         </style>
@@ -380,7 +387,7 @@
         <a href="#" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-building fa-fw me-3"></i><span>Logout</span></a
         >
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+        <a href="Help.jsp" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-calendar fa-fw me-3"></i><span>Help</span></a
         >
         
@@ -388,8 +395,10 @@
     </div>
   </nav>
 </header>
+          <div class="abc" >
             <div class="quizdropdown">
 <!--                <center>-->
+<br><br>
                     <h1>Apply Filter : </h1>
                     <div class="drophead">
                     <select class="form-control1" name="subject"  onchange="this.form.submit()" style="width:250px; height: 40px;">
@@ -429,7 +438,7 @@
                     </select>
 
                     <select class="form-control2" name="chapters"  onchange="this.form.submit()"  style="width:250px; height: 40px;">
-                        <option  value="">Select Chapter</option>
+                        <option  value="">Select Chapter</option><br><br>
                         
                         <%
                             String selectedChapter = request.getParameter("chapters");                            
@@ -465,9 +474,9 @@
     //String selectedChapter = request.getParameter("chapters");
     //String selectedSub = request.getParameter("subject");
     
-    out.print("<h4>"+"Selected Subject: " + s + "</h4>");
-    out.print("<h4>"+"Selected Chapter: " + selectedChapter+"</h4><br>");
-    out.print("<br>");
+    //out.print("<h4>"+"Selected Subject: " + s + "</h4>");
+    //out.print("<h4>"+"Selected Chapter: " + selectedChapter+"</h4><br>");
+    //out.print("<br>");
 %>
 </div>
 <!--<button onclick="enableScriptlet()">Take a Test</button>-->
@@ -481,10 +490,8 @@
     
     try{
             //String Query="select * from quiz where sub='"+s+"' AND chp_name='"+selectedChapter+"' ";
-//            String Query = "SELECT * FROM quiz WHERE sub = '" + s + "' AND chp_name = '" + selectedChapter + "' ORDER BY RAND() LIMIT 5";
+            String Query = "SELECT * FROM quiz WHERE sub = '" + s + "' AND chp_name = '" + selectedChapter + "' ORDER BY RAND() LIMIT 5";
  
-            String Query = "SELECT CAST(id AS UNSIGNED) AS formatted_id, quiz.* FROM quiz WHERE sub = '" + s + "' AND chp_name = '" + selectedChapter + "'ORDER BY RAND()LIMIT 5";
-
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
             Statement st = con.createStatement();
@@ -505,7 +512,7 @@
              String a = rs.getString("correct_option");            
              answer.add(a);
              out.print("<div class='contentlist' >");
-             out.print("<strong class='chapter'>Q."+id+"</strong>");
+             out.print("<strong class='chapter'>Q."+count+"</strong>");
              out.print("<h3 class='chapter'>"+q+"</h3>");
              out.print("<br>");
              out.print("<input type='radio' name='r"+count+"' value='"+o1+"'>"+o1+"");
@@ -581,10 +588,11 @@
   
 
 %>
+<br><br>
 <input type="submit" value="Submit" onclick="handleButtonClick()" name="Submit" class="button" > 
-
+<br><br>
 </div>
-
+          </div>
 
 
              
