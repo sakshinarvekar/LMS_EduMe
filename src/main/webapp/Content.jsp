@@ -59,7 +59,7 @@
           left: 0;
           box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
           width: 200px;
-          min-height: 600px;
+          min-height: 800px;
           height: max-content;
           
         }
