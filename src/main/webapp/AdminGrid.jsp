@@ -269,15 +269,20 @@
                 int rowsAffected = stmt.executeUpdate();
 
                 if (rowsAffected > 0) {
-                    out.println("Record deleted successfully!");
-                } else {
-                    out.println("Record not found or could not be deleted!");
-                }
+                    //out.println("Record deleted successfully!");
+                    out.println("<script type=\"text/javascript\">"); // Start the script tag 
+                    out.println("alert('Record deleted successfully!!');"); // JavaScript code to generate an alert box 
+                    out.println("window.location.href = 'AdminGrid.jsp';");
+                    out.println("</script>");
+                } 
+//                else  {
+//                    out.println("Record not found or could not be deleted!");
+//                }
 
                 st.close();
                 con.close();
             } catch (Exception e) {
-                out.print(e);
+                out.print(e); 
             }
     }
 %>
