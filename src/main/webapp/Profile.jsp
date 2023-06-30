@@ -17,7 +17,7 @@
             background-color:rgb(238,247,247);
         }
         .progress-bar {
-            width: 100%;
+            width: 70%;
             background-color: #f1f1f1;
             border: 1px solid #ccc;
             height: 40px;
@@ -118,10 +118,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    margin-left: 200px;
-    padding: 0;
-}*/
+    height: 100vh;*/
+/*    margin-left: 200px;
+    padding: 0;*/
+
 
 .progress-bar {
     position: relative;

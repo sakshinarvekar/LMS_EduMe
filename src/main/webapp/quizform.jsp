@@ -99,7 +99,7 @@
         label {
             display: block;
             margin-top: 10px;
-            margin-left: 40px;
+            margin-left: 70px;
             color: #333;
         }
         textarea {
@@ -107,7 +107,7 @@
             width: 300px;
             border: 1px solid #ccc;
             padding: 5px;
-            margin-left: 40px;
+            margin-left: 70px;
         }
         
         input[type="text"],
@@ -115,11 +115,10 @@
             width: 300px;
             padding: 5px;
             border: 1px solid #ccc;
-            margin-left: 40px;
+            margin-left: 70px;
         }
         
         input[type="submit"],
-        input[type="reset"],
         input[type="button"] {
             margin-top: 20px;
             background-color: #ff7f50;
@@ -128,17 +127,16 @@
             padding: 10px 20px;
             border-radius: 3px;
             cursor: pointer;
-            margin-left: 40px;
+            margin-left: 70px;
         }
         input[type="submit"]:hover,
-        input[type="reset"]:hover,
         input[type="button"]:hover {
             background-color: #ff6347;
-            margin-left: 40px;
+            margin-left: 70px;
         }
         
         .formdiv{
-            margin-top: 0px;
+            margin-top: 20px;
             
         }
         .back{
@@ -157,7 +155,7 @@
             
         .back:hover {
             background-color: #ff6347;
-            margin-left: 40px;
+            margin-left: 70px;
         }
         
        
@@ -180,9 +178,7 @@
     
     
     <div class="formdiv"> 
-        <h1 style="margin-left: 620px; color: rgb(232,108,58); ">Quiz Form</h1><br>
     <form action="" method="post">
-        
         <label for="grade">Grade:</label>
         <input type="text" name="grade" required><br>
         
@@ -211,8 +207,7 @@
         <input type="text" name="correctOption"  required><br>
         
         <input type="submit" value="Save Question">
-        <input type="reset" value="Reset">
-       
+        <a href="TeacherpPanel.jsp" class="back" >Back to HomePage</a>
         </div>
     </form>
 
