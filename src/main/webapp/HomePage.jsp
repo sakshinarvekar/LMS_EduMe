@@ -287,13 +287,13 @@
     <body>
         <form action="" method="post">
     <header>
-        <a href="homepage.html" ><img class="logo" src="/LMS_EduMe/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px;"></a>
+        <a href="HomePage.jsp" ><img class="logo" src="/LMS_EduMe/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px;"></a>
         <nav>
             <ul class="nav">
 
              
                 
-                <li><a href="homepage.html" >Home</a></li>
+                <li><a href="HomePage.jsp">Home</a></li>
                 
                 <li class="dropdown">
       <a href="#wave" class="dropbtn">Grades</a>
