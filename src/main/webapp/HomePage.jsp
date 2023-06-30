@@ -298,7 +298,7 @@
                 <li class="dropdown">
       <a href="http://localhost:8080/LMS_EduMe/HomePage.jsp#wave" class="dropbtn">Grades</a></li>
                 <li class="dropdown">
-      <a href="TeacherPanel.jsp">Teach On EduMe &#9662;</a>
+      <a href="TeacherLogin.jsp">Teach On EduMe &#9662;</a>
       
     </li> 
                 <li><a href="SignUpnew.html" >SignUp</a></li>
