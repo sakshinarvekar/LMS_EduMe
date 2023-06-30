@@ -4,6 +4,7 @@
     Author     : rupal
 --%>
 
+<%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -328,14 +329,14 @@
           
           <div class="container" style="width:500px; ">
     <h2>Help Form</h2>
-    <form action="submit-help-form.php" method="post">
+    <form action="" method="post">
       <div class="form-group">
-        <label for="name">Name:</label>
+        <label for="name">Student username:</label>
         <input type="text" id="name" name="name" required>
       </div>
       <div class="form-group">
-        <label for="subject">Subject:</label>
-        <input type="text" id="subject" name="subject" required>
+        <label for="grade">Grade:</label>
+        <input type="text" id="grade" name="grade" required>
       </div>
         <div class="form-group">
         <label for="query">Query:</label>
@@ -378,3 +379,30 @@
  
 </body>
 </html>
+<%
+        String uname = request.getParameter("name");
+        String grade = request.getParameter("grade");
+        String query = request.getParameter("query");
+        
+        if(uname!=null){
+try{
+    Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
+        Statement st = con.createStatement();
+        st.execute("insert into help values(default, '"+uname+"','"+grade+"','"+query+"');");              
+               //out.print("value inserted");
+        out.println("<script type=\"text/javascript\">"); // Start the script tag 
+        out.println("alert('Query submitted successfully!!');"); // JavaScript code to generate an alert box 
+        out.println("window.location.href = 'Help.jsp';");
+        out.println("</script>");
+        st.close();
+        con.close();
+
+    }
+    catch(Exception e)
+    {
+        out.print(e);
+    }
+    }
+
+%>

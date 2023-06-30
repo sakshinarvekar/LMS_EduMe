@@ -146,7 +146,7 @@
         <li onclick="setActive(this)"><a href="fileup_1.jsp">Upload Content</a></li>
       <li onclick="setActive(this)"><a href="TeacherRD.jsp">Manage Teachers</a></li>
       <li onclick="setActive(this)"><a href="StudentRD.jsp">Manage Student</a></li>
-      <li onclick="setActive(this)"><a href="#">Student Support</a></li>
+      <li onclick="setActive(this)"><a href="StudentSupport.jsp">Student Support</a></li>
       <li onclick="setActive(this)"><a href="?action=logout">Logout</a></li>
         <% 
     String action = request.getParameter("action");

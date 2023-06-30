@@ -415,7 +415,7 @@ String action = request.getParameter("action");
                     <select class="form-control1" name="subject"  onchange="this.form.submit()" style="width:250px; height: 40px;">
                         <option value=""<% if ("".equals(session.getAttribute("selectedsub"))) out.print("selected"); %> >Select Subject</option>
                         <%
-                            String g = (String) session.getAttribute("Grade");
+                            //String g = (String) session.getAttribute("Grade");
                             //out.print(g);
                             
                             String selectedSubject = request.getParameter("subject");
