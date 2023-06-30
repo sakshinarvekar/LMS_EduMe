@@ -12,6 +12,40 @@
     <meta charset="UTF-8">
     <title>Profile Page</title>
     <style>
+
+        body{
+            background-color:rgb(238,247,247);
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            height: 40px;
+            height: 30px;
+            margin-left: 200px;
+            
+            
+
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #4caf50;
+        }
+        .progress-bar-text {
+            text-align: center;
+            line-height: 30px;
+            color: #000;
+            font-weight: bold;
+        }
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: 'PT Sans Caption', sans-serif; 
+         }
+             
+         
+        .nav li,.nav a{
+
         
          .nav li,.nav a{
             font-weight: 400;
@@ -53,11 +87,11 @@
           
         }
 
-        @media (max-width: 991.98px) {
+/*        @media (max-width: 991.98px) {
           .sidebar {
             width: 100%;
           }
-        }
+        }*/
         .position-sticky a:active{
             color: red;
         }
@@ -84,10 +118,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;*/
-/*    margin-left: 200px;
-    padding: 0;*/
-
+    height: 100vh;
+    margin-left: 200px;
+    padding: 0;
+}*/
 
 .progress-bar {
     position: relative;

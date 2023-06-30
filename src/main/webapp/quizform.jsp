@@ -99,7 +99,7 @@
         label {
             display: block;
             margin-top: 10px;
-            margin-left: 70px;
+            margin-left: 40px;
             color: #333;
         }
         textarea {
@@ -107,7 +107,7 @@
             width: 300px;
             border: 1px solid #ccc;
             padding: 5px;
-            margin-left: 70px;
+            margin-left: 40px;
         }
         
         input[type="text"],
@@ -115,10 +115,11 @@
             width: 300px;
             padding: 5px;
             border: 1px solid #ccc;
-            margin-left: 70px;
+            margin-left: 40px;
         }
         
         input[type="submit"],
+        input[type="reset"],
         input[type="button"] {
             margin-top: 20px;
             background-color: #ff7f50;
@@ -127,16 +128,17 @@
             padding: 10px 20px;
             border-radius: 3px;
             cursor: pointer;
-            margin-left: 70px;
+            margin-left: 40px;
         }
         input[type="submit"]:hover,
+        input[type="reset"]:hover,
         input[type="button"]:hover {
             background-color: #ff6347;
-            margin-left: 70px;
+            margin-left: 40px;
         }
         
         .formdiv{
-            margin-top: 20px;
+            margin-top: 0px;
             
         }
         .back{
@@ -155,7 +157,7 @@
             
         .back:hover {
             background-color: #ff6347;
-            margin-left: 70px;
+            margin-left: 40px;
         }
         
        
@@ -178,7 +180,9 @@
     
     
     <div class="formdiv"> 
+        <h1 style="margin-left: 620px; color: rgb(232,108,58); ">Quiz Form</h1><br>
     <form action="" method="post">
+        
         <label for="grade">Grade:</label>
         <input type="text" name="grade" required><br>
         
@@ -207,7 +211,8 @@
         <input type="text" name="correctOption"  required><br>
         
         <input type="submit" value="Save Question">
-        <a href="TeacherpPanel.jsp" class="back" >Back to HomePage</a>
+        <input type="reset" value="Reset">
+       
         </div>
     </form>
 
