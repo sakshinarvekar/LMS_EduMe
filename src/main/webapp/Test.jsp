@@ -481,7 +481,9 @@
     
     try{
             //String Query="select * from quiz where sub='"+s+"' AND chp_name='"+selectedChapter+"' ";
-            String Query = "SELECT * FROM quiz WHERE sub = '" + s + "' AND chp_name = '" + selectedChapter + "' ORDER BY RAND() LIMIT 5";
+//            String Query = "SELECT * FROM quiz WHERE sub = '" + s + "' AND chp_name = '" + selectedChapter + "' ORDER BY RAND() LIMIT 5";
+ 
+            String Query = "SELECT CAST(id AS UNSIGNED) AS formatted_id, quiz.* FROM quiz WHERE sub = '" + s + "' AND chp_name = '" + selectedChapter + "'ORDER BY RAND()LIMIT 5";
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
