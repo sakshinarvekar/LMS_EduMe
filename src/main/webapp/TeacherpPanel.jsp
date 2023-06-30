@@ -258,7 +258,7 @@
 %>
             
 <!--                <a href="#">Profile</a>-->
-                <a href="TeacherPanel.jsp?action=logout">Logout</a>
+                <a href="TeacherpPanel.jsp?action=logout">Logout</a>
                 <%
                     }
               %>
