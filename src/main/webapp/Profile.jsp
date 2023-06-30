@@ -114,7 +114,7 @@ h1, p {
             <ul class="nav">
 
                 <li><a href="HomePage.jsp">Home</a></li>
-                <li><a href="#wave" >Grades</li>
+                <li><a href="http://localhost:8080/LMS_EduMe/HomePage.jsp#wave" >Grades</a></li>
                 <li class="dropdown">
                     <a href="TeacherPanel.jsp">Teach On EduMe &#9662;</a>
                     
@@ -151,22 +151,20 @@ h1, p {
   <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-3 mt-4">
+          <%String g = (String) session.getAttribute("Grade");
+          %>
           <a href="#" class="list-group-item list-group-item-action py-2 ripple">
              <i class="fas fa-chart-line fa-fw me-3"></i><span><img src="/LMS_EduMe/img/graduating-student.png" width="40px" height="40px" alt="Loginicon"/></span></a
           </a>
           <a href="HomePage.jsp" class="list-group-item list-group-item-action py-2 ripple">
              <i class="fas fa-chart-line fa-fw me-3"></i><span>Home</span></a
           </a>
-
-          <a href="Content.jsp" class="list-group-item list-group-item-action py-2 ripple">
+          <a href="Content.jsp?grade=<%=g%>"  class="list-group-item list-group-item-action py-2 ripple">
               <i class="fas fa-chart-pie fa-fw me-3"></i><span>Syllabus</span>
           </a>
           <a href="PdfRetrieve.jsp" class="list-group-item list-group-item-action py-2 ripple">
               <i class="fas fa-chart-pie fa-fw me-3"></i><span>Resources</span>
-          </a>
-
-          <%String g = (String) session.getAttribute("Grade");
-          %>
+          </a>  
           <a href="Test.jsp?grade=<%=g%>" class="list-group-item list-group-item-action py-2 ripple">
               <i class="fas fa-chart-bar fa-fw me-3"></i><span>Test</span></a>
           <a href="ViewScore.jsp" class="list-group-item list-group-item-action py-2 ripple">

@@ -221,6 +221,15 @@
     </style>
 </head>
 <body>
+    <%
+    String e = (String) session.getAttribute("email");
+    if (e == null) {
+    %>
+    <script>
+        alert("You must be logged in to access this page!");
+        window.location.href = "TeacherLogin.jsp"; // Replace with the login page URL
+    </script>
+    <% } else { %>
     <div class="sidebar">
         <h2>Caretutor</h2>
         <img src="/LMS_EduMe/img/teacher.jpg" height="50px" width="50px" alt="Vector Image">
@@ -243,11 +252,11 @@
             <div class="logged-info">
         <div class="dropdown">
             <%
-    String username = (String) session.getAttribute("username");
-             if (username!=null )
+    
+             if (e!=null )
              {
              %>
-             <a href ="#" class="dropbtn"><%= username%></a>
+             <a href ="#" class="dropbtn"><%= e%></a>
             <div class="dropdown-content">
                 <%
    String action = request.getParameter("action");
@@ -265,5 +274,6 @@
             </div>
         </div>
     </div>
+             <% } %>
 </body>
 </html>

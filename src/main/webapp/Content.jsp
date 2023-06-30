@@ -249,6 +249,25 @@
             color: white;
         }
 /*            end*/
+ /* Style for the dropdown menu */
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+
+        .dropdown-content a {
+          color: #333;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+          display: block;
+        }
         </style>
         <script>
         function toggleContent(hyperlinkId) {
@@ -294,7 +313,7 @@
         <nav>
             <ul class="nav">
                 <li><a href="HomePage.jsp">Home</a></li>
-                <li><a href="#wave" >Grades</li>
+                <li><a href="http://localhost:8080/LMS_EduMe/HomePage.jsp#wave" >Grades</a></li>
                 <li class="dropdown">
                         <a href="TeacherPanel.jsp">Teach On EduMe &#9662;</a>
                         
@@ -334,20 +353,23 @@ String action = request.getParameter("action");
       <div class="list-group list-group-flush mx-3 mt-4">
           <a href="#" class="list-group-item list-group-item-action py-2 ripple">
              <i class="fas fa-chart-line fa-fw me-3"></i><span><img src="/LMS_EduMe/img/graduating-student.png" width="40px" height="40px" alt="Loginicon"/></span></a
+
+          <%String g = (String)session.getAttribute("Grade");
+          %>
+          
           </a>
           <a href="HomePage.jsp" class="list-group-item list-group-item-action py-2 ripple">
              <i class="fas fa-chart-line fa-fw me-3"></i><span>Home</span></a
           </a>
+          <a href="Content.jsp?grade=<%=g%>" class="list-group-item list-group-item-action py-2 ripple">
 
-          <a href="Content.jsp" class="list-group-item list-group-item-action py-2 ripple">
               <i class="fas fa-chart-pie fa-fw me-3"></i><span>Syllabus</span>
           </a>
           <a href="PdfRetrieve.jsp" class="list-group-item list-group-item-action py-2 ripple">
               <i class="fas fa-chart-pie fa-fw me-3"></i><span>Resources</span>
           </a>
 
-          <%String g = (String) session.getAttribute("Grade");
-          %>
+          
           <a href="Test.jsp?grade=<%=g%>" class="list-group-item list-group-item-action py-2 ripple">
               <i class="fas fa-chart-bar fa-fw me-3"></i><span>Test</span></a>
           <a href="ViewScore.jsp" class="list-group-item list-group-item-action py-2 ripple">
@@ -486,7 +508,7 @@ String action = request.getParameter("action");
             </div>       
             <div class="copyright">
             <hr>
-            <p>© Copyright 2023 | Designed by Sakshi Narvekar and Rupali Vaje</p>
+            <p>© Copyright 2023 | Designed by  Rupali Vaje and Sakshi Narvekar</p>
         </div>
         </div>
       

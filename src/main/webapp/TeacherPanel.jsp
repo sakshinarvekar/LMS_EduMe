@@ -196,8 +196,8 @@
 </head>
 <body>
     <%
-    String un = (String) session.getAttribute("username");
-    if (un == null) {
+    String e = (String) session.getAttribute("email");
+    if (e == null) {
     %>
     <script>
         alert("You must be logged in to access this page!");
@@ -228,11 +228,11 @@
             <div class="logged-info">
         <div class="dropdown">
             <%
-    String username = (String) session.getAttribute("username");
-             if (username!=null )
+   // String e = (String) session.getAttribute("email");
+             if (e!=null )
              {
              %>
-             <a href ="#" class="dropbtn"><%= username%></a>
+             <a href ="#" class="dropbtn"><%= e%></a>
             <div class="dropdown-content">
                 <%
    String action = request.getParameter("action");

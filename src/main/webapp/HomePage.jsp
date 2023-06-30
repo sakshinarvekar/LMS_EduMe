@@ -296,16 +296,7 @@
                 <li><a href="HomePage.jsp">Home</a></li>
                 
                 <li class="dropdown">
-      <a href="#wave" class="dropbtn">Grades</a>
-      <div class="dropdown-content">
-        <a href="#">Grade 5</a>
-        <a href="#">Grade 6</a>
-        <a href="#">Grade 7</a>
-        <a href="#">Grade 8</a>
-        <a href="#">Grade 9</a>
-        <a href="#">Grade 10</a>
-      </div>
-    </li>
+      <a href="http://localhost:8080/LMS_EduMe/HomePage.jsp#wave" class="dropbtn">Grades</a></li>
                 <li class="dropdown">
       <a href="TeacherPanel.jsp">Teach On EduMe &#9662;</a>
       

@@ -140,7 +140,7 @@
 
                             <td style="background-color: #FFFFFF">
                                 <div><i class="fa-solid fa-user-tie"></i>
-                                    <input name="t1" id="username" type="text" placeholder="Username"
+                                    <input name="t1" id="Email" type="text" placeholder="Email"
                                            style="border-style: inherit;font-family: 'PT Sans Caption', sans-serif" required>
                                 </div>
                             </td>
@@ -205,27 +205,27 @@
 </html>
 <%
     try {
-        String un, pass;
+        String em, pass;
         String dbun = "";
         String dbpass = "";
 
-        un = request.getParameter("t1");
-        if (un != null) {
+        em = request.getParameter("t1");
+        if (em != null) {
             pass = request.getParameter("t2");
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246","sql12629246","nSsVYGGiJc");
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select * from Teachers where username = '" + un + "' And password= '" + pass + "'; ");
+            ResultSet rs = st.executeQuery("select * from Teachers where gmail = '" + em + "' And password= '" + pass + "'; ");
 
             while (rs.next()) {
-                dbun = rs.getString("username");
-                dbpass = rs.getString("password");
+                dbun = rs.getString(6);
+                dbpass = rs.getString(3);
             }
 
-            if (dbun.equals(un) && dbpass.equals(pass)) 
+            if (dbun.equals(em) && dbpass.equals(pass)) 
             {
-                session.setAttribute("username", un);
+                session.setAttribute("email", em);
                 response.sendRedirect("/LMS_EduMe/TeacherpPanel.jsp");
             } 
             else {

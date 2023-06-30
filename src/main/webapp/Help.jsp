@@ -255,63 +255,66 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">    
   <link href="https://getbootstrap.com/docs/4.0/components/collapse/">
-            <div>
-        <header class="head">
+ <div class="main-div">
+  <div>
+      <header>
         <a href="HomePage.jsp" ><img class="logo" src="/LMS_EduMe/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px;"></a>
         <nav>
             <ul class="nav">
-                <li><a href="HomePage.jsp" >Home</a></li>
-                <li><a href="#wave" >Grades</li>
+                <li><a href="HomePage.jsp">Home</a></li>
+                <li><a href="http://localhost:8080/LMS_EduMe/HomePage.jsp#wave" >Grades</a></li>
                 <li class="dropdown">
                         <a href="TeacherPanel.jsp">Teach On EduMe &#9662;</a>
+                        
                     </li> 
                 <li><a href="SignUpnew.html" >SignUp</a></li>
                 <li><a href="sign.html" >SignIn</a></li>
                     <%
-                        //session = request.getSession();
-                        String username = (String) session.getAttribute("username");
-                        if (username != null) {
-                    %>
-                <li class="dropdown"><a href="#" ><%= username%></a>
-                    <ul class="dropdown-menu">
-                        <%
-                            String action = request.getParameter("action");
-                            session.setAttribute("action", action);
-                            if (action != null && action.equals("logout")) {
-                                session.invalidate();
-                                response.sendRedirect("HomePage.jsp");
+                 //session = request.getSession();
+             String username = (String) session.getAttribute("username");
+             if (username!=null)
+                          { 
+                          %>
+                          <li class="dropdown"><a href="#" ><%= username%></a>
+                          <ul class="dropdown-menu">
+ <%     
+String action = request.getParameter("action");
+  session.setAttribute("action", action);
+    if (action != null && action.equals("logout")) {
+        session.invalidate();
+        response.sendRedirect("HomePage.jsp");
+    }
+    %>
+                            <li><a href="?action=logout">Logout</a></li>
+                        </ul></li>
+                          <%
                             }
-                        %>
-                        <li><a href="?action=logout">Logout</a></li>
-                    </ul></li>
-                    <%
-                        }
-                    %>
+             %>
             </ul>
         </nav>
-      </header><hr style="color: black; margin-top: 15px; ">
+      </header><hr style="color: black; margin-top: 15px; width: 100%;">
       </div>
             <!-- Sidebar -->
   <header>
   <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-3 mt-4">
+          <%String g = (String) session.getAttribute("Grade");
+          %>
           <a href="#" class="list-group-item list-group-item-action py-2 ripple">
              <i class="fas fa-chart-line fa-fw me-3"></i><span><img src="/LMS_EduMe/img/graduating-student.png" width="40px" height="40px" alt="Loginicon"/></span></a
           </a>
           <a href="HomePage.jsp" class="list-group-item list-group-item-action py-2 ripple">
              <i class="fas fa-chart-line fa-fw me-3"></i><span>Home</span></a
           </a>
-
-          <a href="Content.jsp" class="list-group-item list-group-item-action py-2 ripple">
+          <a href="Content.jsp?grade=<%=g%>" class="list-group-item list-group-item-action py-2 ripple">
               <i class="fas fa-chart-pie fa-fw me-3"></i><span>Syllabus</span>
           </a>
           <a href="PdfRetrieve.jsp" class="list-group-item list-group-item-action py-2 ripple">
               <i class="fas fa-chart-pie fa-fw me-3"></i><span>Resources</span>
           </a>
 
-          <%String g = (String) session.getAttribute("Grade");
-          %>
+          
           <a href="Test.jsp?grade=<%=g%>" class="list-group-item list-group-item-action py-2 ripple">
               <i class="fas fa-chart-bar fa-fw me-3"></i><span>Test</span></a>
           <a href="ViewScore.jsp" class="list-group-item list-group-item-action py-2 ripple">
@@ -373,7 +376,7 @@
             </div>       
             <div class="copyright">
             <hr>
-            <p>© Copyright 2023 | Designed by Sakshi Narvekar and Rupali Vaje</p>
+            <p>© Copyright 2023 | Designed by  Rupali Vaje and Sakshi Narvekar</p>
         </div>
         </div>
  
