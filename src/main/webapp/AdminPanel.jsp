@@ -133,7 +133,9 @@
       <h2>Hello Admin</h2><br>
     <img src="/LMS_EduMe/img/admin.png" alt="Admin Image">
     <ul>
+        <li onclick="setActive(this)"><a href="AdminPanel.jsp">Dashboard</a></li>
         <li onclick="setActive(this)"><a href="AdminGrid.jsp">Manage Content</a></li>
+        <li onclick="setActive(this)"><a href="fileup_1.jsp">Upload Content</a></li>
       <li onclick="setActive(this)"><a href="TeacherRD.jsp">Manage Teachers</a></li>
       <li onclick="setActive(this)"><a href="StudentRD.jsp">Manage Student</a></li>
       <li onclick="setActive(this)"><a href="#">Student Support</a></li>

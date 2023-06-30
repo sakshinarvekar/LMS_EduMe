@@ -25,12 +25,59 @@
             background-color: rgb(238,247,247);
         }
         
-        h1 {
+         h1 {
             text-align: center;
             color: rgb(232,108,58);
-            margin-top: 50px;
+/*            margin-top: 50px;*/
         }
-        
+        #sidebar {
+              width: 250px;
+              background-color: #333;
+              height: 100vh;
+              position: fixed;
+              left: 0;
+              color: #fff;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              padding-top: 20px;
+              
+            }
+
+            #sidebar a{
+                color:white;
+                text-decoration: none;
+            }
+
+            #sidebar img {
+              width: 100px;
+              margin-bottom: 20px;
+            }
+            #content {
+              margin-left: 250px;
+              padding: 20px;
+            }
+
+            ul {
+              list-style-type: none;
+              padding: 0;
+              margin: 0;
+            }
+
+            ul li {
+              padding: 10px;
+              cursor: pointer;
+            }
+
+            ul li:hover {
+              background-color: #555;
+            }
+
+            .active {
+              background-color: #555;
+            }
+            
+            
         
         form {
             
@@ -90,7 +137,28 @@
     </style>
 </head>
 <body>
-    <h1>Upload Content</h1>
+       <div id="sidebar">
+      <h2>Hello Admin</h2><br>
+    <img src="/LMS_EduMe/img/admin.png" alt="Admin Image">
+    <ul>
+        <li onclick="setActive(this)"><a href="AdminPanel.jsp">Dashboard</a></li>
+        <li onclick="setActive(this)"><a href="AdminGrid.jsp">Manage Content</a></li>
+        <li onclick="setActive(this)"><a href="fileup_1.jsp">Upload Content</a></li>
+      <li onclick="setActive(this)"><a href="TeacherRD.jsp">Manage Teachers</a></li>
+      <li onclick="setActive(this)"><a href="StudentRD.jsp">Manage Student</a></li>
+      <li onclick="setActive(this)"><a href="#">Student Support</a></li>
+      <li onclick="setActive(this)"><a href="?action=logout">Logout</a></li>
+        <% 
+    String action = request.getParameter("action");
+    if (action != null && action.equals("logout")) 
+    {
+        response.sendRedirect("HomePage.jsp");
+    }
+     %>
+    </ul>
+  </div>
+    <div class="formdiv">
+    <h1 ">Upload Content</h1>
     <form action="img" method="post" enctype="multipart/form-data">
          <label for="grade">Enter grade:</label>
         <input type="text" name="grade" required><br> 
@@ -110,5 +178,6 @@
         <input type="file" name="video" /><br />
         <input type="submit" value="Upload" />-->
     </form>
+    </div>
 </body>
 </html>

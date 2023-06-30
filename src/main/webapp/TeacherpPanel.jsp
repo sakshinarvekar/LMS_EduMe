@@ -129,8 +129,8 @@
             right: 10px;
             padding: 10px 20px;
             background-color: #333;
-            color: #FFF;
-            font-size: 14px;
+            color: white;
+            font-size: 24px;
             font-weight: bold;
             text-decoration: none;
             border-radius: 5px;
@@ -138,12 +138,20 @@
         .logged-info {
             position: fixed;
             top: 10px;
-            right: 10px;
+            right: 20px;
+            color: white;
+            
         }
+        .dropbtn a{
+    color:white;
+    text-decoration: none;
+}
 
         .logged-info .dropdown {
             position: relative;
             display: inline-block;
+            
+            
         }
 
         .logged-info .dropdown-content {
@@ -206,6 +214,8 @@
     border-top: 1px solid #DDD;
 }
 
+
+
 /* Rest of the CSS code */
 
     </style>
@@ -215,9 +225,11 @@
         <h2>Caretutor</h2>
         <img src="/LMS_EduMe/img/teacher.jpg" height="50px" width="50px" alt="Vector Image">
         <ul>
+            <li><a href="TeacherpPanel.jsp">Dashboard</a></li>
+            <li><a href="quizform.jsp">Add Quiz</a></li>
+            <li><a href="PdfUpload.jsp">Add Resources</a></li>
             <li><a href="TeacherLogin.jsp">Sign In</a></li>
             <li><a href="TeacherRegister.jsp">Sign Up</a></li>
-            <li><a href="quizform.jsp">Add Quiz</a></li>
         </ul>
     </div>
     <div class="content">
@@ -243,7 +255,6 @@
         session.invalidate();
         response.sendRedirect("TeacherpPanel.jsp");
     }
-
 %>
             
 <!--                <a href="#">Profile</a>-->
