@@ -332,14 +332,14 @@ String action = request.getParameter("action");
   <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-3 mt-4">
-          <<a href="#" class="list-group-item list-group-item-action py-2 ripple">
-             <i class="fas fa-chart-line fa-fw me-3"></i><span><img src="/LMS_EduMe/img/con2.png" width="40px" height="40px" alt="Loginicon"/></span></a
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple">
+             <i class="fas fa-chart-line fa-fw me-3"></i><span><img src="/LMS_EduMe/img/graduating-student.png" width="40px" height="40px" alt="Loginicon"/></span></a
           </a>
           <a href="HomePage.jsp" class="list-group-item list-group-item-action py-2 ripple">
              <i class="fas fa-chart-line fa-fw me-3"></i><span>Home</span></a
           </a>
 
-          <a href="PdfRetrieve.jsp" class="list-group-item list-group-item-action py-2 ripple">
+          <a href="Content.jsp" class="list-group-item list-group-item-action py-2 ripple">
               <i class="fas fa-chart-pie fa-fw me-3"></i><span>Syllabus</span>
           </a>
           <a href="PdfRetrieve.jsp" class="list-group-item list-group-item-action py-2 ripple">
