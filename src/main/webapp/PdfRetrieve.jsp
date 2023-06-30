@@ -32,6 +32,32 @@
             margin-top: 30px;
             
         }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            min-width: 160px;
+            z-index: 1;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            color: rgb(8, 135, 175);
+            text-decoration: none;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: rgb(8, 135, 175);
+            color: white;
+        }
         table {
             border-collapse: separate;
             border-spacing: 0;
@@ -53,6 +79,10 @@
         }
         tr:nth-child(even) {
             background-color: #f9f9f9;
+        }
+        
+        .formdiv{
+            min-height: 450px;
         }
         
         label {
@@ -145,13 +175,13 @@
         }
             
         .sidebar {
-          position:absolute;
-          top: 87px;
+          position:relative;
+          top: 250px;
           bottom: 0;
           left: 0;
           box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
           width: 200px;
-          height: 800px;
+          height: 600px;
           
         }
 
@@ -163,7 +193,57 @@
         .position-sticky a:active{
             color: red;
         }
+        .footer{
+            display: flex;
+            height: 250px;
+            width: 100%;
+            background-color:rgb(26,54,88);
+            bottom: 0px;  
 
+        }
+        .footer li, a{
+            color: white;
+            list-style: none;
+            text-decoration: none;
+            padding :5px;
+        }
+        .foot1 , .foot2, .foot3{
+            padding: 50px;
+            color:white;
+
+        }
+        .foot2  a, .foot3 a{
+            list-style: none;
+            text-decoration: none;
+            color: white;
+        }
+        .foot1 {
+            display: inline-block;
+            width: 40%;
+            margin-left: 50px;
+            list-style: none;
+            text-decoration: none;
+
+        }
+        .foot2{
+            display: inline-block;
+            width: 30%;
+            text-align: center;
+
+        }
+        .foot3{
+            display: inline-block;
+            width: 30%;  
+            text-align: center;
+        }
+
+        .copyright{
+            width: 100%;
+            background-color: rgb(26,54,88);
+            color: white;
+            padding: 5px;
+        }
+        
 
         
     </style>
@@ -252,9 +332,10 @@ String action = request.getParameter("action");
     </div>
   </nav>
 </header>
-              
+             
         <h1 style="margin-left: 620px; color: rgb(232,108,58); ">View Resources</h1>
         <form action="http://localhost:8080/LMS_EduMe/pdfRetrieve" method="post">
+            <div class="formdiv">
             <%
             String un = (String)session.getAttribute("username");
     if (un == null) {
@@ -270,6 +351,35 @@ String action = request.getParameter("action");
             Enter subject : <input type="text" name="t2"><br>
             <input type="submit" name="submit" value="Submit">
             </div>
+            </div>
+            
+            
+            <div class="footer">
+        <div class="foot1">
+            <img class="logo" src="/LMS_EduMe/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px; border-radius: 25px;"><br><br>
+            <h4>Unlock your true potential through the power of education with EduMe</h3>
+        </div>
+        <div class="foot2">
+            <h4>Quick Links</h3><br>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+        </div>
+        <div class="foot3">
+            <h4>Socials</h3><br>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+        </div>
+    </div>       
+    <div class="copyright">
+        <hr>
+        <p>© Copyright 2023 | Designed by Sakshi Narvekar and Rupali Vaje</p>
+    </div>
         </form>
     </body>
 </html>

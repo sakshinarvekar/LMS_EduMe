@@ -355,11 +355,12 @@ String action = request.getParameter("action");
              <i class="fas fa-chart-line fa-fw me-3"></i><span><img src="/LMS_EduMe/img/graduating-student.png" width="40px" height="40px" alt="Loginicon"/></span></a
 
           <%String g = (String)session.getAttribute("Grade");
+          out.print(g);
           %>
           
           </a>
           <a href="HomePage.jsp" class="list-group-item list-group-item-action py-2 ripple">
-             <i class="fas fa-chart-line fa-fw me-3"></i><span>Home</span></a
+              <i class="fas fa-chart-line fa-fw me-3"></i><span>Home</span></a>
           </a>
           <a href="Content.jsp?grade=<%=g%>" class="list-group-item list-group-item-action py-2 ripple">
 

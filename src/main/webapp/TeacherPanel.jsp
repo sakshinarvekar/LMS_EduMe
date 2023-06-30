@@ -199,10 +199,7 @@
     String e = (String) session.getAttribute("email");
     if (e == null) {
     %>
-    <script>
-        alert("You must be logged in to access this page!");
-        window.location.href = "TeacherLogin.jsp"; // Replace with the login page URL
-    </script>
+ 
     <% } else { %>
     <!-- Your existing HTML code here -->
     <!-- ... -->
@@ -238,7 +235,7 @@
    String action = request.getParameter("action");
     if (action != null && action.equals("logout")) {
         session.invalidate();
-        response.sendRedirect("TeacherpPanel.jsp");
+        response.sendRedirect("HomePage.jsp");
     }
 
 %>
@@ -251,6 +248,11 @@
             </div>
         </div>
     </div>
-            <% } %>
+         
 </body>
 </html>
+   <% } %>
+      <script>
+        alert("You must be logged in to access this page!");
+        window.location.href = "TeacherLogin.jsp"; // Replace with the login page URL
+    </script>

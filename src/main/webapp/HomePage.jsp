@@ -316,7 +316,7 @@ String action = request.getParameter("action");
   session.setAttribute("action", action);
     if (action != null && action.equals("logout")) {
         session.invalidate();
-        response.sendRedirect("HomePage.jsp");
+        response.sendRedirect("/LMS_EduMe-master/HomePage.jsp");
     }
     %>
                             <li><a href="?action=logout">Logout</a></li>

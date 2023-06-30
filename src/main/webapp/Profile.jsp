@@ -13,7 +13,10 @@
     <title>Profile Page</title>
     <style>
          .back {
+             margin-top: -87px;
         background-color: rgb(238, 247, 247);
+        min-height: 600px;
+            
     }
          .nav li,.nav a{
             font-weight: 400;
@@ -45,13 +48,13 @@
         }
             
         .sidebar {
-          position:absolute;
-          top: 87px;
+          position:relative;
+          top: 250px;
           bottom: 0;
           left: 0;
           box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
           width: 200px;
-          height: 800px;
+          height: 600px;
           
         }
 
@@ -96,6 +99,78 @@
 h1, p {
     text-align: center;
 }
+.dropdown:hover 
+        .dropdown-menu {
+            display: block;
+          }
+
+        .dropdown-menu {
+          
+          position: absolute;
+          background-color: #f9f9f9;
+          padding: 10px;
+        }
+
+        .dropdown-menu li {
+          margin-bottom: 5px;
+        }
+
+        .dropdown-menu a {
+          color: black;
+          text-decoration: none;
+        }
+        .footer{
+            display: flex;
+            height: 250px;
+            width: 100%;
+            background-color:rgb(26,54,88);
+            bottom: 0px;  
+
+        }
+        .footer li, a{
+            color: white;
+            list-style: none;
+            text-decoration: none;
+            padding :5px;
+        }
+        .foot1 , .foot2, .foot3{
+            padding: 50px;
+            color:white;
+
+        }
+        .foot2  a, .foot3 a{
+            list-style: none;
+            text-decoration: none;
+            color: white;
+        }
+        .foot1 {
+            display: inline-block;
+            width: 40%;
+            margin-left: 50px;
+            list-style: none;
+            text-decoration: none;
+
+        }
+        .foot2{
+            display: inline-block;
+            width: 30%;
+            text-align: center;
+
+        }
+        .foot3{
+            display: inline-block;
+            width: 30%;  
+            text-align: center;
+        }
+
+        .copyright{
+            width: 100%;
+            background-color: rgb(26,54,88);
+            color: white;
+            padding: 5px;
+        }
+        
+        
 
     </style>
 </head>
@@ -180,6 +255,8 @@ h1, p {
   </nav>
 </header>
           <div class="back">
+              <br><br>
+              <h1 style="color:white; background-color: rgb(8,135,175); border-radius: 30px; width:300px; margin-left: 600px;">Your Progress</h1>
     <% 
     String user = (String) session.getAttribute("username");
     
@@ -213,5 +290,32 @@ h1, p {
     }
     %>
           </div>
+          <div class="footer">
+        <div class="foot1">
+            <img class="logo" src="/LMS_EduMe/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px; border-radius: 25px;"><br><br>
+            <h4>Unlock your true potential through the power of education with EduMe</h3>
+        </div>
+        <div class="foot2">
+            <h4>Quick Links</h3><br>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+        </div>
+        <div class="foot3">
+            <h4>Socials</h3><br>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+        </div>
+    </div>       
+    <div class="copyright">
+        <hr>
+        <p>© Copyright 2023 | Designed by Sakshi Narvekar and Rupali Vaje</p>
+    </div>
       </form>
+          
 </body>
