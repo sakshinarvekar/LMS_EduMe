@@ -386,36 +386,31 @@
   <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-3 mt-4">
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-             ><i class="fas fa-chart-line fa-fw me-3"></i><span><img src="/LMS_EduMe/img/con2.png" width="40px" height="40px" alt="Loginicon"/></span></a
-        </a>
-        <a href="HomePage.jsp" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-chart-line fa-fw me-3"></i><span>Home</span></a
-        </a>
-        <a href="Profile.jsp" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-chart-line fa-fw me-3"></i><span>Your Progress</span></a
-        </a>
-        <a href="PdfRetrieve.jsp" class="list-group-item list-group-item-action py-2 ripple">
-          <i class="fas fa-chart-pie fa-fw me-3"></i><span>Resources</span>
-        </a>
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple">
+             <i class="fas fa-chart-line fa-fw me-3"></i><span><img src="/LMS_EduMe/img/con2.png" width="40px" height="40px" alt="Loginicon"/></span></a
+          </a>
+          <a href="HomePage.jsp" class="list-group-item list-group-item-action py-2 ripple">
+             <i class="fas fa-chart-line fa-fw me-3"></i><span>Home</span></a
+          </a>
 
-        <%String g = (String)session.getAttribute("Grade");
-        %>
-        <a href="Test.jsp?grade=<%=request.getParameter("grade")%>" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Test</span></a
-        >
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+          <a href="PdfRetrieve.jsp" class="list-group-item list-group-item-action py-2 ripple">
+              <i class="fas fa-chart-pie fa-fw me-3"></i><span>Syllabus</span>
+          </a>
+          <a href="PdfRetrieve.jsp" class="list-group-item list-group-item-action py-2 ripple">
+              <i class="fas fa-chart-pie fa-fw me-3"></i><span>Resources</span>
+          </a>
 
-        <%--<a href="Test.jsp?grade=<%=request.getParameter("grade")%>" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Test</span></a>  --%>
-        <a href="ViewScore.jsp" class="list-group-item list-group-item-action py-2 ripple"
-
-          ><i class="fas fa-globe fa-fw me-3"></i><span>Result</span></a
-        >
-        <a href="Help.jsp" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-calendar fa-fw me-3"></i><span>Help</span></a
-        >
-        
+          <%String g = (String) session.getAttribute("Grade");
+          %>
+          <a href="Test.jsp?grade=<%=g%>" class="list-group-item list-group-item-action py-2 ripple">
+              <i class="fas fa-chart-bar fa-fw me-3"></i><span>Test</span></a>
+          <a href="ViewScore.jsp" class="list-group-item list-group-item-action py-2 ripple">
+              <i class="fas fa-globe fa-fw me-3"></i><span>Result</span></a>
+          <a href="Profile.jsp" class="list-group-item list-group-item-action py-2 ripple">
+              <i class="fas fa-chart-line fa-fw me-3"></i><span>Your Progress</span></a
+          </a>
+          <a href="Help.jsp" class="list-group-item list-group-item-action py-2 ripple">
+              <i class="fas fa-calendar fa-fw me-3"></i><span>Help</span></a>
       </div>
     </div>
   </nav>
