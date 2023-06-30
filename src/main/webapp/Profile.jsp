@@ -12,6 +12,7 @@
     <meta charset="UTF-8">
     <title>Profile Page</title>
     <style>
+
         body{
             background-color:rgb(238,247,247);
         }
@@ -44,6 +45,10 @@
              
          
         .nav li,.nav a{
+
+        
+         .nav li,.nav a{
+
             font-weight: 400;
             font-size: 20px;
             color:rgb(8,135,175);
@@ -72,7 +77,7 @@
             color: white;
         }
             
-            .sidebar {
+        .sidebar {
           position:absolute;
           top: 87px;
           bottom: 0;
@@ -83,136 +88,99 @@
           
         }
 
-        @media (max-width: 991.98px) {
+/*        @media (max-width: 991.98px) {
           .sidebar {
             width: 100%;
           }
-        }
+        }*/
         .position-sticky a:active{
             color: red;
         }
-        /*      start dropdownlist for teanch onedume
-        */
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            min-width: 160px;
-            z-index: 1;
-            background-color: #fff;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+/*        progress bar start*/
+/*        .progress-bar {
+            width: 70%;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            height: 30px;
         }
-        
-        .dropdown:hover .dropdown-menu {
-            display: block;
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #4caf50;
         }
-        
-        .dropdown-menu a {
-            display: block;
-            padding: 10px;
-            color: rgb(8, 135, 175);
-            text-decoration: none;
-        }
-        
-        .dropdown-menu a:hover {
-            background-color: rgb(8, 135, 175);
-            color: white;
-        }
-        
-        .footer{
-            position: relative;
-            display: flex;
-            height: 250px;
-            width: 100%;
-            background-color:rgb(26,54,88);
-            bottom: 0px;  
-
-        }
-        .footer li, a{
-            color: white;
-            list-style: none;
-            text-decoration: none;
-            padding :5px;
-        }
-        .foot1 , .foot2, .foot3{
-            padding: 50px;
-            color:white;
-
-        }
-        .foot2  a, .foot3 a{
-            list-style: none;
-            text-decoration: none;
-            color: white;
-        }
-        .foot1 {
-            display: inline-block;
-            width: 40%;
-            margin-left: 50px;
-            list-style: none;
-            text-decoration: none;
-
-        }
-        .foot2{
-            display: inline-block;
-            width: 30%;
+        .progress-bar-text {
             text-align: center;
+            line-height: 30px;
+            color: #000;
+            font-weight: bold;
+        }*/
+/*        end*/
+/*body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;*/
+/*    margin-left: 200px;
+    padding: 0;*/
 
-        }
-        .foot3{
-            display: inline-block;
-            width: 30%;  
-            text-align: center;
-        }
 
-        .copyright{
-            width: 100%;
-            background-color: rgb(26,54,88);
-            color: white;
-            padding: 5px;
-        }
-        
-        .profilediv{
-            margin-top: -85px;
-            margin-left: 200px;
-            text-align: center;
-            min-height: 600px;
-            height:max-content;
-            background-color:rgb(238,247,247);
-            padding-top: 50px;
-        }
-        
-        .profilediv h2{
-            background-color: rgb(8,135,175); 
-            color:white; 
-            border-radius: 30px; 
-            width: 300px; 
-            margin-left: 400px;
-            padding:10px;
-            
-            
-        }
-/*            end*/
+.progress-bar {
+    position: relative;
+    width: 70%;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    height: 30px;
+}
+.progress-div{
+    margin-left: 300px;
+}
+.progress-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #4caf50;
+}
+
+.progress-bar-text {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 30px;
+    color: #000;
+    font-weight: bold;
+}
+
+h1, p {
+    text-align: center;
+}
+
     </style>
 </head>
 <body>
-    <form action="" methos="post">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+      <form action="" method="post">
+          
+        
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">    
   <link href="https://getbootstrap.com/docs/4.0/components/collapse/">
-            <div>
-        <header class="head">
+ <div class="main-div">
+  <div>
+      <header>
         <a href="homepage.html" ><img class="logo" src="/LMS_EduMe/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px;"></a>
         <nav>
             <ul class="nav">
+
                 <li><a href="homepage.html" >Home</a></li>
                 <li><a href="#wave" >Grades</li>
                 <li class="dropdown">
-                        <a href="#">Teach On EduMe &#9662;</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="TeacherLogin.jsp">Sign In</a></li>
-                            <li><a href="TeacherLogout.jsp">Sign Out</a></li>
-                        </ul>
-                    </li> 
+                    <a href="#">Teach On EduMe &#9662;</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="TeacherLogin.jsp">SignIn</a></li>
+                        <li><a href="TeacherRegister.jsp">SignUp</a></li>
+                    </ul>
+                </li> 
                 <li><a href="SignUpnew.html" >SignUp</a></li>
                 <li><a href="sign.html" >SignIn</a></li>
                     <%
@@ -239,7 +207,8 @@
         </nav>
       </header><hr style="color: black; margin-top: 15px; width: 100%;">
       </div>
-            <!-- Sidebar -->
+
+  <!-- Sidebar -->
   <header>
   <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
     <div class="position-sticky">
@@ -272,9 +241,11 @@
     </div>
   </nav>
 </header>
+
           <div class="profilediv">
     
     <h2>Your Progress</h2>
+
 
     <% 
     String user = (String) session.getAttribute("username");
@@ -294,9 +265,11 @@
 
             // Display progress bar and text
             out.print("<p>" + subject + "</p>");
+            out.print("<div class='progress-div'>");
             out.print("<div class='progress-bar'>");
             out.print("<div class='progress-bar-fill' style='width: " + progressPercentage + "%'></div>");
             out.print("<div class='progress-bar-text'>" + progressPercentage + "%</div>");
+            out.print("</div>");
             out.print("</div>");
         }
 
@@ -306,36 +279,7 @@
         out.print(e);
     }
     %>
-    </div>
-    <div>
-            <div class="footer">
-                <div class="foot1">
-                    <img class="logo" src="/LMS_EduMe/img/EduMelogocrop.png" alt="logo" style="height: 50px; width: 200px; padding: 0px; border-radius: 25px;"><br><br>
-                    <h4>Unlock your true potential through the power of education with EduMe</h3>
-                </div>
-                <div class="foot2">
-                    <h4>Quick Links</h3><br>
-                        <ul>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">About Us</a></li>
-                        </ul>
-                </div>
-                <div class="foot3">
-                    <h4>Socials</h3><br>
-                        <ul>
-                            <li><a href="#">Facebook</a></li>
-                            <li><a href="#">Instagram</a></li>
-                            <li><a href="#">LinkedIn</a></li>
-                        </ul>
-                </div>
-            </div>       
-            <div class="copyright">
-            <hr>
-            <p>© Copyright 2023 | Designed by Sakshi Narvekar and Rupali Vaje</p>
-        </div>
-        </div>
-    </form>
+    <h3>View progress</h3>
+      </form>
 </body>
-</html>
 </html>

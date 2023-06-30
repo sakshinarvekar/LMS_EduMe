@@ -26,19 +26,73 @@
             font-family: Arial, sans-serif;
             background-color: rgb(238,247,247);
         }
-        
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: #F5F5F5;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar h2 {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .sidebar img {
+            width: 100px;
+            height: 100px;
+            margin-top: 10px;
+            border-radius: 50%;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            margin-top: 30px;
+            padding: 0;
+            width: 100%;
+        }
+
+        .sidebar li {
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            transition: background-color 0.3s;
+            font-weight: 800;
+        }
+
+        .sidebar li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .sidebar li:hover {
+            background-color: #E0E0E0;
+        }
+
        
         
         
         form {
             
             background-color: #fff;
-            max-width: 480px;
+            max-width: 420px;
             margin: 0 auto;
             padding: 20px;
             border-radius: 20px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-            margin-top: 30px;
+            margin-top: 0px;
+            
             
         }
         
@@ -110,29 +164,12 @@
 </head>
 <body>
     <div class="sidebar">
-         <%
-    String username = (String) session.getAttribute("username");
-             if (username!=null )
-             {
-             %>
-        <h2><%= username%></h2>
+        <h2>Caretutor</h2>
         <img src="/LMS_EduMe/img/teacher.jpg" height="50px" width="50px" alt="Vector Image">
         <ul>
             <li><a href="TeacherLogin.jsp">Sign In</a></li>
             <li><a href="TeacherRegister.jsp">Sign Up</a></li>
             <li><a href="quizform.jsp">Add Quiz</a></li>
-                            <%
-   String action = request.getParameter("action");
-    if (action != null && action.equals("logout")) {
-        session.invalidate();
-        response.sendRedirect("HomePage.jsp");
-    }
-
-%>
-            <li><a href="?action=logout">Logout</a></li>
-                         <%
-                            }
-             %>
         </ul>
     </div>
     <h1>Create Quiz</h1>

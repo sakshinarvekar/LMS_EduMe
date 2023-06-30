@@ -18,7 +18,7 @@
         }
 
         /* Sidebar Styles */
-        .sidebar {
+/*        .sidebar {
             position: fixed;
             left: 0;
             top: 0;
@@ -30,7 +30,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
+        }*/
 
         .sidebar h2 {
             margin-top: 20px;
@@ -165,40 +165,93 @@
         .logged-info .dropdown:hover .dropdown-content {
             display: block;
         }
-        
+        .sidebar {
+    /* existing styles */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #F5F5F5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sidebar .logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.sidebar .logo h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.sidebar hr {
+    width: 80%;
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #DDD;
+}
+
+/* Rest of the CSS code */
+
     </style>
 </head>
 <body>
     <div class="sidebar">
-         <%
-    String username = (String) session.getAttribute("username");
-             if (username!=null )
-             {
-             %>
-        <h2><%= username%></h2>
+        <h2>Caretutor</h2>
         <img src="/LMS_EduMe/img/teacher.jpg" height="50px" width="50px" alt="Vector Image">
         <ul>
             <li><a href="TeacherLogin.jsp">Sign In</a></li>
             <li><a href="TeacherRegister.jsp">Sign Up</a></li>
             <li><a href="quizform.jsp">Add Quiz</a></li>
-                            <%
-   String action = request.getParameter("action");
-    if (action != null && action.equals("logout")) {
-        session.invalidate();
-        response.sendRedirect("HomePage.jsp");
-    }
-
-%>
-            <li><a href="?action=logout">Logout</a></li>
-                         <%
-                            }
-             %>
         </ul>
     </div>
     <div class="content">
         <h1>Welcome, Teacher!</h1>
-        <div class="box" align="center">
-            <img src="/LMS_EduMe/img/tecahergif.gif" style="width:700px; height: 600px;" alt="Teacher Image">
+        <div class="box">
+            <div class="gifdiv">
+        <img src="/LMS_EduMe/img/tecahergif.gif" style="border-radius: 40px;width:1000px;height:600px;">
+    </div>
+        </div>
+        
+            <div class="logged-info">
+        <div class="dropdown">
+            <%
+    String username = (String) session.getAttribute("username");
+             if (username!=null )
+             {
+             %>
+             <a href ="#" class="dropbtn"><%= username%></a>
+            <div class="dropdown-content">
+                <%
+   String action = request.getParameter("action");
+    if (action != null && action.equals("logout")) {
+        session.invalidate();
+        response.sendRedirect("TeacherpPanel.jsp");
+    }
+
+%>
+            
+<!--                <a href="#">Profile</a>-->
+                <a href="TeacherPanel.jsp?action=logout">Logout</a>
+                <%
+                    }
+              %>
+            </div>
         </div>
     </div>
 </body>
