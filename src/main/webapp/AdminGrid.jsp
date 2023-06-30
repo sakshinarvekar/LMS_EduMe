@@ -12,6 +12,72 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <style>
+            
+            @import url("https://fontawesome.com/");
+            @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Jost:wght@100;200;300;400;500;600;700&family=Karla:wght@200;300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=PT+Sans+Caption:wght@400;700&display=swap');
+            *{
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+                font-family: 'PT Sans Caption', sans-serif;
+            }
+            body {
+              margin: 0;
+              padding: 0;
+            }
+
+            #sidebar {
+              width: 250px;
+              background-color: #333;
+              height: 100vh;
+              position: fixed;
+              left: 0;
+              color: #fff;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              padding-top: 20px;
+            }
+
+            #sidebar a{
+                color:white;
+                text-decoration: none;
+            }
+
+            #sidebar img {
+              width: 100px;
+              margin-bottom: 20px;
+            }
+
+            #content {
+              margin-left: 250px;
+              padding: 20px;
+            }
+
+            ul {
+              list-style-type: none;
+              padding: 0;
+              margin: 0;
+            }
+
+            ul li {
+              padding: 10px;
+              cursor: pointer;
+            }
+
+            ul li:hover {
+              background-color: #555;
+            }
+
+            .active {
+              background-color: #555;
+            }
+
+            /* CSS for page content */
+            h1 {
+              color: #333;
+            }
+            
             body {
             display: flex;
             flex-direction: column;
@@ -23,52 +89,52 @@
             background-color: rgb(238,247,247);
         }
 
-        table {
-            border-collapse: collapse;
-            width: 50%;
-            margin-top: 100px;
-        }
+            table {
+                border-collapse: collapse;
+                width: 50%;
+                margin-top: 100px;
+            }
 
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
+            th, td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
 
-        th {
-            background-color: rgb(8, 135, 175);
-            color: white;
-        }
-        h2 {
-            background-color: rgb(232, 108, 58);
-            color: white;
-            padding: 10px;
-        }
+            th {
+                background-color: rgb(8, 135, 175);
+                color: white;
+            }
+            h2 {
+                background-color: rgb(232, 108, 58);
+                color: white;
+                padding: 10px;
+            }
 
-        form {
-            display: inline;
-        }
-        input[type="text"] {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            margin-bottom: 10px;
-            margin-top: 20px;
-        }
+            form {
+                display: inline;
+            }
+            input[type="text"] {
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                margin-bottom: 10px;
+                margin-top: 20px;
+            }
 
-        input[type="submit"] {
-            padding: 8px 16px;
-            background-color: rgb(8, 135, 175);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+            input[type="submit"] {
+                padding: 8px 16px;
+                background-color: rgb(8, 135, 175);
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
 
-        input[type="submit"]:hover {
-            background-color: rgb(6, 109, 142);
-        }
+            input[type="submit"]:hover {
+                background-color: rgb(6, 109, 142);
+            }
         </style>
     </head>
     <body>

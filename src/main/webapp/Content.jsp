@@ -221,7 +221,7 @@
             border-radius: 30px;
             box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
         }
-/*      start dropdownlist for teanch onedume
+/*      start dropdownlist for teach on edume
         */
         .dropdown-menu {
             display: none;
@@ -483,7 +483,7 @@
             </div>       
             <div class="copyright">
             <hr>
-            <p>© Copyright 2023 | Designed by Sakshi Narvekar and Rupali Vaje...</p>
+            <p>© Copyright 2023 | Designed by Sakshi Narvekar and Rupali Vaje</p>
         </div>
         </div>
       
