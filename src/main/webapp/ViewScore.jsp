@@ -438,7 +438,7 @@
                         Statement st = con.createStatement();
                         
                         //ResultSet rs = st.executeQuery("SELECT * FROM result WHERE username = '"+u+"' ORDER BY date DESC;");
-                        ResultSet rs = st.executeQuery("SELECT res.*, su.mobile FROM result AS res JOIN SignUp AS su ON res.username = su.username WHERE res.username = '"+u+"' ");
+                        ResultSet rs = st.executeQuery("SELECT res.*, su.mobile FROM result AS res JOIN SignUp AS su ON res.username = su.username WHERE res.username = '"+u+"' ORDER BY date DESC;");
                         out.print("<table border=1 >");
                         out.print("<tr>");
                         out.print("<th> Grade </th>");
@@ -536,11 +536,11 @@
 %>
 <%
     
-//out.print(mobile);
-//out.print(score);
-//if(n!=null)
-//{
-//sendSOSMessage(score);
-//}
-//%>
+out.print(mobile);
+out.print(score);
+if(n!=null)
+{
+sendSOSMessage(score);
+}
+%>
 
