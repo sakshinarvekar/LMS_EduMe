@@ -300,12 +300,19 @@
                 <li class="dropdown">
       <a href="TeacherLogin.jsp">Teach On EduMe &#9662;</a>
       
-    </li> 
-                <li><a href="SignUpnew.html" >SignUp</a></li>
-                <li><a href="SignIn.jsp" >SignIn</a></li>
+    </li>  
+    <%  
+    String username = (String) session.getAttribute("username");
+    boolean isLoggedIn = (username != null && !username.isEmpty());
+%>
+<li <% if (isLoggedIn) { %>style="display: none;"<% } %>><a href="SignIn.jsp">Login</a></li>
+<li <% if (isLoggedIn) { %>style="display: none;"<% } %>><a href="SignUpnew.html">Sign Up</a></li>
+
+
+
                 <%
                  //session = request.getSession();
-             String username = (String) session.getAttribute("username");
+            
              if (username!=null)
                           { 
                           %>
