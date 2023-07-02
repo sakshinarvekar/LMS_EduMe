@@ -298,7 +298,7 @@
                 <li class="dropdown">
       <a href="http://localhost:8080/LMS_EduMe/HomePage.jsp#wave" class="dropbtn">Grades</a></li>
                 <li class="dropdown">
-      <a href="TeacherLogin.jsp">Teach On EduMe &#9662;</a>
+      
       
     </li>  
     <%  
@@ -306,7 +306,7 @@
     boolean isLoggedIn = (username != null && !username.isEmpty());
 %>
 <li <% if (isLoggedIn) { %>style="display: none;"<% } %>><a href="SignIn.jsp">Login</a></li>
-<li <% if (isLoggedIn) { %>style="display: none;"<% } %>><a href="SignUpnew.html">Sign Up</a></li>
+<li <% if (isLoggedIn) { %>style="display: none;"<% } %>><a href="MIxForm.jsp">Sign Up</a></li>
 
 
 
