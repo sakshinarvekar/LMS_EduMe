@@ -135,7 +135,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <td style="background-color: #FFFFFF">
               <div>
                 <i class="fa-solid fa-user-tie"></i>
-                <input type="text" name="t1" placeholder="Username" style="border-style: inherit;font-family: 'PT Sans Caption', sans-serif;" required>
+                <input type="text" name="t1" placeholder="Username" pattern="^(?=.*[A-Za-z])[A-Za-z0-9._]{5,15}$" minlength="5" maxlength="15" title="Username should include atleast one chracter and should not use sepacial charaters except . _. And should be minimum 5 and maximum 15 characters only."  style="border-style: inherit;font-family: 'PT Sans Caption', sans-serif;" required>
               </div>
             </td>
           </tr>
@@ -146,7 +146,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <td style="background-color: #FFFFFF">
               <div>
                 <i class="fa-solid fa-envelope"></i>
-                <input type="text" name="t2" placeholder="Email" style="border-style: hidden;font-family: 'PT Sans Caption', sans-serif;" required>
+                <input type="email" name="t2" placeholder="Email" style="border-style: hidden;font-family: 'PT Sans Caption', sans-serif;" required>
               </div>
             </td>
           </tr>
@@ -157,7 +157,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <td style="background-color: #FFFFFF">
               <div>
                 <i class="fa-solid fa-unlock-keyhole"></i>
-                <input type="password" name="t3" placeholder="Password" style="border-style: hidden;font-family: 'PT Sans Caption', sans-serif;" required>
+                <input type="password" name="t3" placeholder="Password" id="password" onkeyup='check();' style="border-style: hidden;font-family: 'PT Sans Caption', sans-serif;" required>
+                <br>
+                <span id='message'></span>
+
               </div>
             </td>
           </tr>
@@ -168,7 +171,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <td style="background-color: #FFFFFF">
               <div>
                 <i class="fa-solid fa-unlock-keyhole"></i>
-                <input type="password" name="t4" placeholder="Confirm Password" style="border-style: hidden;font-family: 'PT Sans Caption', sans-serif;" required>
+                <input type="password" name="t4" placeholder="Confirm Password" id="confirm_password" style="border-style: hidden;font-family: 'PT Sans Caption', sans-serif;" required>
               </div>
             </td>
           </tr>
@@ -197,3 +200,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 </form>
 </body>
 </html>
+
+<script>
+    
+var check = function() {
+  if (document.getElementById('password').value ==
+    document.getElementById('confirm_password').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'matching';
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'not matching';
+  }
+}
+</script>
