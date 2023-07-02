@@ -1,3 +1,5 @@
+
+<%@page import="com.twilio.rest.chat.v1.service.User"%>
 <%-- 
     Document   : StudentRD
     Created on : 29-Jun-2023, 8:10:57 pm
@@ -104,6 +106,34 @@
     .active {
       background-color: #555;
     }
+    .progress-bar {
+    position: relative;
+    width: 70%;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    height: 30px;
+}
+.progress-div{
+    margin-left: 300px;
+}
+.progress-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #4caf50;
+}
+
+.progress-bar-text {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 30px;
+    color: #000;
+    font-weight: bold;
+}
+
     </style>
 </head>
 <body>
@@ -131,70 +161,124 @@
          <h2 style="width:300px; margin-left:70px; text-align: center; margin-top: 100px;">Manage Students</h2>
 
 <%
+try {
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
+    Statement st = con.createStatement();
+    String retrievalQuery = "SELECT DISTINCT username, email, mobile FROM SignUp";
+    ResultSet rs = st.executeQuery(retrievalQuery);
+
+    out.print("<table border=1 width=50%");
+    out.print("<tr>");
+    out.print("<th>Username</th>");
+    out.print("<th>Email</th>");
+    out.print("<th>Mobile No</th>");
+    out.print("<th>Action</th>");
+    out.print("<th>View Progress</th>");
+    out.print("</tr>");
+
+    while (rs.next()) {
+        String username = rs.getString("username");
+        String email = rs.getString("email");
+        String mobileno = rs.getString("mobile");
+
+        out.print("<tr>");
+        out.print("<td>" + username + "</td>");
+        out.print("<td>" + email + "</td>");
+        out.print("<td>" + mobileno + "</td>");
+        out.print("<td>"
+                + "<form action='' method='post'>"
+                + "<input type='hidden' name='username' value='" + username + "'>"
+                + "<input type='submit' name='delete' value='Delete'>"
+                + "</form>"
+                + "</td>");
+        out.print("<td>"
+                + "<form action='' method='post'>"
+                + "<input type='hidden' name='username' value='" + username + "'>"
+                + "<input type='submit' value='View Progress'>"
+                + "</form>"
+                + "</td>");
+        out.print("</tr>");
+    }
+    out.print("</table>");
+
+    rs.close();
+    st.close();
+    con.close();
+} catch (Exception e) {
+    out.print(e);
+}
+
+if (request.getMethod().equals("POST")&& request.getParameter("delete") != null) {
     try {
+        String username = request.getParameter("username");
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
-        Statement st = con.createStatement();
-        String retrievalQuery = "SELECT DISTINCT  username,email,mobile FROM SignUp";
-        ResultSet rs = st.executeQuery(retrievalQuery);
+        String deletionQuery = "DELETE FROM SignUp WHERE username = ?";
+        PreparedStatement stmt = con.prepareStatement(deletionQuery);
+        stmt.setString(1, username);
+        int rowsAffected = stmt.executeUpdate();
 
-        out.print("<table border=1 width=50%");
-        out.print("<tr>");
-        out.print("<th>Username</th>");
-        out.print("<th>Email</th>");
-        out.print("<th>Mobile No</th>");
-        out.print("<th>Action</th>");
-        out.print("</tr>");
-
-        while (rs.next()) {
-            String username = rs.getString("username");
-            String email = rs.getString("email");
-            String mobileno = rs.getString("mobile");
-
-            out.print("<tr>");
-            out.print("<td>" + username + "</td>");
-            out.print("<td>" + email + "</td>");
-            out.print("<td>" + mobileno + "</td>");
-            out.print("<td>"
-                    + "<form action='' method='post'>"
-                    + "<input type='hidden' name='id' value='" + username+ "'>"
-                    + "<input type='submit' value='Delete'>"
-                    + "</form>"
-                    + "</td>");
-            out.print("</tr>");
+        if (rowsAffected > 0) {
+            out.println("Record deleted successfully!");
+        } else {
+            out.println("Record not found or could not be deleted!");
         }
-        out.print("</table>");
 
-        rs.close();
-        st.close();
+        stmt.close();
         con.close();
     } catch (Exception e) {
         out.print(e);
     }
+}
 
-    if (request.getMethod().equals("POST")) {
-        try {
-            String username = request.getParameter("username");
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
-            String deletionQuery = "DELETE FROM SignUp WHERE username = ?";
-            PreparedStatement stmt = con.prepareStatement(deletionQuery);
-            stmt.setString(1, username);
-            int rowsAffected = stmt.executeUpdate();
+if (request.getMethod().equals("POST")) {
+    try {
+        String username = request.getParameter("username");
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
+        PreparedStatement ps = con.prepareStatement("SELECT subject, ROUND(SUM(progress), 2) AS total_progress FROM video_progress WHERE username = ? GROUP BY subject");
+        ps.setString(1, username);
+        ResultSet rs = ps.executeQuery();
+     
+        boolean hasRecords = false; // Flag to check if progress records are found
 
-            if (rowsAffected > 0) {
-                out.println("Record deleted successfully!");
-            } else {
-                out.println("Record not found or could not be deleted!");
+        while (rs.next()) {
+            double progress = rs.getDouble("total_progress");
+            String subject = rs.getString("subject");
+
+            // Calculate the progress percentage
+            int progressPercentage = (int) progress;
+
+            // Display progress bar and text
+            
+            out.print("</br>");
+            out.print("</br>");
+            out.print("<p>" + subject + "</p>");
+            out.print("<div class='progress-div'>");
+            out.print("<div class='progress-bar'>");
+            out.print("<div class='progress-bar-fill' style='width: " + progressPercentage + "%'></div>");
+            out.print("<div class='progress-bar-text'>" + progressPercentage + "%</div>");
+            out.print("</div>");
+            out.print("</div>");
+            hasRecords = true;
+            
             }
 
-            stmt.close();
-            con.close();
-        } catch (Exception e) {
-            out.print(e);
-        }
+            if (!hasRecords) {
+                out.print("<p>No progress records found.</p>");
+            }
+        
+
+        con.close();
+        ps.close();
+    } catch (Exception e) {
+        // Handle the exception appropriately (e.g., logging, error response, etc.)
+        e.printStackTrace();
     }
+}
 %>
+
      </div>
      </body>
 </html>
