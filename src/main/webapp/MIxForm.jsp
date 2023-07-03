@@ -111,12 +111,16 @@
       transform: translateX(-50%);
     }
     </style>
+
+
+   
+    
 </head>
 <body>
     <div class="container">
         <br><!-- comment -->
         <hr>
-        <h2 style="font-family: 'PT Sans Caption', sans-serif">Login Form</h2>
+        <h2 style="font-family: 'PT Sans Caption', sans-serif">SignUp Form</h2>
         <form method="post" action="">
             <div class="form-group">
                 <input type="radio" name="userType" value="student" onclick="showForm('studentForm')"> Student
@@ -124,29 +128,33 @@
             </div>
             <div class="form-group" id="studentForm" style="display: none;">
                 <label>Username:</label>
-                <div class="icon"><i class="fa-solid fa-user-tie"></i><input type="text" name="studentId" placeholder="Username"></div>
+                <div class="icon"><i class="fa-solid fa-user-tie"></i><input type="text" name="studentId" required="Enter your username" pattern="^(?=.*[A-Za-z])[A-Za-z0-9._]{5,15}$" minlength="5" maxlength="15" title="Username should include atleast one chracter and should not use sepacial charaters except . _. And should be minimum 5 and maximum 15 characters only." placeholder="Username"></div>
                 <label>Email:</label>
-                <div class="icon"><i class="fa-solid fa-envelope"></i><input type="email" name="gmail" placeholder="Email"></div>
+                <div class="icon"><i class="fa-solid fa-envelope"></i><input type="email" name="gmail" required=true email=true placeholder="Email" title="Please enter valid email address."></div>
                 <label>Password:</label>
-                <div class="icon"><i class="fa-solid fa-unlock-keyhole"></i><input type="password" name="password" placeholder="Password"></div>
+                <div class="icon"><i class="fa-solid fa-unlock-keyhole"></i><input type="password" name="password" required="true" id="password" onkeyup="checkPasswordMatch();" placeholder="Password" ></div>
+                <br>
+                
                 <label>Confirm Password:</label>
-                <div class="icon"><i class="fa-solid fa-unlock-keyhole"></i><input type="password" name="confirmPassword" placeholder="Confirm Password"></div>
+                <div class="icon"><i class="fa-solid fa-unlock-keyhole"></i><input type="password" name="confirmPassword" id="confirmPassword" onkeyup="checkPasswordMatch();" placeholder="Confirm Password"></div>
+                  <span id='message'></span>
                 <label>Mobile Number:</label>
-                <div class="icon"><i class="fa-solid fa-mobile"></i><input type="text" name="mobileNumber" placeholder="Mobile Number"></div>
+                <div class="icon"><i class="fa-solid fa-mobile"></i><input type="text" name="mobileNumber"  pattern="[0-9]{10}" required title="Please enter a 10-digit mobile number" maxlength="10" minlength="10" placeholder="Mobile Number"></div>
                 <br>
                 <input type="submit" value="Submit">
             </div>
             <div class="form-group" id="teacherForm" style="display: none;">
                 <label>Username:</label>
-                <div class="icon"><i class="fa-solid fa-user-tie"></i><input type="text" name="studentId" placeholder="Username"></div>
+                <div class="icon"><i class="fa-solid fa-user-tie"></i><input type="text" name="studentId" placeholder="Username" required="Enter your username" pattern="^(?=.*[A-Za-z])[A-Za-z0-9._]{5,15}$" minlength="5" maxlength="15" title="Username should include atleast one chracter and should not use sepacial charaters except . _. And should be minimum 5 and maximum 15 characters only."></div>
                 <label>Email:</label>
-                <div class="icon"><i class="fa-solid fa-envelope"></i><input type="email" name="gmail" placeholder="Email"></div>
+                <div class="icon"><i class="fa-solid fa-envelope"></i><input type="email" name="gmail" placeholder="Email" required=true email=true></div>
                 <label>Password:</label>
-                <div class="icon"><i class="fa-solid fa-unlock-keyhole"></i><input type="password" name="password" placeholder="Password"></div>
+                <div class="icon"><i class="fa-solid fa-unlock-keyhole"></i><input type="password" name="password" required="true" id="password2" onkeyup="checkPasswordMatch2();" placeholder="Password"></div>
                 <label>Confirm Password:</label>
-                <div class="icon"><i class="fa-solid fa-unlock-keyhole"></i><input type="password" name="confirmPassword" placeholder="Confirm Password"></div>
+                 <span id='message2'></span>
+                <div class="icon"><i class="fa-solid fa-unlock-keyhole"></i><input type="password" name="confirmPassword" id="confirmPassword2" onkeyup="checkPasswordMatch2();" required="true" placeholder="Confirm Password"></div>
                 <label>Mobile Number:</label>
-                <div class="icon"><i class="fa-solid fa-mobile"></i><input type="text" name="mobileNumber" placeholder="Mobile Number"></div>
+                <div class="icon"><i class="fa-solid fa-mobile"></i><input type="text" name="mobileNumber" pattern="[0-9]{10}" required title="Please enter a 10-digit mobile number" maxlength="10" minlength="10" placeholder="Mobile Number"></div>
                 <br>
                 <input type="submit" value="Submit">
             </div>
@@ -165,7 +173,7 @@
             document.getElementById(formId).style.display = "block";
         }
     </script>
-    dy>
+
     <%-- Retrieve the form data --%>
     <%
         String userType = request.getParameter("userType");
@@ -231,4 +239,36 @@
     %>
 
 </body>
+<script>
+function checkPasswordMatch() {
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirmPassword').value;
+    var message = document.getElementById('message');
+
+    if (password === confirmPassword) {
+        message.style.color = 'green';
+        message.innerHTML = 'Matching';
+    } else {
+        message.style.color = 'red';
+        message.innerHTML = 'Not Matching';
+    }
+}
+</script>
+<script>
+function checkPasswordMatch2() {
+    var password2 = document.getElementById('password2').value;
+    var confirmPassword2 = document.getElementById('confirmPassword2').value;
+    var message2 = document.getElementById('message2');
+
+    if (password2 === confirmPassword2) {
+        message2.style.color = 'green';
+        message2.innerHTML = 'Matching';
+    } else {
+        message2.style.color = 'red';
+        message2.innerHTML = 'Not Matching';
+    }
+}
+</script>
+
 </html>
+

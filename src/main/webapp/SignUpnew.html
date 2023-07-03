@@ -202,15 +202,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 </html>
 
 <script>
-    
 var check = function() {
   if (document.getElementById('password').value ==
-    document.getElementById('confirm_password').value) {
+    document.getElementById('confirmPassword').value) {
     document.getElementById('message').style.color = 'green';
-    document.getElementById('message').innerHTML = 'matching';
+    document.getElementById('message').innerHTML = 'Matching';
   } else {
     document.getElementById('message').style.color = 'red';
-    document.getElementById('message').innerHTML = 'not matching';
+    document.getElementById('message').innerHTML = 'Not Matching';
   }
 }
 </script>
