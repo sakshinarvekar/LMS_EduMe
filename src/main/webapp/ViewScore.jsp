@@ -543,9 +543,9 @@
     
 out.print(mobile);
 out.print(score);
-if(n!=null)
-{
-sendSOSMessage(score);
-}
+//if(n!=null)
+//{
+//sendSOSMessage(score);
+//}
 %>
 

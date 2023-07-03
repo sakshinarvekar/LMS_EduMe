@@ -541,7 +541,7 @@ String action = request.getParameter("action");
              out.print("<br>");
              out.print("<hr style='width:95%; margin-left:12px;'/></div>");  
              count++;
-             
+             out.print(answer);
 
             }
                     int counter = 1;
@@ -561,11 +561,12 @@ String action = request.getParameter("action");
                                 break;
                             }
                             
+                            
                             }
                         }
               
                        
-
+               
                String btn = request.getParameter("Submit");
                if(btn!=null)
                 {
