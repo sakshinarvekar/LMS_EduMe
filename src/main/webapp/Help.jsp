@@ -338,15 +338,7 @@ String action = request.getParameter("action");
           <div class="container" style="width:500px; ">
     <h2>Help Form</h2>
     <form action="" method="post">
-      <div class="form-group">
-        <label for="name">Student username:</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="grade">Grade:</label>
-        <input type="text" id="grade" name="grade" required>
-      </div>
-        <div class="form-group">
+     <div class="form-group">
         <label for="query">Query:</label>
         <textarea id="query" name="query" required></textarea>
       </div>
@@ -388,16 +380,18 @@ String action = request.getParameter("action");
 </body>
 </html>
 <%
-        String uname = request.getParameter("name");
-        String grade = request.getParameter("grade");
+       
+        //String grade = request.getParameter("grade");
         String query = request.getParameter("query");
+        
+        String uname =(String)session.getAttribute("username");
         
         if(uname!=null){
 try{
     Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
         Statement st = con.createStatement();
-        st.execute("insert into help values(default, '"+uname+"','"+grade+"','"+query+"');");              
+        st.execute("insert into help values(default, '"+uname+"','"+query+"');");              
                //out.print("value inserted");
         out.println("<script type=\"text/javascript\">"); // Start the script tag 
         out.println("alert('Query submitted successfully!!');"); // JavaScript code to generate an alert box 
