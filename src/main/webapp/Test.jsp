@@ -559,7 +559,7 @@ String action = request.getParameter("action");
             
                     for(int i=0;i<myList.size();i++)
                         {
-                            for(int j =0;j<myList2.size();j++)
+                            for(int j =i;j<myList2.size();)
                             {
                             if(myList.get(i).equals(myList2.get(j)))
                             {
