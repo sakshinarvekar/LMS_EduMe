@@ -544,29 +544,54 @@ String action = request.getParameter("action");
              out.print(answer);
 
             }
+//                    int counter = 1;
+//                    int notAttempted = 0;
+//                    int wrong = 0;
+//                    for(int i=0;i<answer.size();i++)
+//                     {
+//                     selectedans.add(request.getParameter("r"+counter));
+//                     counter++;
+//                     }
+            
+                    
+
                     int counter = 1;
+                    int wrong = 0;
+                    int notAttempted = 0;
+                    int j;
                     for(int i=0;i<answer.size();i++)
                      {
                      selectedans.add(request.getParameter("r"+counter));
                      counter++;
                      }
             
-                    for(int i =0;i<answer.size();i++)
-                        {
-                            for(int j =0;j<selectedans.size();j++)
-                            {
-                            if(answer.get(i).equals(selectedans.get(j)))
-                            {
-                                score++; 
+                    for (int i = 0; i < answer.size(); i++) {
+                        boolean isCorrect = false;
+                        for (j = 0; j < selectedans.size(); j++) {
+                            if (answer.get(i).equals(selectedans.get(j))) {
+                                isCorrect = true;
+                                score++;
                                 break;
                             }
-                            
-                            
-                            }
                         }
+                        
+                     if (!isCorrect) {
+                        if (selectedans.get(i) == null) {
+                            notAttempted++;
+                        } 
+                    }
+                }
+
+                    out.println("Correct answers: " + score);
+                    
+                    out.println("Wrong answers: " + wrong);
+                   
+                    out.println("Not attempted: " + notAttempted);
+                    score = 0;
+                    wrong = 0;
+                    notAttempted = 0;
+
               
-                       
-               
                String btn = request.getParameter("Submit");
                if(btn!=null)
                 {
@@ -664,7 +689,7 @@ String action = request.getParameter("action");
             }).then((result) => {
               if (result.isConfirmed) {
                 // Redirect to another page
-                window.location.href = '/LMS_EduMe/ViewScore.jsp?';
+                //window.location.href = '/LMS_EduMe/ViewScore.jsp?';
                 
               }
             });

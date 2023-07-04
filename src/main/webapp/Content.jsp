@@ -341,7 +341,7 @@ String action = request.getParameter("action");
         response.sendRedirect("HomePage.jsp");
     }
     %>
-                           <li><a href="?action=logout">Logout</a></li>
+    <li><button type="submit"><a href="?action=logout">Logout</a></button></li>
                        </ul></li>
                          <%
                             }
