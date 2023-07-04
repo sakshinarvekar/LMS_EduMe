@@ -544,52 +544,39 @@ String action = request.getParameter("action");
              out.print(answer);
 
             }
-//                    int counter = 1;
-//                    int notAttempted = 0;
-//                    int wrong = 0;
-//                    for(int i=0;i<answer.size();i++)
+
+                    
+                    int counter = 1;
+                    List<String> myList = new ArrayList<>(Arrays.asList("Apple", "Banana", "Orange","Sakshi","Rupali"));
+                    List<String> myList2 = new ArrayList<>(Arrays.asList("Apple", "Banana","Strawberry", "Orange","Cherry"));
+
+//                    for(int i=0;i<myList.size();i++)
 //                     {
 //                     selectedans.add(request.getParameter("r"+counter));
 //                     counter++;
 //                     }
+//                     out.print(selectedans);
             
-                    
+                    for(int i=0;i<myList.size();i++)
+                        {
+                            for(int j =0;j<myList2.size();j++)
+                            {
+                            if(myList.get(i).equals(myList2.get(j)))
+                            {
+                                score++; 
+                                out.print("current score"+score);
+                                break; 
 
-                    int counter = 1;
-                    int wrong = 0;
-                    int notAttempted = 0;
-                    int j;
-                    for(int i=0;i<answer.size();i++)
-                     {
-                     selectedans.add(request.getParameter("r"+counter));
-                     counter++;
-                     }
-            
-                    for (int i = 0; i < answer.size(); i++) {
-                        boolean isCorrect = false;
-                        for (j = 0; j < selectedans.size(); j++) {
-                            if (answer.get(i).equals(selectedans.get(j))) {
-                                isCorrect = true;
-                                score++;
-                                break;
                             }
+                            
+                            }
+                            out.print("iteration : "+i);
+                            
                         }
                         
-                     if (!isCorrect) {
-                        if (selectedans.get(i) == null) {
-                            notAttempted++;
-                        } 
-                    }
-                }
-
-                    out.println("Correct answers: " + score);
-                    
-                    out.println("Wrong answers: " + wrong);
-                   
-                    out.println("Not attempted: " + notAttempted);
-                    score = 0;
-                    wrong = 0;
-                    notAttempted = 0;
+                        out.print("Your score : " + score);
+                       //score=0;
+                        
 
               
                String btn = request.getParameter("Submit");
