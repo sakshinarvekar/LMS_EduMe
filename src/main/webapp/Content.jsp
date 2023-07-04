@@ -314,10 +314,7 @@
             <ul class="nav">
                 <li><a href="HomePage.jsp">Home</a></li>
                 <li><a href="http://localhost:8080/LMS_EduMe/HomePage.jsp#wave" >Grades</a></li>
-                <li class="dropdown">
-                        <a href="TeacherPanel.jsp">Teach On EduMe &#9662;</a>
-                        
-                    </li> 
+                
                 <%  
     String username = (String) session.getAttribute("username");
     boolean isLoggedIn = (username != null && !username.isEmpty());
