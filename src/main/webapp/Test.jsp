@@ -7,6 +7,7 @@
 <%@page import="java.security.interfaces.RSAKey"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="javax.servlet.http.HttpSession" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -500,11 +501,16 @@ String action = request.getParameter("action");
 <!--<div id="scriptletCode" style="display: none;">-->
 <!--<div id="scriptletCode" style="<%= request.getParameter("disabled") != null ? "display:block;" : "display:none;" %>">-->
 <%! int score = 0;
-
+    
 %>
-    <%
+    
+<%
+  
+          
     
     try{
+    
+          
             //String Query="select * from quiz where sub='"+s+"' AND chp_name='"+selectedChapter+"' ";
             String Query = "SELECT * FROM quiz WHERE sub = '" + s + "' AND chp_name = '" + selectedChapter + "' ORDER BY RAND() LIMIT 5";
  
@@ -541,56 +547,60 @@ String action = request.getParameter("action");
              out.print("<br>");
              out.print("<hr style='width:95%; margin-left:12px;'/></div>");  
              count++;
-             out.print(answer);
-
+             
+            
             }
+            rs.close();
+            st.close();
+            con.close(); 
 
                     
                     int counter = 1;
-                    List<String> myList = new ArrayList<>(Arrays.asList("Apple", "Banana", "Orange","Sakshi","Rupali"));
-                    List<String> myList2 = new ArrayList<>(Arrays.asList("Apple", "Banana","Strawberry", "Orange","Cherry"));
-
-//                    for(int i=0;i<myList.size();i++)
-//                     {
-//                     selectedans.add(request.getParameter("r"+counter));
-//                     counter++;
-//                     }
-//                     out.print(selectedans);
-            
-                    for(int i=0;i<myList.size();i++)
-                        {
-                            for(int j =i;j<myList2.size();)
-                            {
-                            if(myList.get(i).equals(myList2.get(j)))
-                            {
-                                score++; 
-                                out.print("current score"+score);
-                                break; 
-
-                            }
+                    int score = 0;
+                    for(int i=0;i<answer.size();i++)
+                     {
+                     selectedans.add(request.getParameter("r"+counter));
+                     counter++;
+                     }
+                     
+                    for (int i = 0; i < answer.size() && i < selectedans.size(); i++) {
+                            if (answer.get(i).equals(selectedans.get(i))) {
                             
+                                score++;
                             }
-                            out.print("iteration : "+i);
-                            
                         }
-                        
-                        out.print("Your score : " + score);
-                       //score=0;
-                        
-
+        
+                        out.print(answer);
+                        out.print(selectedans);
+                        out.print("Your score: " + score);
+                       
+                       
+        }
+        catch(Exception e)
+        {
+            out.print(e);
+        }
+        
+        
+        %>
+        
+        
+        
+        <%
               
                String btn = request.getParameter("Submit");
                if(btn!=null)
                 {
-               if (request.getMethod().equals("POST")) {
+               if (request.getMethod().equals("POST")) 
                {
                 String user = (String) session.getAttribute("username");
              if (username != null) 
                 {
                     
+                try{
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection conn = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");   
-                    Statement stmt = con.createStatement();
+                    Statement stmt = conn.createStatement();
                     stmt.execute("insert into result values(default,'"+user+"','"+g+"','"+s+"','"+c+"','"+score+"',CURRENT_TIMESTAMP)");
                     //out.print("Score inserted");
                     
@@ -600,20 +610,20 @@ String action = request.getParameter("action");
                 
                 
                 }
+                catch(Exception e)
+                {
+                    out.print(e);
+                }
                
                 }
-                }
+                
         }
 
               
-            rs.close();
-            st.close();
-            con.close();
+         
         }
-           catch(Exception e)
-                    {
-                    out.print(e);
-                    }
+
+                    
   
 
 %>
