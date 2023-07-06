@@ -484,32 +484,24 @@ String action = request.getParameter("action");
                         %>
                     </select><br> 
                    
-    <%
-    //String selectedChapter = request.getParameter("chapters");
-    //String selectedSub = request.getParameter("subject");
-    
-    //out.print("<h4>"+"Selected Subject: " + s + "</h4>");
-    //out.print("<h4>"+"Selected Chapter: " + selectedChapter+"</h4><br>");
-    //out.print("<br>");
-%>
+
 </div>
 <!--<button onclick="enableScriptlet()">Take a Test</button>-->
 <!--<button id="myButton" l onclick="enableScriptlet()" <%= request.getParameter("disabled") != null ? "disabled" : "" %>>Take a Test</button>-->
 <!--<div id="scriptletCode" style="display: none;">-->
 <!--<div id="scriptletCode" style="<%= request.getParameter("disabled") != null ? "display:block;" : "display:none;" %>">-->
 <%! int score = 0;
-    
+    int counter = 1;
+    int wrong = 0;
+    int skipped = 0;
 %>
     
 <%
   
-          
     
     try{
-    
-          
-            //String Query="select * from quiz where sub='"+s+"' AND chp_name='"+selectedChapter+"' ";
-            String Query = "SELECT * FROM quiz WHERE sub = '" + s + "' AND chp_name = '" + selectedChapter + "' ORDER BY RAND() LIMIT 5";
+            String Query="select * from quiz where sub='"+s+"' AND chp_name='"+selectedChapter+"' limit 10";
+            //String Query = "SELECT * FROM quiz WHERE sub = '" + s + "' AND chp_name = '" + selectedChapter + "' ORDER BY RAND() LIMIT 5";
  
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
@@ -520,6 +512,8 @@ String action = request.getParameter("action");
             
             List<String> answer = new ArrayList<>();
             List<String> selectedans = new ArrayList<>();
+            
+      
             while(rs.next())
             {
              int id = rs.getInt("id");
@@ -550,26 +544,32 @@ String action = request.getParameter("action");
             rs.close();
             st.close();
             con.close(); 
-
                     
-                    int counter = 1;
-                    int score = 0;
-                    for(int i=0;i<answer.size();i++)
-                     {
-                     selectedans.add(request.getParameter("r"+counter));
-                     counter++;
-                     }
-                     
+                    
+
+                    for (int i = 0; i < answer.size(); i++) {
+                        selectedans.add(request.getParameter("r" + counter));
+                        counter++;
+                    }
+
                     for (int i = 0; i < answer.size() && i < selectedans.size(); i++) {
-                            if (answer.get(i).equals(selectedans.get(i))) {
-                            
-                                score++;
-                            }
+                        if (answer.get(i).equals(selectedans.get(i))) {
+                            score++;
+                        } else if (selectedans.get(i) == null) {
+                            skipped++;
+                        } else {
+                            wrong++;
                         }
-        
-                        out.print(answer);
-                        out.print(selectedans);
-                        out.print("Your score: " + score);
+                    }
+
+                    out.println("Correct answers: " + score);
+                    out.println("Wrong answers: " + wrong);
+                    out.println("Skipped choices: " + skipped);
+//                    out.println("Answered Choices: ");
+//                    out.println(answer);
+//                    out.println("Selected Choices: ");
+//                    out.println(selectedans);
+                    
                        
                        
         }
@@ -593,15 +593,16 @@ String action = request.getParameter("action");
                 String user = (String) session.getAttribute("username");
              if (username != null) 
                 {
+                
+                 
                     
                 try{
+                
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");  
                     Statement stmt = conn.createStatement();
                     stmt.execute("insert into result values(default,'"+user+"','"+g+"','"+s+"','"+c+"','"+score+"',CURRENT_TIMESTAMP)");
                     //out.print("Score inserted");
-                    
-                    
                     stmt.close();
                     conn.close();  
                 
@@ -615,8 +616,7 @@ String action = request.getParameter("action");
                 }
                 
         }
-
-              
+     
          
         }
 
