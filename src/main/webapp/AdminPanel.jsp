@@ -159,7 +159,7 @@
       
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246","sql12629246","nSsVYGGiJc");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT COUNT(DISTINCT username) AS uniqueUsernames FROM SignUp");
             while(rs.next())
@@ -178,7 +178,7 @@
     ///For counting no. of teachers
     try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246","sql12629246","nSsVYGGiJc");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT COUNT(DISTINCT username) AS uniqueTeacher FROM Teachers");
             while(rs.next())
@@ -197,7 +197,7 @@
          ///For counting no. of videos
     try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246","sql12629246","nSsVYGGiJc");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT COUNT(DISTINCT chp_name) AS totalvideo FROM content");
             while(rs.next())

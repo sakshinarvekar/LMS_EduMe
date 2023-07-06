@@ -428,7 +428,7 @@ String action = request.getParameter("action");
                             try {
                                 String query = "select distinct sub from content";
                                 Class.forName("com.mysql.cj.jdbc.Driver");
-                                Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
+                                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
                                 Statement st = con.createStatement();
                                 ResultSet rs = st.executeQuery(query);
 
@@ -463,7 +463,7 @@ String action = request.getParameter("action");
                             try {
                                 String query = "select chp_name from content where grade='"+g+"' AND sub='"+selectedSubject+"'";
                                 Class.forName("com.mysql.cj.jdbc.Driver");
-                                Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
+                                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
                                 Statement st = con.createStatement();
                                 ResultSet rs = st.executeQuery(query);
 
@@ -512,7 +512,7 @@ String action = request.getParameter("action");
             String Query = "SELECT * FROM quiz WHERE sub = '" + s + "' AND chp_name = '" + selectedChapter + "' ORDER BY RAND() LIMIT 5";
  
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(Query);
             int count = 1;
@@ -596,7 +596,7 @@ String action = request.getParameter("action");
                     
                 try{
                     Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection conn = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");   
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");  
                     Statement stmt = conn.createStatement();
                     stmt.execute("insert into result values(default,'"+user+"','"+g+"','"+s+"','"+c+"','"+score+"',CURRENT_TIMESTAMP)");
                     //out.print("Score inserted");

@@ -43,8 +43,8 @@ public class RetrieveVideo2 extends HttpServlet {
              int id = Integer.parseInt(request.getParameter("t1"));
             try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12627744","sql12627744","aeUIku5cCL");
-            Statement st=con.createStatement();
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
+            Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("select * from content where id ='"+id+"'");
             
            

@@ -93,7 +93,7 @@ public class img extends HttpServlet {
                try 
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246","sql12629246","nSsVYGGiJc");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
                         Statement st = con.createStatement();
                         st.execute("insert into content values(default,'"+g+"','"+s+"','"+c+"','"+cn+"','"+imageFileName+"')");
                         out.println("<script type=\"text/javascript\">"); // Start the script tag 

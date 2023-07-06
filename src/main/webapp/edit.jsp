@@ -21,7 +21,7 @@
             try {
                 id = request.getParameter("id");
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
                 Statement st = con.createStatement();
                 String sqlQuery = "SELECT * FROM content WHERE id = ?";
                 PreparedStatement stmt = con.prepareStatement(sqlQuery);

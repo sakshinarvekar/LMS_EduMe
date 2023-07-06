@@ -191,9 +191,9 @@
         String teacherId = request.getParameter("teacherId");
 
         // JDBC connection details
-        String dbURL = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246";
-        String dbUsername = "sql12629246";
-        String dbPassword = "nSsVYGGiJc";
+        String dbURL = "jdbc:mysql://localhost:3306/EduMe";
+        String dbUsername = "root";
+        String dbPassword = "root";
 
         // Establish the database connection
         Connection conn = null;

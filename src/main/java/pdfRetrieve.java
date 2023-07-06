@@ -38,7 +38,7 @@ public class pdfRetrieve extends HttpServlet {
             String grade = request.getParameter("t1");
             String subject = request.getParameter("t2");
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
             PreparedStatement pstmt = con.prepareStatement("SELECT * FROM pdf_files WHERE grade LIKE ? AND subject LIKE ?");
             pstmt.setString(1, "%" + grade + "%");
             pstmt.setString(2, "%" + subject + "%");

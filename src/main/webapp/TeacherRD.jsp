@@ -132,7 +132,7 @@
 <%
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
         Statement st = con.createStatement();
         String retrievalQuery = "SELECT DISTINCT id, username, mobile_no, gmail FROM Teachers";
         ResultSet rs = st.executeQuery(retrievalQuery);
@@ -178,7 +178,7 @@
         try {
             String id = request.getParameter("id");
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
             String deletionQuery = "DELETE FROM Teachers WHERE id = ?";
             PreparedStatement stmt = con.prepareStatement(deletionQuery);
             stmt.setString(1, id);

@@ -39,7 +39,7 @@
     
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
         Statement st = con.createStatement();
         //ResultSet rs = st.executeQuery("SELECT subject, SUM(progress) AS total_progress FROM video_progress WHERE username = '" + user + "' GROUP BY subject");
             ResultSet rs = st.executeQuery("SELECT subject, ROUND(SUM(progress), 2) AS total_progress FROM video_progress WHERE username = '"+user+"' GROUP BY subject");

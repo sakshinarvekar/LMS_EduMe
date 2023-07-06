@@ -163,7 +163,7 @@
 <%
 try {
     Class.forName("com.mysql.cj.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
     Statement st = con.createStatement();
     String retrievalQuery = "SELECT DISTINCT username, email, mobile FROM SignUp";
     ResultSet rs = st.executeQuery(retrievalQuery);
@@ -213,7 +213,7 @@ if (request.getMethod().equals("POST")&& request.getParameter("delete") != null)
     try {
         String username = request.getParameter("username");
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
         String deletionQuery = "DELETE FROM SignUp WHERE username = ?";
         PreparedStatement stmt = con.prepareStatement(deletionQuery);
         stmt.setString(1, username);
@@ -236,7 +236,7 @@ if (request.getMethod().equals("POST")) {
     try {
         String username = request.getParameter("username");
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12629246", "sql12629246", "nSsVYGGiJc");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
         PreparedStatement ps = con.prepareStatement("SELECT subject, ROUND(SUM(progress), 2) AS total_progress FROM video_progress WHERE username = ? GROUP BY subject");
         ps.setString(1, username);
         ResultSet rs = ps.executeQuery();
