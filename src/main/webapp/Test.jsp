@@ -312,7 +312,7 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-peer/simplepeer.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         
-            
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">   
     </head>
     <body>
         
@@ -561,15 +561,23 @@ String action = request.getParameter("action");
                             wrong++;
                         }
                     }
-
-                    out.println("Correct answers: " + score);
-                    out.println("Wrong answers: " + wrong);
-                    out.println("Skipped choices: " + skipped);
+                        
+                    session.setAttribute("name", score);
+                    session.setAttribute("wrong", wrong);
+                    session.setAttribute("skipped", skipped);
+                    
+//                    out.println("Correct answers: " + score);
+//                    out.println("Wrong answers: " + wrong);
+//                    out.println("Skipped choices: " + skipped);
 //                    out.println("Answered Choices: ");
 //                    out.println(answer);
 //                    out.println("Selected Choices: ");
 //                    out.println(selectedans);
                     
+                    score = 0;
+                    counter = 1;
+                    wrong = 0;
+                    skipped = 0;
                        
                        
         }
@@ -594,14 +602,16 @@ String action = request.getParameter("action");
              if (username != null) 
                 {
                 
-                 
+                 Integer n = (Integer)session.getAttribute("name");
+                 Integer w = (Integer)session.getAttribute("wrong");
+                 Integer sk = (Integer)session.getAttribute("skipped");
                     
                 try{
-                
+                    
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");  
                     Statement stmt = conn.createStatement();
-                    stmt.execute("insert into result values(default,'"+user+"','"+g+"','"+s+"','"+c+"','"+score+"',CURRENT_TIMESTAMP)");
+                    stmt.execute("insert into result values(default,'"+user+"','"+g+"','"+s+"','"+c+"','"+n+"','"+w+"','"+sk+"',CURRENT_TIMESTAMP)");
                     //out.print("Score inserted");
                     stmt.close();
                     conn.close();  
@@ -663,32 +673,23 @@ String action = request.getParameter("action");
         <p>© Copyright 2023 | Designed by  Rupali Vaje and Sakshi Narvekar</p>
     </div>
         </form>
-<script type="text/javascript">
-        
-        
-//        function enableScriptlet() {
-//            document.getElementById("scriptletCode").style.display = "block";
-//        }
-//       function enableScriptlet() {
-//            document.getElementById("scriptletCode").style.display = "block";
-//            document.getElementById("myButton").disabled = true;
-//        }
-       function handleButtonClick() {
-            // Show success message using Swal.fire()
-            Swal.fire({
-              title: 'Good job!',
-              text: 'You have successfully submitted the test!!',
-              icon: 'success',
-              confirmButtonText: 'OK'
-            }).then((result) => {
-              if (result.isConfirmed) {
-                // Redirect to another page
-                //window.location.href = '/LMS_EduMe/ViewScore.jsp?';
-                
-              }
-            });
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+<script>
+  function handleButtonClick() {
+    // Show success message using Swal.fire()
+    Swal.fire({
+      title: 'Good job!',
+      text: 'Data saved successfully!',
+      icon: 'success',
+      confirmButtonText: 'OK'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Redirect to another page
+        window.location.href = 'https://example.com/another-page';
+      }
+    });
+  }
+</script>
     </body>
 
 </html>

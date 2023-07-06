@@ -423,7 +423,8 @@
             
             <br><br>
                 <h3>Your Scores : </h3>
-                <%!int score;
+                <%!int score,wrong,skipped;
+                
                   String mobile;
                 %>
                 <%
@@ -447,6 +448,8 @@
                         out.print("<th> Subject </th>");
                         out.print("<th> Chapter Name </th>");
                         out.print("<th> Your score </th>");
+                        out.print("<th> Wrong choices </th>");
+                        out.print("<th> Not attempted </th>");
                         out.print("<th> Date and Time </th>");
                         out.print("</tr>");
                         while (rs.next()) 
@@ -457,6 +460,8 @@
                             String subject = rs.getString("sub");
                             String chp_name = rs.getString("chp_name");
                             score = rs.getInt("score");
+                            wrong = rs.getInt("wrong_choices");
+                            skipped = rs.getInt("not_attempted");
                             Timestamp date = rs.getTimestamp("date");
                             mobile = rs.getString("mobile");
                             
@@ -465,6 +470,8 @@
                             out.print("<td>"+subject+"</td>");
                             out.print("<td>"+chp_name+"</td>");
                             out.print("<td>"+score+"</td>");
+                            out.print("<td>"+wrong+"</td>");
+                            out.print("<td>"+skipped+"</td>");
                             out.print("<td>"+date+"</td>");
                             out.print("</tr>");
                         }
