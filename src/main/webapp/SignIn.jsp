@@ -34,7 +34,7 @@
 
         }
         .main{
-            height:420px;
+            height:480px;
             width:360px;
 
             background-color: #ECF2FF;
@@ -162,7 +162,10 @@
         </div>
 
         <br>
-        <p style="font-family: 'PT Sans Caption', sans-serif">Don't have an account? <a href="SignUpnew.html">SignUp</a></p>
+        <p style="font-family: 'PT Sans Caption', sans-serif">Don't have an account? <a href="newMix.jsp">SignUp</a></p>
+       
+        <p style="font-family: 'PT Sans Caption', sans-serif">Are you a teacher? <a href="TeacherLogin.jsp">Teacher SignIn</a></p>
+   
     </div>
     </div>
 

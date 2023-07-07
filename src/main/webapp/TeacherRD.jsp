@@ -134,7 +134,7 @@
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
         Statement st = con.createStatement();
-        String retrievalQuery = "SELECT DISTINCT id, username, mobile_no, gmail FROM Teachers";
+        String retrievalQuery = "SELECT DISTINCT  id ,username, mobile, email FROM Teachers";
         ResultSet rs = st.executeQuery(retrievalQuery);
 
         out.print("<table border=1 width=50%");
@@ -149,8 +149,8 @@
         while (rs.next()) {
             String id = rs.getString("id");
             String username = rs.getString("username");
-            String mobileNo = rs.getString("mobile_no");
-            String gmail = rs.getString("gmail");
+            String mobileNo = rs.getString("mobile");
+            String gmail = rs.getString("email");
 
             out.print("<tr>");
             out.print("<td>" + id + "</td>");

@@ -12,6 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
         <style>
           @import url("https://fontawesome.com/");
          @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Jost:wght@100;200;300;400;500;600;700&family=Karla:wght@200;300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=PT+Sans+Caption:wght@400;700&display=swap');
@@ -308,11 +309,15 @@
         }
 /*        end*/
         </style>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+
+
         <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-peer/simplepeer.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">   
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css"> 
+    
     </head>
     <body>
         
@@ -544,8 +549,6 @@ String action = request.getParameter("action");
             rs.close();
             st.close();
             con.close(); 
-                    
-                    
 
                     for (int i = 0; i < answer.size(); i++) {
                         selectedans.add(request.getParameter("r" + counter));
@@ -616,18 +619,14 @@ String action = request.getParameter("action");
                     stmt.close();
                     conn.close();  
                 
-                
                 }
                 catch(Exception e)
                 {
                     out.print(e);
                 }
                
-                }
-                
+                } 
         }
-     
-         
         }
 
                     
@@ -635,7 +634,7 @@ String action = request.getParameter("action");
 
 %>
 <br><br>
-<input type="submit" value="Submit" onclick="handleButtonClick()" name="Submit" class="button" > 
+<input type="submit" value="Submit" onclick="handleButtonClick()" name="Submit" class="button"  > 
 <br><br>
 </div>
           </div>
@@ -673,22 +672,17 @@ String action = request.getParameter("action");
         <p>© Copyright 2023 | Designed by  Rupali Vaje and Sakshi Narvekar</p>
     </div>
         </form>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
 <script>
-  function handleButtonClick() {
-    // Show success message using Swal.fire()
-    Swal.fire({
-      title: 'Good job!',
-      text: 'Data saved successfully!',
-      icon: 'success',
-      confirmButtonText: 'OK'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // Redirect to another page
-        window.location.href = 'https://example.com/another-page';
-      }
-    });
+function handleButtonClick() {
+  // Show success message using window.confirm
+  var confirmed = window.confirm('Good job! Test submitted successfully! Click OK to view result.');
+  if (confirmed) {
+    // Delay the redirection by a small amount of time
+    setTimeout(function() {
+      window.location.href = '/LMS_EduMe/ViewScore.jsp';
+    }, 10);
   }
+}
 </script>
     </body>
 

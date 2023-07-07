@@ -175,7 +175,7 @@
                     </div>
                     <br>
                     <p style="font-family: 'PT Sans Caption', sans-serif">Don't have an account? <a
-                                href="TeacherRegister.jsp">SignUp</a></p>
+                                href="newMix.jsp">SignUp</a></p>
                 </div>
             </div>
 
@@ -216,11 +216,11 @@
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EduMe","root","root");
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select * from Teachers where gmail = '" + em + "' And password= '" + pass + "'; ");
+            ResultSet rs = st.executeQuery("select * from Teachers where email = '" + em + "' And pass= '" + pass + "'; ");
 
             while (rs.next()) {
-                dbun = rs.getString(6);
-                dbpass = rs.getString(3);
+                dbun = rs.getString("email");
+                dbpass = rs.getString("pass");
             }
 
             if (dbun.equals(em) && dbpass.equals(pass)) 
